@@ -1,14 +1,10 @@
-% $Id: $
-\documentclass[a4paper,12pt]{report}
 
 % The following makes latex use nicer postscript fonts.
-\usepackage{times}
-\usepackage[english]{babel}
-\usepackage[colorlinks,urlcolor=blue,linkcolor=blue]{hyperref}
 
-\usepackage{vubtitlepage}
+\input{preamble.tex}
+
 \author{Yannick Merckx}
-\title{Nederlandse Gevoelsanalyse toepassen via sociale media}
+\title{Toepassen van Nederlandse Gevoelsanalyse via sociale media}
 
 \promotortitle{Promotor}
 \promotor{Yann-Michaël De Hauwere}
@@ -29,10 +25,16 @@
 \setlength{\arrayrulewidth}{0.1mm}
 
 \newpage
-%\include{sections/Revisies}
 
 \renewcommand{\contentsname}{Inhoud}
 \tableofcontents
+
+\include{sections/introductie}
+\include{sections/machinelearning}
+\include{sections/technieken}
+\include{sections/textmining}
+\include{sections/experiment}
+\include{sections/conclusie}
 
 \end{document}
 

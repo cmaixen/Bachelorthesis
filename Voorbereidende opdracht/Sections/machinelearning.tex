@@ -6,12 +6,56 @@ Machine learning is een welgekend begrip in de informatica wereld, maar wat het 
 
 Over wat Machine Learnig juist is, vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren, zoals Arthur Samuel(1959). Hij definieerde Machine Learning als \begin{quote}Field of study that gives computers the ability to learn without being explicitly programmed\end{quote}. Later heeft Tom Michel(1999) ook een poging ondernomen en stelde een well-posed learning problem als het volgende \begin{quote} A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E. \end{quote}. Als we al deze pogingen proberen te omvatten, kunnen we Machine Learning het best beschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
 \\
-Binnen Machine Learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmes gaat men de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
+Binnen Machine Learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen gaan de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
 
 
 \subsection{Supervised Learning}\label{Supervised Learning}
+
+Supervised learning is een techniek, waarbij men het algorithme traint met data waarvan men de antwoorden al weet. Algemeen noemt men een dataset waarmee men een algorithme traint een trainingsset. Nadat dit algorithme zijn training heeft ondergaan, kan het zelfstandig keuzes maken aan de hand van de vergaarde kennis.
+
+Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een regressie probleem of een classificatie probleem.
+
+\subsection{Regressie Probleem}\label{Regressie Probleem}
+
+Het doel dat men wilt bereiken met supervised learning is dat het algorithme na een training antwoorden kan bezorgen. Bij het voorspellen van die antwoorden kunnen we te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld.
+
+Neem nu dat men de prijs van een huis wilt voorspellen.
+Het algorithme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
+
+\\
+TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
+\\
+
+Stel nu dat men aan het algorithme vraagt, wat de prijs is van een huis met 1225 vierkante meter. Deze waarde zat niet in de dataset en moet dus voorspeld worden.  Maar welke trend moeten we volgen om onze waarden te voorspellen. We kunnen zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn correct, maar geven een verschillend antwoord van elkaar. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
+
+Om dit probleem op te lossen, kan men van volgende technieken gebruiken maken: Lineaire regressie en gradiuele afdaling.
+
+\subsection{Lineaire regressie}\label{Lineaire regressie}
+
+\\
+NOG DOEN
+\\
+
+\subsection{Graduele afdaling}\label{Graduele afdaling}
+
+\\
+NOG DOEN
+\\
+\subsection{Classificatie Probleem}\label{Classificatie Probleem}
+
+Een Classificatie probleem is een ander soort van probleem dat zich voordoet bij supervised training. Een classificatie probleem doet zich voor wanneer men data moeten verdelen over verschillende discrete klassen. Ieder elemenent mag maar tot 1 klasse behoren. De classificatie kan gebaseerd zijn op één attribuut, maar ook meerdere.
+
+Hoe men deze classificatie juist aanpakt, wordt later verder uitgelegd.
+
 \subsection{Unsupervised Learning}\label{Unsupervised Learning}
 
+Unsupervised learning is een techniek waarbij het algorithme zelfstandig moet leren hoe het juist moet en deze kennis gebruikt om later patronen en structuren in data te herkennen. De trainingsset bevat niet de juiste antwoorden.
+
+Het herkennen van structuren en patronen is niet voldoende, men moet de data concreet kunnen identiceren. Dit kan men doen door gebruik te maken van cluster algorithmes. Concreet gaat een cluster algorithme de data groeperen of \begin{quote}clusteren"\end{quote} in groepen.
+
+\\
+HIER KAN IK DAN NOG DIEPER IN GAAN OP CLUSTER ALGORITHMES
+\\
 
 \subsection{Data Mining}\label{Data Mining}
 

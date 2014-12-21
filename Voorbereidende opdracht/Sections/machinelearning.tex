@@ -22,25 +22,69 @@ Het doel dat men wilt bereiken met supervised learning is dat het algorithme na 
 Neem nu dat men de prijs van een huis wilt voorspellen.
 Het algorithme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
 
-\\
-TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
-\\
+%\\
+%TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
+%\\
 
 Stel nu dat men aan het algorithme vraagt, wat de prijs is van een huis met 1225 vierkante meter. Deze waarde zat niet in de dataset en moet dus voorspeld worden.  Maar welke trend moeten we volgen om onze waarden te voorspellen. We kunnen zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn correct, maar geven een verschillend antwoord van elkaar. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
 
-Om dit probleem op te lossen, kan men van volgende technieken gebruiken maken: Lineaire regressie en gradiuele afdaling.
+Om dit probleem op te lossen, kan men van de techniek \begin{quote}Lineaire regeressie\end{quote} gebruik maken.
 
 \subsection{Lineaire regressie}\label{Lineaire regressie}
 
-\\
-NOG DOEN
-\\
+Lineaire regressie is een techniek waarbij het algorithme een hypothese probeert te vormen. De hypothese is een functie die opgesteld is aan de hand van de trainigsset en de gekende en ongekende outputwaarden zo goed mogelijk benaderd.
 
-\subsection{Graduele afdaling}\label{Graduele afdaling}
+Als we terug kijken naar het voorbeeld van het huis. Kan men volgende hypothese opstellen.
 
+%\\ FORMULE VAN HYPOTHESE / IS EEN RECHTE MET 1 VARIABLE H(x) = AX+B
+%\\
+
+Gegeven hypothese is een lineaire functie met als parameters Theta 0 de nulconditie en Theta A de richtingscoefficient. Een hypothese met 1 functie noemt men ook wel een ééndimensionale lineaire regressie.
+
+%\\
+
+Het opstellen van de hypothese introduceert op zijn beurt een \begin{quote}Minimalisatie probleem\end{quote}. Men moet de hypothese zo goed mogelijk opstellen, zodat de afwijking ten op zichte van de gekende resultaten minimaal is. Als de hypothese minimaal is, kan men er van uit gaan dat de afwijking op ongekende resultaten ook minimaal is.
+
+Het minimalisatie probleem kan opgelost worden met een kost functie en graduele afdaling.
+
+\subsection{Kost Functie en Gradule afdaling}\label{Kost Functie en Gradule afdaling}
+
+Een kost functie is een functie die voor een bepaalde waarden van de parameters de gemiddelde afwijking van de hypothese ten opzichten van de resultaten gaat berekenen.
 \\
-NOG DOEN
+Volgende formule kan men opstellen voor de kost functie:
+
+%\\FORMULE DE KOST FUNCTIE\\
+
+Deze kost functie noemt men ook wel de "squared error cost function" en wordt over het algemeen het meest gebruikt. 
+Merk op dat men niet zomaar telkens de som van het verschil tussen het resultaat van de hypothese neemt en de eigelijke waarden. Het kwadraat van het verschil wordt genomen vanwege de negatieve verschillen die ook moeten worden opgenomen als afwijking. Verder vereenvoudigt men het rekenwerk door te delen door twee (De helft van de kleinste waarde, blijft de kleinste waarde). 
+
+Zoals eerder gezegd is het de bedoeling om de afwijking zo klein mogelijk te houden. Om het minimum van de kost functie te vinden, kan men de techniek "gradiuele afdeling" gebruiken. Omwille van verschillende redenen is Graduele afdaling een van de meest gebruikte techniek binnen machine learning voor minimalisatie. Zo werkt de techniek voor een algemeen kost functie met n parameters J(theta0,theta2, theta 3, ... ,theta n) en kan het altijd uitgevoert worden aangezien de lineaire regressie kost functie altijd convex is.
 \\
+De techniek start met een random start punt te nemen. Vervolgens gaat men stapsgewijs proberen te dalen tot je convergeert naar een lokaal minimum.
+
+De preciese werking van het algorithme valt het best uit te leggen aan de hand van een voorbeeld. We nemen als voorbeeld onze eerder opgestelde hypothese met twee parameters theta 0 en theta 1. Als men de kost functie J(theta 0, theta 1) berekent en deze weergeeft in een driedimensionale weergave, krijgt men onderstaande plot.
+
+%\\
+%AFBEELDING VAN EEN 3D-PLOT
+%\\
+%\\ beschrijving: van axissen
+
+Het stapgewijs dalen verloopt dalen verloopt met volgende formule:
+
+%\\formule stapgewijs dalen
+
+Alfa noemt men hier de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate bepaalt is een belangrijk element in het gradiuele afdalingsalgorithme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algorithme niet. Als men alfa te klein neemt kan het algorithme heel lang duren.
+Een belangrijk en subtiel detail bij de formule en het algorithme is het simultaan updaten van de twee parameters. Als men dit niet doet, spreekt men niet van gradiuele afdaling.
+
+Een bedenking die men men moet maken bij gradiuele afdaling is bestaan van meerdere lokale minima. Dit kan men echter eenvoudig oplossen door meerdere keren het algorithme uit te voeren met een ander startpunt.
+
+Het gegeven voorbeel noemt men specifieker "Batch graduele afdaling" waarbij men  telkens bij iedere stap het hele trainingsset vergelijkt. Er bestaan ook niet batch versies van graduele afdaling.
+
+Verder bestaan er nog andere technieken om het minimum te vinden van de kost functie. Zo kan men ....
+
+%\\ Nog verder in verdiepen 
+
+
 \subsection{Classificatie Probleem}\label{Classificatie Probleem}
 
 Een Classificatie probleem is een ander soort van probleem dat zich voordoet bij supervised training. Een classificatie probleem doet zich voor wanneer men data moeten verdelen over verschillende discrete klassen. Ieder elemenent mag maar tot 1 klasse behoren. De classificatie kan gebaseerd zijn op één attribuut, maar ook meerdere.
@@ -53,9 +97,9 @@ Unsupervised learning is een techniek waarbij het algorithme zelfstandig moet le
 
 Het herkennen van structuren en patronen is niet voldoende, men moet de data concreet kunnen identiceren. Dit kan men doen door gebruik te maken van cluster algorithmes. Concreet gaat een cluster algorithme de data groeperen of \begin{quote}clusteren"\end{quote} in groepen.
 
-\\
-HIER KAN IK DAN NOG DIEPER IN GAAN OP CLUSTER ALGORITHMES
-\\
+%\\
+%HIER KAN IK DAN NOG DIEPER IN GAAN OP CLUSTER ALGORITHMES
+%\\
 
 \subsection{Data Mining}\label{Data Mining}
 

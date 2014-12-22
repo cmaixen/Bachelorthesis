@@ -1,12 +1,12 @@
 \section{Machine Learning}\label{Machine Learning}
 
-Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, zijn toepassingen en hoe het helpt om de juiste verbanden te achterhalen uit een enorme datasets wordt uitgelegd in dit hoofdstuk.
+Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, zijn toepassingen en hoe het helpt om de juiste verbanden te achterhalen uit enorme datasets wordt uitgelegd in dit hoofdstuk.
 
 \subsection{Wat is Machine Learning}\label{Wat is Machine Learning}
 
-Over wat Machine Learnig juist is, vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren, zoals Arthur Samuel(1959). Hij definieerde Machine Learning als \begin{quote}Field of study that gives computers the ability to learn without being explicitly programmed\end{quote}. Later heeft Tom Michel(1999) ook een poging ondernomen en stelde een well-posed learning problem als het volgende \begin{quote} A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E. \end{quote}. Als we al deze pogingen proberen te omvatten, kunnen we Machine Learning het best beschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
-\\
-Binnen Machine Learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen gaan de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
+Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren, zoals Arthur Samuel(1959). Hij definieerde Machine Learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later heeft Tom Michel(1999) ook een poging ondernomen en stelde een well-posed learning problem als het volgende ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als we al deze pogingen proberen te omvatten, kunnen we machine learning het best beschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
+\newline
+Binnen machine learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen gaan de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
 
 
 \subsection{Supervised Learning}\label{Supervised Learning}
@@ -17,33 +17,34 @@ Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een 
 
 \subsection{Regressie Probleem}\label{Regressie Probleem}
 
-Het doel dat men wilt bereiken met supervised learning is dat het algorithme na een training antwoorden kan bezorgen. Bij het voorspellen van die antwoorden kunnen we te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld.
+Het doel dat men wilt bereiken met supervised learning is dat het algorithme na een training antwoorden kan bezorgen. Bij het voorspellen van die antwoorden kan men te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld.
 
 Neem nu dat men de prijs van een huis wilt voorspellen.
 Het algorithme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
 
-%\\
-%TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
-%\\
+\newline
+TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
+\newline
 
-Stel nu dat men aan het algorithme vraagt, wat de prijs is van een huis met 1225 vierkante meter. Deze waarde zat niet in de dataset en moet dus voorspeld worden.  Maar welke trend moeten we volgen om onze waarden te voorspellen. We kunnen zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn correct, maar geven een verschillend antwoord van elkaar. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
+Stel nu dat men aan het algorithme vraagt, wat de prijs is van een huis met 1225 vierkante meter. Deze waarde zat niet in de dataset en moet dus voorspeld worden.  Maar welke trend moet men volgen om de waarden te voorspellen. Men kan zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn correct, maar geven een verschillend antwoord. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
 
-Om dit probleem op te lossen, kan men van de techniek \begin{quote}Lineaire regeressie\end{quote} gebruik maken.
+Om dit probleem op te lossen, kan men van de techniek ``Lineaire regeressie'' gebruik maken.
 
 \subsection{Lineaire regressie}\label{Lineaire regressie}
 
 Lineaire regressie is een techniek waarbij het algorithme een hypothese probeert te vormen. De hypothese is een functie die opgesteld is aan de hand van de trainigsset en de gekende en ongekende outputwaarden zo goed mogelijk benaderd.
 
-Als we terug kijken naar het voorbeeld van het huis. Kan men volgende hypothese opstellen.
+Als we terug kijken naar het voorbeeld van het huis. Kan het algorithme volgende hypothese opstellen.
 
-%\\ FORMULE VAN HYPOTHESE / IS EEN RECHTE MET 1 VARIABLE H(x) = AX+B
-%\\
+\newline 
+FORMULE VAN HYPOTHESE / IS EEN RECHTE MET 1 VARIABLE H(x) = THETA1 X + THETA 0
+\newline
 
-Gegeven hypothese is een lineaire functie met als parameters Theta 0 de nulconditie en Theta A de richtingscoefficient. Een hypothese met 1 functie noemt men ook wel een ééndimensionale lineaire regressie.
+Gegeven hypothese is een lineaire functie met als parameters Theta 0 de nulconditie en Theta 1 de richtingscoefficient. Een hypothese met 1 functie noemt men ook wel een ééndimensionale lineaire regressie.
 
-%\\
+\newline
 
-Het opstellen van de hypothese introduceert op zijn beurt een \begin{quote}Minimalisatie probleem\end{quote}. Men moet de hypothese zo goed mogelijk opstellen, zodat de afwijking ten op zichte van de gekende resultaten minimaal is. Als de hypothese minimaal is, kan men er van uit gaan dat de afwijking op ongekende resultaten ook minimaal is.
+Het opstellen van de hypothese introduceert op zijn beurt een ``Minimalisatie probleem''. Men moet de hypothese zo goed mogelijk opstellen, zodat de afwijking ten op zichte van de gekende resultaten minimaal is. Als de hypothese minimaal is, kan men er van uit gaan dat de afwijking op ongekende resultaten ook minimaal is.
 
 Het minimalisatie probleem kan opgelost worden met een kost functie en graduele afdaling.
 
@@ -53,25 +54,28 @@ Een kost functie is een functie die voor een bepaalde waarden van de parameters 
 \\
 Volgende formule kan men opstellen voor de kost functie:
 
-%\\FORMULE DE KOST FUNCTIE\\
+\newline
+FORMULE DE KOST FUNCTIE
+\newline
 
-Deze kost functie noemt men ook wel de "squared error cost function" en wordt over het algemeen het meest gebruikt. 
+Deze kost functie noemt men ook wel de ``squared error cost function'' en wordt over het algemeen het meest gebruikt. 
 Merk op dat men niet zomaar telkens de som van het verschil tussen het resultaat van de hypothese neemt en de eigelijke waarden. Het kwadraat van het verschil wordt genomen vanwege de negatieve verschillen die ook moeten worden opgenomen als afwijking. Verder vereenvoudigt men het rekenwerk door te delen door twee (De helft van de kleinste waarde, blijft de kleinste waarde). 
 
-Zoals eerder gezegd is het de bedoeling om de afwijking zo klein mogelijk te houden. Om het minimum van de kost functie te vinden, kan men de techniek "gradiuele afdeling" gebruiken. Omwille van verschillende redenen is Graduele afdaling een van de meest gebruikte techniek binnen machine learning voor minimalisatie. Zo werkt de techniek voor een algemeen kost functie met n parameters J(theta0,theta2, theta 3, ... ,theta n) en kan het altijd uitgevoert worden aangezien de lineaire regressie kost functie altijd convex is.
+Zoals eerder gezegd is het de bedoeling om de afwijking zo klein mogelijk te houden. Om het minimum van de kost functie te vinden, kan men de techniek``gradiuele afdeling'' gebruiken. Omwille van verschillende redenen is Graduele afdaling een van de meest gebruikte techniek binnen machine learning voor minimalisatie. Zo werkt de techniek voor een algemeen kost functie met n parameters J(theta0,theta2, theta 3, ... ,theta n) en kan het altijd uitgevoert worden aangezien de lineaire regressie kost functie altijd convex is.
 \\
 De techniek start met een random start punt te nemen. Vervolgens gaat men stapsgewijs proberen te dalen tot je convergeert naar een lokaal minimum.
 
 De preciese werking van het algorithme valt het best uit te leggen aan de hand van een voorbeeld. We nemen als voorbeeld onze eerder opgestelde hypothese met twee parameters theta 0 en theta 1. Als men de kost functie J(theta 0, theta 1) berekent en deze weergeeft in een driedimensionale weergave, krijgt men onderstaande plot.
 
-%\\
-%AFBEELDING VAN EEN 3D-PLOT
-%\\
-%\\ beschrijving: van axissen
-
+\newline
+AFBEELDING VAN EEN 3D-PLOT
+beschrijving: van axissen
+\newlien
 Het stapgewijs dalen verloopt dalen verloopt met volgende formule:
 
-%\\formule stapgewijs dalen
+\newline
+FORMULE STAPGEWIJS DALEN
+\newline
 
 Alfa noemt men hier de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate bepaalt is een belangrijk element in het gradiuele afdalingsalgorithme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algorithme niet. Als men alfa te klein neemt kan het algorithme heel lang duren.
 Een belangrijk en subtiel detail bij de formule en het algorithme is het simultaan updaten van de twee parameters. Als men dit niet doet, spreekt men niet van gradiuele afdaling.
@@ -82,7 +86,8 @@ Het gegeven voorbeel noemt men specifieker "Batch graduele afdaling" waarbij men
 
 Verder bestaan er nog andere technieken om het minimum te vinden van de kost functie. Zo kan men ....
 
-%\\ Nog verder in verdiepen 
+\newline
+Nog verder in verdiepen 
 
 
 \subsection{Classificatie Probleem}\label{Classificatie Probleem}

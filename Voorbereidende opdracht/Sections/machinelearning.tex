@@ -1,15 +1,15 @@
-\section{Machine Learning}\label{Machine Learning}
+\chapter{Machine Learning}\label{Machine Learning}
 
 Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, zijn toepassingen en hoe het helpt om de juiste verbanden te achterhalen uit enorme datasets wordt uitgelegd in dit hoofdstuk.
 
-\subsection{Wat is Machine Learning}\label{Wat is Machine Learning}
+\section{Wat is Machine Learning}\label{Wat is Machine Learning}
 
-Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren, zoals Arthur Samuel(1959). Hij definieerde Machine Learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later heeft Tom Michel(1999) ook een poging ondernomen en stelde een well-posed learning problem als het volgende ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als we al deze pogingen proberen te omvatten, kunnen we machine learning het best beschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
-\newline
+Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren. Arthur Samuel(1959) definieerde machine learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later stelde Tom Michel(1999) een well-posed learning problem als ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als men machine learnig wil omvatten, kan men het best omschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
+\\
 Binnen machine learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen gaan de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
 
 
-\subsection{Supervised Learning}\label{Supervised Learning}
+\section{Supervised Learning}\label{Supervised Learning}
 
 Supervised learning is een techniek, waarbij men het algorithme traint met data waarvan men de antwoorden al weet. Algemeen noemt men een dataset waarmee men een algorithme traint een trainingsset. Nadat dit algorithme zijn training heeft ondergaan, kan het zelfstandig keuzes maken aan de hand van de vergaarde kennis.
 
@@ -22,15 +22,15 @@ Het doel dat men wilt bereiken met supervised learning is dat het algorithme na 
 Neem nu dat men de prijs van een huis wilt voorspellen.
 Het algorithme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
 
-\newline
+\\
 TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
 \newline
 
-Stel nu dat men aan het algorithme vraagt, wat de prijs is van een huis met 1225 vierkante meter. Deze waarde zat niet in de dataset en moet dus voorspeld worden.  Maar welke trend moet men volgen om de waarden te voorspellen. Men kan zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn correct, maar geven een verschillend antwoord. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
+Stel nu dat men aan het algorithme de prijs van een huis met 1225 vierkante meter vraagt. Deze waarde zat niet in de dataset en moet dus voorspeld worden. Maar welke trend moet men volgen om de waarden te voorspellen. Men kan zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn een mogelijkheid, maar geven een verschillend antwoord. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
 
 Om dit probleem op te lossen, kan men van de techniek ``Lineaire regeressie'' gebruik maken.
 
-\subsection{Lineaire regressie}\label{Lineaire regressie}
+\subsubsection{Lineaire regressie}\label{Lineaire regressie}
 
 Lineaire regressie is een techniek waarbij het algorithme een hypothese probeert te vormen. De hypothese is een functie die opgesteld is aan de hand van de trainigsset en de gekende en ongekende outputwaarden zo goed mogelijk benaderd.
 
@@ -48,12 +48,10 @@ Het opstellen van de hypothese introduceert op zijn beurt een ``Minimalisatie pr
 
 Het minimalisatie probleem kan opgelost worden met een kost functie en graduele afdaling.
 
-\subsection{Kost Functie en Gradule afdaling}\label{Kost Functie en Gradule afdaling}
+\subsubsection{Kost Functie en Gradule afdaling}\label{Kost Functie en Gradule afdaling}
 
-Een kost functie is een functie die voor een bepaalde waarden van de parameters de gemiddelde afwijking van de hypothese ten opzichten van de resultaten gaat berekenen.
-\\
-Volgende formule kan men opstellen voor de kost functie:
-
+Een kost functie is een functie die voor een bepaalde waarden van de parameters de gemiddelde afwijking van de hypothese ten opzichten van de resultaten gaat berekenen. Volgende formule kan men opstellen voor de kost functie:
+\newline
 \newline
 FORMULE DE KOST FUNCTIE
 \newline
@@ -67,44 +65,37 @@ De techniek start met een random start punt te nemen. Vervolgens gaat men stapsg
 
 De preciese werking van het algorithme valt het best uit te leggen aan de hand van een voorbeeld. We nemen als voorbeeld onze eerder opgestelde hypothese met twee parameters theta 0 en theta 1. Als men de kost functie J(theta 0, theta 1) berekent en deze weergeeft in een driedimensionale weergave, krijgt men onderstaande plot.
 
-\newline
+\\
 AFBEELDING VAN EEN 3D-PLOT
 beschrijving: van axissen
-\newlien
+\newline
 Het stapgewijs dalen verloopt dalen verloopt met volgende formule:
-
+\\
 \newline
 FORMULE STAPGEWIJS DALEN
 \newline
-
-Alfa noemt men hier de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate bepaalt is een belangrijk element in het gradiuele afdalingsalgorithme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algorithme niet. Als men alfa te klein neemt kan het algorithme heel lang duren.
+\newline
+Alfa noemt men hier de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate is een belangrijk element in het gradiuele afdalingsalgorithme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algorithme niet. Als men alfa te klein neemt kan het algorithme heel lang duren. 
+\newline
 Een belangrijk en subtiel detail bij de formule en het algorithme is het simultaan updaten van de twee parameters. Als men dit niet doet, spreekt men niet van gradiuele afdaling.
 
-Een bedenking die men men moet maken bij gradiuele afdaling is bestaan van meerdere lokale minima. Dit kan men echter eenvoudig oplossen door meerdere keren het algorithme uit te voeren met een ander startpunt.
+Een bedenking die men moet maken bij gradiuele afdaling is het bestaan van meerdere lokale minima. Dit kan men echter eenvoudig oplossen door meerdere keren het algorithme uit te voeren met een ander startpunt.
 
-Het gegeven voorbeel noemt men specifieker "Batch graduele afdaling" waarbij men  telkens bij iedere stap het hele trainingsset vergelijkt. Er bestaan ook niet batch versies van graduele afdaling.
-
-Verder bestaan er nog andere technieken om het minimum te vinden van de kost functie. Zo kan men ....
-
-\newline
-Nog verder in verdiepen 
-
+Het gegeven voorbeeld noemt men specifieker "Batch graduele afdaling" waarbij men telkens bij iedere stap de hele trainingsset vergelijkt. Er bestaan ook niet batch versies van graduele afdaling.
 
 \subsection{Classificatie Probleem}\label{Classificatie Probleem}
 
 Een Classificatie probleem is een ander soort van probleem dat zich voordoet bij supervised training. Een classificatie probleem doet zich voor wanneer men data moeten verdelen over verschillende discrete klassen. Ieder elemenent mag maar tot 1 klasse behoren. De classificatie kan gebaseerd zijn op één attribuut, maar ook meerdere.
 
-Hoe men deze classificatie juist aanpakt, wordt later verder uitgelegd.
+In het algemeen wordt het classificatie probleem het meest opgelost door ``Logistieke Regressie ''
 
-\subsection{Unsupervised Learning}\label{Unsupervised Learning}
+\subsubsection{Logistieke Regressie}\label{Logistieke Regressie}
 
-Unsupervised learning is een techniek waarbij het algorithme zelfstandig moet leren hoe het juist moet en deze kennis gebruikt om later patronen en structuren in data te herkennen. De trainingsset bevat niet de juiste antwoorden.
+\section{Unsupervised Learning}\label{Unsupervised Learning}
 
-Het herkennen van structuren en patronen is niet voldoende, men moet de data concreet kunnen identiceren. Dit kan men doen door gebruik te maken van cluster algorithmes. Concreet gaat een cluster algorithme de data groeperen of \begin{quote}clusteren"\end{quote} in groepen.
+Unsupervised learning is een techniek waarbij het algorithme zelfstandig moet leren hoe het juist moet en deze kennis gebruikt om later patronen en structuren in data te herkennen. De trainingsset bevat niet de antwoorden.
 
-%\\
-%HIER KAN IK DAN NOG DIEPER IN GAAN OP CLUSTER ALGORITHMES
-%\\
+Het herkennen van structuren en patronen is niet voldoende, men moet de data concreet kunnen identiceren. Dit kan men doen door gebruik te maken van cluster algorithmes. Concreet gaat een cluster algorithme de data groeperen of ``clusteren'' in groepen.
 
-\subsection{Data Mining}\label{Data Mining}
+
 

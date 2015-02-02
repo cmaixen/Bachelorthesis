@@ -1,17 +1,21 @@
 \chapter{Machine Learning}\label{Machine Learning}
 
-Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, zijn toepassingen en hoe het helpt om de juiste verbanden te achterhalen uit enorme datasets wordt uitgelegd in dit hoofdstuk.
+Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, welke algmene technieken er bestaan en met welke factoren men moet rekening houden, wordt besproken in dit hoofdstuk.
 
 \section{Wat is Machine Learning}\label{Wat is Machine Learning}
 
-Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben hebben geprobeerd om een eenduidige definitie te definieren. Arthur Samuel(1959) definieerde machine learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later stelde Tom Michel(1999) een well-posed learning problem als ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als men machine learnig wil omvatten, kan men het best omschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
+Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben geprobeerd om een eenduidige definitie te definieren. Arthur Samuel(1959) definieerde machine learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later stelde Tom Michel(1999) een well-posed learning problem als ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als men machine learnig wil omvatten, kan men het best omschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algorithmes.
 \\
-Binnen machine learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men Supervised learning, Unsupervised learning, Reinforcement learning en Recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen gaan de nodige antwoorden bezorgen om later gevoelsanalyses te kunnen uitvoeren.
+Binnen machine learning kan men verschillende groepen van lerende algorithmes onderscheiden. Zo heeft men supervised learning, unsupervised learning, reinforcement learning en recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algorithmen omvatten specifiekere technieken die zich lenen tot het gebruik bij text mining.
 
 
 \section{Supervised Learning}\label{Supervised Learning}
 
-Supervised learning is een techniek, waarbij men het algorithme traint met data waarvan men de antwoorden al weet. Algemeen noemt men een dataset waarmee men een algorithme traint een trainingsset. Nadat dit algorithme zijn training heeft ondergaan, kan het zelfstandig keuzes maken aan de hand van de vergaarde kennis.
+Wanneer men een algorithme wil trainen, heeft men informatie nodig om het algoritme te trainen. Dergelijke informatie noemt men de trainingset.
+
+Laat men als voorbeeld een trainingsset met positieve en negatieve artikels nemen. Men weet welke artikels negatief 
+
+  Als alles over de data van de trainingset geweten is, kan men al die geweten informatie meedelen aan het algoritme. Het algoritme zal uit deze informatie, kennis vergaren over de data, zodat het later zelfstandig eigenschappen kan toekennen aan ongekende data. Deze techniek noemt men supervised learning. Het is een een techniek, waarbij men het algoritme traint met data waarvan men de antwoorden al weet. Zoals eerder gezegd zal het algoritme na de training instaat zijn om zelfstadige keuzes te maken aan de hand van de vergaarde kennis.
 
 Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een regressie probleem of een classificatie probleem.
 

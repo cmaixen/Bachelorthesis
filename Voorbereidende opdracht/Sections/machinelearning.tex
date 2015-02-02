@@ -13,15 +13,16 @@ Binnen machine learning kan men verschillende groepen van lerende algorithmes on
 
 Wanneer men een algorithme wil trainen, heeft men informatie nodig om het algoritme te trainen. Dergelijke informatie noemt men de trainingset.
 
-Laat men als voorbeeld een trainingsset met positieve en negatieve artikels nemen. Men weet welke artikels negatief 
+Laat men als voorbeeld een trainingsset met positieve en negatieve artikels nemen. Men weet welke artikels positief en negatief zijn en ieder artikel bevat deze kennis aan de hand van een label. Het algoritme kan de informatie van de labels gebruiken om een zeker kennis te vergaren over artikels in het algemeen. Na het doorlopen van de trainingset, kan het algoritme de vergarde kennis gebruiken om een ongelabelde artikel te situeren als een positief of negatief artikel.
 
-  Als alles over de data van de trainingset geweten is, kan men al die geweten informatie meedelen aan het algoritme. Het algoritme zal uit deze informatie, kennis vergaren over de data, zodat het later zelfstandig eigenschappen kan toekennen aan ongekende data. Deze techniek noemt men supervised learning. Het is een een techniek, waarbij men het algoritme traint met data waarvan men de antwoorden al weet. Zoals eerder gezegd zal het algoritme na de training instaat zijn om zelfstadige keuzes te maken aan de hand van de vergaarde kennis.
+Deze techniek waarbij men een algoritme traint met een data waarvan men de antwoorden al weet noemt men supervised learning.
 
-Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een regressie probleem of een classificatie probleem.
+Het zelfstandig beslissingen maken over ongekende data is niet altijd even gemakkelijk en kan voor problemen zorgen. 
+Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een regressie probleem of een classification problem.
 
 \subsection{Regressie Probleem}\label{Regressie Probleem}
 
-Het doel dat men wilt bereiken met supervised learning is dat het algorithme na een training antwoorden kan bezorgen. Bij het voorspellen van die antwoorden kan men te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld.
+Het doel dat men wil bereiken met supervised learning is dat het algorithme na een training antwoorden kan bezorgen over ongekende data. Bij het voorspellen van die antwoorden kan men te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld.
 
 Neem nu dat men de prijs van een huis wilt voorspellen.
 Het algorithme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
@@ -32,7 +33,7 @@ TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN
 
 Stel nu dat men aan het algorithme de prijs van een huis met 1225 vierkante meter vraagt. Deze waarde zat niet in de dataset en moet dus voorspeld worden. Maar welke trend moet men volgen om de waarden te voorspellen. Men kan zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn een mogelijkheid, maar geven een verschillend antwoord. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
 
-Om dit probleem op te lossen, kan men van de techniek ``Lineaire regeressie'' gebruik maken.
+Om dit probleem op te lossen, kan men van de techniek ``Lineaire regressie'' gebruik maken.
 
 \subsubsection{Lineaire regressie}\label{Lineaire regressie}
 

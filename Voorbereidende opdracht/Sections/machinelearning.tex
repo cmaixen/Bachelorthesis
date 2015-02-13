@@ -1,31 +1,44 @@
+
 \chapter{Machine Learning}\label{Machine Learning}
 
-Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, welke algmene technieken er bestaan en met welke factoren men moet rekening houden, wordt besproken in dit hoofdstuk.
+Machine learning is een welgekend begrip in de informatica wereld, maar wat het juist omvat, welke algemene technieken er bestaan en met welke factoren men moet rekening houden, wordt besproken in dit hoofdstuk.
 
 \section{Wat is Machine Learning}\label{Wat is Machine Learning}
 
-Over Machine Learnig vindt men nergens een eenduidige definitie. Vele hebben geprobeerd om een eenduidige definitie te definieren. Arthur Samuel(1959) definieerde machine learning als ``'Field of study that gives computers the ability to learn without being explicitly programmed''. Later stelde Tom Michel(1999) een well-posed learning problem als ``A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.'' Als men machine learnig wil omvatten, kan men het best omschrijven als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algoritmes.Hoofdzakelijk bestaat machine learning uit drie stappen namelijk data verzamelen, verwerken en analyseren.
+Over Machine Learnig bestaat nergens een eenduidige definitie. Vele hebben geprobeerd om een eenduidige definitie te definieren. \cite{samuel2000some} definieerde machine learning als
 \newline
-Binnen machine learning kan men verschillende groepen van lerende algoritmes onderscheiden. Zo heeft men supervised learning, unsupervised learning, reinforcement learning en recommender systems. In deze voorbereiding gaat men zich enkel opleggen op supervised en unsupervised learning. Deze soorten algoritmen omvatten specifiekere technieken die zich lenen tot het gebruik bij text mining.
+\newline
+\textit{Field of study that gives computers the ability to learn without being explicitly programmed}.
+\newline
+\newline
+Later stelde \cite{mitchell1997machine} een well-posed learning problem als 
+\newline
+\newline
+\textit{A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.}
+\newline
+
+We nemen een damspel als voorbeeld. De ervaring $E$ omschrijven we het best als de data die het computer programma als input krijgt. Met als toepassing het damspel stellen we de ervaring gelijk aan duizend spelletjes waarin alle data in zit zoals bijvoordbeeld welke zetten de speler en tegenspeler hebben gezet tijdens het spel. De taak $T$ van het computerprogramma is dammen. Het leren van het dammen wordt afgewogen tegenover de prestatie. Het doel van een damspel is het spel winnen dus de prestatie $P$ is het winnnen of verliezen van het spel. De computer kan uit de data en aan de hand van de prestatie van ieder spel afleiden, wat goede zetten zijn en welke niet. Deze afleiding kan gebeuren aan de hand van kansvoorspelling en de score functie. De score functie is een functie die de nauwkeurigheid meet van een voorspelling. Het gaat aan iedere voorspelling een score toewijzen, hoe hoger de score, hoe hoger de nauwkeurigheid. We trachten altijd  de voorspelling te nemen met de grootste score. Wat betekent dat die voorspelling het meest correcte is. Door telkens bij iedere zet alle mogelijke zetten en hun overwinnigskans bij te stellen door de score functie en dan telkens de zet te selecteren met de grootste overwinningskans, kan het programma zich telkens verbeteren in het dammen. Als we ons voorbeeld nu definieren in de woorden van Tom Mitchell, kunnen we zeggen dat het computerprogramma leert dammen uit duizend spelletjes en zich per spel telkens gaat verbeteren op basis van winst en verlies.\\    
+Algemeen omschrijft men machine learnig het best als een onderzoeksdomein dat zich bezighoudt met het onderzoeken en de ontwikkeling van zelflerende algoritmes. Hoofdzakelijk bestaat machine learning uit drie stappen namelijk data verzamelen, verwerken en analyseren.
+\newline
+Binnen machine learning onderscheidt men verschillende groepen van lerende algoritmen. Zo heeft men supervised learning, unsupervised learning, reinforcement learning en recommender systems. In deze voorbereiding legt men zich enkel op supervised en unsupervised learning. Deze soorten algoritmen omvatten specifiekere technieken die zich lenen tot het gebruik bij text mining.
 
 
 \section{Supervised Learning}\label{Supervised Learning}
 
-Wanneer men een algoritme wil trainen, heeft men informatie nodig om het algoritme te trainen. Dergelijke informatie noemt men de trainingset.
+Vaak in machine learning beschikken we al over een dataset, ook wel trainigsset genoemd,met voorbeelden over het concept dat we willen aanleren. Bij supervised learning bevat de trainigsset input-output waarden ($x_{1},x_{2},...,x_{d},y$). De $x_{i}$ stelt alle inputwaarden of features voor en $y$ de outputwaarde. De mapping van bepaalde inputwaarden op een bepaalde output waarde is aanwezig in de dataset. Supervised learning heeft als doel een  een hypothese of model te vormen over deze mapping. Met de hypothese bijvoorbeeld de functie $y=f(x_{1},x_{2},...,x_{d}$ kan men dan nieuwe input-output waarden voorspellen. Als de inputwaarden $x_{i}$ gekend zijn kan men de outpurwaarde $y$ van het nieuwe paar voorspellen aan de hand van de hypothese.  
 \newline
-Laat men als voorbeeld een trainingsset met positieve en negatieve artikels nemen. Men weet welke artikels positief en negatief zijn en ieder artikel bevat deze kennis aan de hand van een label. Het algoritme kan de informatie van de labels gebruiken om een zeker kennis te vergaren over artikels in het algemeen. Na het doorlopen van de trainingset, kan het algoritme de vergarde kennis gebruiken om een ongelabelde artikel te situeren als een positief of negatief artikel.
+Laten we als voorbeeld een trainingsset met positieve en negatieve artikels nemen. We weten welke artikels positief en negatief zijn. De mapping van een het artikel ofwel een hoop woorden naar het concept \textit{positief} of \textit{negatief} wordt gebruikt door het algoritme om een hypothese te bepalen. De hoop woorden zijn de inputwaarden $x_{i}$ en positief en negatief zijn de mogelijkheden voor de outputwaarde $y$. Uiteindelijk zal het algoritme zelfstandig kunnen beslissen of een gegeven willekeurig artikel positief of negatief is aan de hand van zijn hypothese.
 \newline
-Deze techniek waarbij men een algoritme traint met een data waarvan men de antwoorden al weet noemt men supervised learning.
-\newline
-Het zelfstandig beslissingen maken over ongekende data is niet altijd even gemakkelijk en kan voor problemen zorgen. 
-Bij supervised learning zijn er twee soorten problemen die kunnen optreden: een regressie probleem of een classification problem.
+In ons voorbeeld hebben we enkel positief en negatief als keuze voor onze outputwaarde $y$. Een ander voorbeeld is een spamfilter waarbij we classifiseren tussen spam en geen spam. Wanneer we een hypothese opstellen voor een kleine discrete set aan mogelijkheden voor de outputwaarde $y$, zoals onze spamfilter of onze artikels, spreekt men van een classicatie probleem. Wanneer $y$ tot een hele grote of zelf oneindig groep behoord en we daar een hypothese voor opstellen, spreekt men van een \textbf{\textit{regressie probleem}} bijvoorbeeld het bepalen van de huisprijs aan de hand van de bewoonbare oppervlakte.
 
 \subsection{Regressie Probleem}\label{Regressie Probleem}
 
-Het doel dat men wil bereiken met supervised learning is dat het algoritme na een training antwoorden kan bezorgen over ongekende data. Bij het voorspellen van die antwoorden kan men te maken hebben met een regressie probleem. Dit probleem valt het best uit te leggen aan de hand van een voorbeeld. Neem nu dat men de prijs van een huis wilt voorspellen.
-Het algoritme traint zich met een trainigset en bekomt volgend resultaat als men zijn bevindingen zou plotten.
+Zoals eerder vermeld is het doel van supervised learnig om een hypothese op te stellen zodanig dat men voor inputwaarden $x_{i}$ outputwaarde $y$ kan bepalen. Een regressie probleem doet zich voor wanneer de outputwaarde $y$ continue,oneindig of een heel groot bereik aan mogelijkheden kan zijn. We illustreren het probleem met een voorbeeld, neem de prijsvoorspelling van een huis. 
+In dit voorbeeld is onze ervaring $E$ de dataset $v$. De dataset $v$ bevat een mapping van de oppervlakte $x_{i}$ van het huis naar de prijs van het huis $y_{i}$. De taak T van het algorithme is de prijzen van huizen voorspellen op basis van hun oppervlakte. De prestatie $P$ wordt bepaald door een gegeven gemiddelde afwijking $\theta$ van de echte prijs. Het algorithme stelt een hypothese op met de gegeven gemiddelde afwijking. Men kan de hypothese als volgt voorstellen:
+\[ f(x_{i},\theta) = y_{i} \] 
 \newline
-
+We plotten nu de input-output waarden $(x_{i},y{i})$ op een grafiek.
+\newline
 %%TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
 \begin{tikzpicture}
 \begin{axis}[%
@@ -52,73 +65,137 @@ x y label
 \end{axis}
 \end{tikzpicture}
 \newline
-Stel nu dat men aan het algoritme de prijs van een huis met 1225 vierkante meter vraagt. Deze waarde zat niet in de dataset en moet dus voorspeld worden. Maar welke trend moet men volgen om de waarden te voorspellen. Men kan zowel kiezen voor een rechte of een 2de orde polynoom. Beiden zijn een mogelijkheid, maar geven een verschillend antwoord. De situatie, waarbij men een continue waarde moet bepalen en geen echte discrete afbakening bestaat, noemt men een regressie probleem.
+
+ We zien dat we aan de hand van de grafische weergave al een idee kunnen krijgen hoe onze hypothese of model er gaat uit zien. We kunnen zowel een liniear model als een polynomisch model opstellen. Bij een lineair model spreekt men van een verband tussen een scalaire afhankelijke variable $Y$ en onafhanklijke variable(n) $X$. Wanneer men dit plot krijgt men een rechte. Een lineair model heeft volgend functievoorschrift.
+
+\[Y =  \theta_{n}x_{n} + \theta_{n}x_{n-1} + ... + \theta_{1}x_{1} + \theta_{0}\]
 \newline
-Om dit probleem op te lossen, kan men van de techniek \textbf{\textit{lineaire regressie}} gebruik maken.
+
+In ons voorbeeld hebben we maar \'e\'en inputwaarde namelijk de oppervlakte, dus ons voorschrift van onze hypothese heeft maar \'e\'en onafhankelijk variable x.
+\newline
+\[ Y = \theta_{1}x_{1} + \theta_{0}\] \\ 
+afbeelding van een rechte.
+
+De $\theta's$ zijn zo bepaald dat de hypothese of het model voldoet aan de vooropgelegde gemiddelde afwijking van de echte prijs. Andere waarden van $\theta's$ zorgen voor een andere  hypothese, maar alle hypotheses blijven lineair. De techniek waarbij we een hypothese proberen op te stellen gebaseerd op een lineaire verband, noemt men \textbf{\textit{lineaire regressie}}. 
+
+Als we terugkijken naar onze grafiek met gekende datawaarden, zien we dat we ook dat we onze hypothese als een 2de graads veelterm kunnen bepalen. Als we dit plotten krijgen we een parabool. Bij een 2de graads of in het algemeen nde graads veelterm model bestaat er een relatie tussen de afhankelijke variable $Y$ en de onafhankelijke variable(n) $X$ waarbij deze gemodelleerd worden als een n-de graad veelterm.
+
+\[Y = \theta_{0} + \theta_{n}X^{n}_{n} + \theta_{n-1}X^{n-1}_{n-1} + .... +  \theta_{1}X_{1} + \theta_{O} \]
+
+Zoals bij het lineaire model, we hebben maar \'e\'en inputwaarde dus we stellen een 2de graads veelterm met \'e\'en onafhankelijk variable op.
+Eveneens zijn de $\theta's$ zo bepaald dat de hypothese voldoet aan de vooropgelegde gemiddelde afwijking van de echte prijs.  
+
+\[Y = \theta_{1}X^{2} + \theta_{0}\]\\ afbeelding van een polynoom.
+
+Eveneens zijn e $\theta's$ hier zo bepaald dat de hypothese of het model voldoet aan de vooropgelegde gemiddelde afwijking van de echte prijs. Andere waarden van $\theta's$ zorgen voor een andere  hypothese, maar alle hypotheses blijven polynomisch. De techniek waarbij we een hypothese proberen op te stellen gebaseerd op een polynomisch verband, noemt men \textbf{\textit{polynoom regressie}}. 
+\newline
+In deze voorbereiding gaan we ons enkel verder toespitsen op linear regressie. 
+%eventueel nog zeggen waarom
 
 \subsubsection{Lineaire regressie}\label{lineaire regressie}
 
-Lineaire regressie is een techniek waarbij het algoritme een hypothese probeert te vormen. De hypothese is een functie die opgesteld is aan de hand van de trainigsset en de gekende en ongekende outputwaarden zo goed mogelijk benaderd.
-\newline
-Als we terug kijken naar het voorbeeld van het huis. Kan het algoritme volgende hypothese opstellen.
+We hebben tot zo ver gezien dateen hypothese opstellen met als output $Y$ een heel range aan of oneindig veel outputwaarden mogelijk zijn zorgt voor een regressie probleem. Verder zeggen we dat men dit probleem kan oplossen door lineaire regressie. Dit houdt in dat men een hypothese opsteld op basis van een lineaire verband.
 
-%%FORMULE VAN HYPOTHESE / IS EEN RECHTE MET 1 VARIABLE H(x) = %THETA1 X + THETA 0
-\[H_{\theta}(x) = \theta_{0} + \theta_{1}x \]
-Gegeven hypothese is een lineaire functie met als parameters $\theta_{0}$ de nulconditie en $\theta_{1}$ de richtingscoefficient. Een hypothese met \'e\'en functie noemt men ook wel een \'e\'endimensionale lineaire regressie.
+Als we terugkijken naar ons voorbeeld over de prijsvoorspelling van een huis op basis van de oppervlakte waarbij de hypothese wordt bepaald door
 \newline
-Het opstellen van de hypothese introduceert op zijn beurt een \textbf{\textit{minimalisatie probleem}}. Men moet de hypothese zo goed mogelijk opstellen, zodat de afwijking ten op zichte van de gekende resultaten minimaal is. Als de hypothese minimaal is, kan men er van uit gaan dat de afwijking op ongekende resultaten ook minimaal is.
+\[H_{\theta}(x) = \theta_{1}x + \theta_{0}\]
 \newline
-Het minimalisatie probleem kan opgelost worden met een \textbf{\textit{kost functie}} en \textbf{\textit{graduele afdaling}}.
 
-\subsubsection{Kost Functie en Graduele afdaling}\label{Kost Functie en Gradule afdaling}
+Ten slotte kunnen we verschillende hypotheses opstellen door verschillende waarden voor de theta's te nemen. Dit introduceert op zijn beurt het volgende probleem "Welke waarden voor de theta's moet men bepalen voor de uiteindelijke hypothese?". Men gaat de theta's selecteren die voor de hypothese de kleinste gemiddelde afwijking van de resultaten geeft. Om dit minimalistatie probleem probleem op te lossen gaat men gebruik maken van een kost functie  waarbij men het minimum van deze functie berekent door gradi\"ent afdaling. De kost functie is een functie die voor bepaalde theta's de gemiddelde afwijking van de echte waarden, ook wel kost genoemd, gaat berekenen.  
 
-Men herneemt het voorbeeld van de prijsvoorspelling van huizen. Men moest een zo precies mogelijke prijs voorspellen voor een oppervlakte van 1225 $m^2$. Om dit probleem op te lossen gaat het algoritme gaat voor zowel rechten als 2de orde polynomen de kostfuncties berekenen. Dit gebeurd door de prijzen van de gekende oppervlaktes te vergelijken met de prijzen van de hypothese. Door telkens het verschil in prijs voor een bepaalde oppervlakte te nemen, deze op te tellen en het gemiddelde te nemen, verkrijgt men de gemiddelde afwijking van de prijs van de hypothese ten op zichte van de echte prijs. Hierdoor krijgt men een beeld over hoe de prijzen van de hypothese zich verhouden tegenover de eigelijke prijzen. De kost functie voor dit voorbeeld is  de functie met als functiewaarden de gemiddelde afwijkingen voor telkense een andere hypothese. Om dan een zo precies mogelijke voorspelling te kunnen doen voor de oppervlakte van 1225 $m^2$ moet men er voor zorgen dat men een hypothese kiest waarbij de gemiddelde afwijking zo laag mogelijk is.
-\newline
-Algemeen kan men de kost functie definieren als  een functie die voor een bepaalde waarden van de parameters de gemiddelde afwijking van de hypothese ten opzichten van de resultaten gaat berekenen.
-\newline
-Volgende formule kan men opstellen voor de kost functie:
 
+\subsubsection{Kost Functie en Gradi\"ent afdaling}\label{Kost Functie en Gradule afdaling}
+
+We willen een zo goed mogelijke hypothese opstellen. Men heeft een goede hypthese wanneer de gemiddelde afwijking outputwaarden ten op zichte van de echte waarden, zo laag mogelijk is. Die gemiddelde afwijking van een hypothese noemen we ook de kost. Verder zien we dat we voor andere waarden van de $\theta's$ een andere hypothese krijgen en dus ook telkens een andere kost. Door een kost functie op te stellen waarbij de parameters de $\theta's$ zijn en de output de kost, kan men bepalen voor welke $\theta's$ de kost het laagste is. Deze $\theta-waarden$ gebruikt men dan voor het uiteindelijke functievoorschrift van de hypothese. \\
+
+Als we ons voorbeeld van de prijsvoorspelling van huizen er terug bij nemem, waarbij we de hypothese gaan opstellen aan de hand van lineaire regressie stellen we de kost functie als volgt op\\
 %%FORMULE DE KOST FUNCTIE
 \[J(\theta_{0},\theta_{1}) = \frac{1}{2m}\sum_{i=1}^{m} (H_{\theta}(x_i) - Y_i )^2\]
-Deze kost functie noemt men ook wel de \textbf{\textit{squared error cost function}} en wordt over het algemeen het meest gebruikt. Merk op dat men niet zomaar telkens de som van het verschil tussen het resultaat van de hypothese neemt en de eigelijke waarden. Het kwadraat van het verschil wordt genomen vanwege de negatieve verschillen die ook moeten worden opgenomen als afwijking. Verder vereenvoudigt men het rekenwerk door te delen door twee (De helft van de kleinste waarde, blijft de kleinste waarde). 
 \newline
-Zoals eerder gezegd is het de bedoeling om de afwijking zo klein mogelijk te houden. Om het minimum van de kost functie te vinden, kan men de techniek \textbf{\textit{graduele afdeling}} gebruiken. Omwille van verschillende redenen is graduele afdaling een van de meest gebruikte techniek binnen machine learning voor minimalisatie. Zo werkt de techniek voor een algemeen kost functie met n parameters J($\theta_{0},\theta_{1},\theta_{2},\theta_{3}, ... ,\theta_{n}$) en kan het altijd uitgevoert worden aangezien de lineaire regressie kost functie altijd convex is.
+met als model 
 \newline
-De techniek start met een random start punt te nemen. Vervolgens gaat men stapsgewijs proberen te dalen tot je convergeert naar een lokaal minimum.
+\[H_{\theta}(x) = \theta_{1}x + \theta_{0}\]
 \newline
-De preciese werking van het algoritme valt het best uit te leggen aan de hand van een voorbeeld. We nemen als voorbeeld onze eerder opgestelde hypothese met twee parameters $\theta_{0}$ en $\theta_{1}$. Als men de kost functie J($\theta_{0}, \theta_{1}$) berekent en deze weergeeft in een driedimensionale weergave, krijgt men onderstaande plot.
+
+Deze kost functie noemt men ook wel de \textbf{\textit{squared error cost function}}. Merk op dat we niet zomaar telkens de som van het verschil tussen het resultaat van de hypothese nemen en de eigelijke waarden. Het kwadraat van het verschil wordt genomen vanwege de negatieve verschillen die ook moeten worden opgenomen als afwijking. Verder vereenvoudigt men het rekenwerk door te delen door twee (deling door 2 zorgt ervoor dat factor 2 wegvalt in de gradient). 
+\newline
+Zoals eerder gezegd is het de bedoeling om de waarden van de $\theta's$ te bepalen zodanig onze kost zo klein mogelijk is. Om het minimum van de kost functie te vinden, gebruiken we de techniek \textbf{\textit{gradi\"ent afdaling}}. Omwille van verschillende redenen is gradi\"ent afdaling een populaire techniek binnen machine learning voor minimalisatie. Algemeen werkt de techniek voor een algemeen kost functie met n parameters J($\theta_{0},\theta_{1},\theta_{2},\theta_{3}, ... ,\theta_{n}$). Gradi\"ent afdeling heeft altijd een oplossing aangezien lineaire regressie met kwadratische kost altijd \'e\'en globaal minimum heeft en gradi\"ent afdaling altijd een minimum kan vinden.
+Op onderstaande afbeelding ziet men een grafische weergave onze eerder bepaalde kost funct ie $J(\theta_{0},\theta_{1})$
+\newline
 %AFBEELDING VAN EEN 3D-PLOT
 %beschrijving: van axissen
 \begin{center}
   \includegraphics[width=10cm]{3d_plot}
-  \captionof{figure}{Driedimensionale weergave van de kostfunctie en zijn parameters}
+  \captionof{figure}{Driedimensionale weergave van de kostfunctie}
 \end{center}
 %
-Het stapgewijs dalen kan als volgende formeel neergeschreven worden:
-
+ Het principe van gradi\"ent afdaling is vrij intu\"itief en staat ook aangeduidt op bovenstaande tekening door de zwarte lijn. Het start met een random start punt te nemen. Vervolgens gaat het stapsgewijs proberen te dalen tot het convergeert naar een lokaal minimum. Het kijkt bij iedere stap of de huidige kost kleiner is als zijn vorige. Zo ja dan wil dit zeggen dat de kost nog altijd aan het dalen is en nog geen minimum gevonden is. Indien de huidige kost groter is, dan weet het algortihme dat het niet meer daalt en er een minimum gevonden is. 
+\newline
+De werking van gradi\"ent afdaling kunnen we formeel neerschrijven. Met onze eerder opgestelde hypothese $H_{\theta}(x)$ en kostfunctie $J(\theta_{0},\theta_{1})$ noteren we het stapsgewijs dalen als \\
 %%FORMULE STAPGEWIJS DALEN
 \[ \theta_{j} := \theta_{j} - \alpha\frac{d}{d\theta_{j}}J(\theta_{0},\theta_{1})   \text{  (voor j = 0 en j = 1)}\] 
-Alfa noemt men hier de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate is een belangrijk element in het graduele afdalingsalgoritme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algoritme niet. Als men alfa te klein neemt kan het algoritme heel lang duren. 
+\newline
+$\alpha$ noemt men de learning rate. Dit is de grote van de stappen die men neemt bij het afdalen. De learning rate is een belangrijk element in het gradi\"ent afdalingsalgoritme. Als men deze te groot neemt kan men locale minima overslagen en convergeert het algoritme niet. Als men alfa te klein neemt kan het algoritme heel lang duren. 
 \newline
 Een belangrijk en subtiel detail bij de formule en het algoritme is het simultaan updaten van de twee parameters (zowel $\theta_{0}$ als $\theta_{1}$). Als men dit niet doet, spreekt men niet van graduele afdaling.
 \newline
-Een bedenking die men moet maken bij graduele afdaling is het bestaan van meerdere lokale minima. Dit kan men echter eenvoudig oplossen door meerdere keren het algoritme uit te voeren met een ander startpunt.
+Soms kan het zijn dat men gradi\"ent afdaling moet toepassen op een kostfunctie met meerdere lokale minima voor problemen zorgen bijvoorbeeld bij neurale netwerken. Het algoritme zal stoppen in deze lokale minima en men wil het absolute minimum als eindresultaat. Meerdere keren het algoritme uitvoeren met een andere startpunt, verkleint de kans dat het uiteindelijke resultaat van de gradi\"ent afdaling een lokaal minimum is. Onderstaande afbeelding illustreert dit.
+
+\begin{center}
+  \includegraphics[width=10cm]{3d_plot}
+  \captionof{figure}{kostfunctie met meerdere lokale minima.}
+\end{center}
 \newline
-Het gegeven voorbeeld noemt men specifieker \textbf{\textit{batch graduele afdaling}} waarbij men telkens bij iedere stap de hele trainingsset vergelijkt. Er bestaan ook niet batch versies van graduele afdaling.
+Nu dat we het regressie probleem bij supervised learning hebben afgehandeld, gaan over naar het classificatie probleem. Zoals eerder vermeld is het classificatie probleem verschillend van het regressie probleem vanwege dat de outputwaarden enkel maar tot een kleine discrete set van mogelijkheden kunnen behoren. Bij het regressie probleem kunnen deze waarden oneindig of tot een hele range van mogelijkheden behoren.
 
 \subsection{Classificatie Probleem}\label{Classificatie Probleem}
 
-Een classificatie probleem is een ander soort van probleem dat zich voordoet bij supervised training. Een classificatie probleem doet zich voor wanneer men data moeten verdelen over verschillende discrete klassen en reder elemenent maar tot \'e\'en klasse mag behoren. De classificatie kan gebaseerd zijn op \'e\'en attribuut, maar ook op meerdere.
+Een classificatie probleem is een ander probleem dat zich voordoet bij supervised training. Men spreekt van een classificatie probleem wanneer men een hypothese moet opstellen waarbij de output van de hypothese behoord tot een kleine discrete set van mogelijkheden. Neem als voorbeeld een spamfilter, waarbij spam en geen spam de enigste mogelijke outputwaarde zijn. De experience $E$is een dataset $v$ met mails. We hebben te maken met supervised learning, dus de dataset bevat voorbeelden met welke mails spam zijn en welke niet. De taak $T$ van de spamfilter is bepalen welke mails behoren tot spammail en welke niet. De prestatie $P$ wordt beoordeeld op basis van de kost bijvoorbeeld hoeveel mails er fout zijn gesorteerd.
 \newline
-In het algemeen wordt het classificatie probleem het meest opgelost door \textbf{\textit{logistische regressie}}    
+Een re\"el gevaar bij classicatie aan de hand van voorbeelden is overfitting en onderfitting.
+\cite{mitchell1997machine} definieert overfitting als volgt
+
+\textit{Given a hypothesis space H , a hypothesis h E H is said to overfit the training data if there exists some alternative hypothesis h' E H, such that h has smaller error than h' over the training examples, but h' has a smaller error than h over the entire distribution of instances.}
+
+Wat eigelijk wil zeggen dat hypothese H te goed werkt op zijn eigen trainingsset, maar vanaf het andere waarden begint te classificeren is de prestatie veel minder. Bij onderfitting is het juist omgekeerd. De prestatie is lager op de trainingset dan op een grote nieuwe dataset.
+
+Een populaire methode om een classificatie probleem op te lossen is \textbf{\textit{logistische regressie}}
+
+\subsubsection{Logistische Regressie}\label{Logistische Regressie}
+
+Het classificatie probleem is verschillend van het regressie probleem door de output behoord tot een kleine discrete set van outputmogelijkheden. Logistische regressie gaat in principe outputwaarden omvormen zodanig dat met het classificatie probleem kan oplossen met lineaire regressie. We zagen dat de hypothese volgens een lineaire regressie er als volgend uit zag
+
+\[ [H_{\theta}(x) = (\theta^{T}x)\]
+
+De hypothese bij logistische regressie ziet er hetzelfde uit, enkel wordt de \textbf{sigmo\"ide functie} of logistische functie toegepast.
+
+\[ [H_{\theta}(x) = g((\theta^{T}x))\]
+
+met als sigmo\"ide functie
+
+\[ [g(z) = \frac{1}{1 + e^{-z}}  \text{z is een ree\"el getal} \]
+\newline
+afbeelding van sigmo\"ide functie
+\newline
+De sigmo\"ide functie zorgt er voor dat iedere inputwaarden $(x_{1}, x_{2} , ... , x_{n})$ gemapt kunnen worden op \"e\"en van de outputwaarde $y$ uit de discrete set van mogelijkheden. Neem even terug het voorbeeld van de spamfilter. Elke mail moet ofwel spam zijn ofwel geen spam
+
+De hypothese voor logistische regressie kan men uiteindellijke uitgeschreven als
+
+\[ [g(z) = \frac{1}{1 + e^{-\theta^{T}x)}} \]
+
+Als we de hypothese van logistische regressie plotten, komt die overeen met een beslissingslijn. Bijvoorbeeld in onderstaand voorbeeld is een dataset van mails weergegeven met de beslissingslijn. Alles onder de beslissingslijn is geen spam, alles erboven wel. \\
+\newline
+afbeelding evenvoudige grafiek met beslissingslijn en punten waar duidelijke spam aan de ene kant ligt en geen spam aan de andere kant
+\newline
+Doordat de hypothese buiten sigmo\"ide functie overeenkomt met lineaire regressie, gelden dezelfde principes. We zoeken naar een model waarbij de kost zo laag mogelijk is. Andere waarden voor van $\theta's$ geven andere hypotheses maar het lineair verband blijft. De uiteindelijke hypothese dat we moeten hebben, is diegene waarbij de kost het laagste is. Bij ons voorbeeld over spamfilters is dit de hoeveelheid mails die fout gesorteerd zijn. Dit minimalisatie probleem kunnen we wederom oplossen door de kost functie en gradi\"ent afdaling.
 
 \section{Unsupervised Learning}\label{Unsupervised Learning}
 
-Unsupervised learning is een techniek waarbij het algoritme zelfstandig moet leren hoe het juist moet en deze kennis gebruikt om later patronen en structuren in data te herkennen. De trainingsset bevat niet de antwoorden.
+Unsupervised learning is een techniek waarbij het algoritme zelfstandig moet leren hoe de mapping verloopt tussen de inputwaarden en de outputwaarde. Bij supervised learning bevat de trainingset voorbeelden van input-output waarden $(x_{1},x_{2},...,x_{d},y)$, en gebruikt het algoritme deze voorbeelden om een hypothese op te stellen zodat het nieuwe input-output waarden kan voorspellen. Dit is niet het geval bij unsupervised learning, de gegeven dataset bevat deze voorbeelden niet en het algoritme moet op een andere manier een hypothese op stellen.  het juist moet en deze kennis gebruikt om later patronen en structuren in data te herkennen. De trainingsset bevat niet de antwoorden.
 \newline
-Als men het zou vergelijken met het voorbeeld van supervised learning, zou men bij unsupervised learning als voorbeeld de situatie kunnen nemen waarbij het algoritme een ongelabelde trainingsset van artikels krijgt en na het verwerken van deze artikels zelfstandig keuzes kan maken over welke artikels positief en negatief zijn.
-\newline
-Echter kan een algoritme de structuren en patronen herkennen, maar kan het niet de data concreet identificeren. Dit probleem kan men oplossen door gebruik te maken van cluster algoritmes. Concreet gaat een cluster algoritme de data groeperen of \textbf{\textit{clusteren}} in groepen en zo de data concreet identificeren.
+Men probeert structuren en patronen proberen in de dataset te herkennen en aan de hand hiervan een hypothese op te stellen. Het herkennen van structuren en patronen en dan juist identificeren doet men aan de hand van cluster algoritmes. Concreet gaat een cluster algoritme de data groeperen of \textbf{\textit{clusteren}} in groepen en zo de data concreet identificeren. Onderstaand voorbeeld illustreert hoe deze identificatie kan verlopen.\\
+
+afbeelding van identificatie bij clustering
 
 
-
+We gaan niet verder in op unsupervised learning. Het is minder interessant in verband met text mining.

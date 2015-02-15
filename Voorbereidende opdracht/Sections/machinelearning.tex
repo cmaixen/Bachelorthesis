@@ -40,6 +40,7 @@ In dit voorbeeld is onze ervaring $E$ de dataset $v$. De dataset $v$ bevat een m
 We plotten nu de input-output waarden $(x_{i},y{i})$ op een grafiek.
 \newline
 %%TEKENENING HIER EEN GRAFIEK MET DATAPUNTEN 
+\begin{center}
 \begin{tikzpicture}
 \begin{axis}[%
 xlabel={Oppervlakte in $m^2$},
@@ -47,23 +48,21 @@ ylabel={Prijs in 1000-tallen (Euro)},
 title={Prijsvoorspelling Huizen},
 scatter/classes={%
     a={mark=o,draw=black}}]
-\addplot[scatter,only marks,%
-    scatter src=explicit symbolic]%
-table[meta=label] {
-x y label
-400 110 a
-550 150 a
-600 200 a
-750 250 a
-950 289 a
-1345 289 a
-1550 300 a
-1750 325 a
-2000 300 a
-1100 300 a
-    };
+\addplot[only marks] table[row sep=\\] {
+x y\\
+400 110\\
+550 150\\
+600 200\\
+750 250\\
+950 289\\
+1345 289\\
+1550 300\\
+1750 325\\
+2000 300\\
+1100 300\\};
 \end{axis}
 \end{tikzpicture}
+\end{center}
 \newline
 
  We zien dat we aan de hand van de grafische weergave al een idee kunnen krijgen hoe onze hypothese of model er gaat uit zien. We kunnen zowel een liniear model als een polynomisch model opstellen. Bij een lineair model spreekt men van een verband tussen een scalaire afhankelijke variable $Y$ en onafhanklijke variable(n) $X$. Wanneer men dit plot krijgt men een rechte. Een lineair model heeft volgend functievoorschrift.
@@ -74,7 +73,48 @@ x y label
 In ons voorbeeld hebben we maar \'e\'en inputwaarde namelijk de oppervlakte, dus ons voorschrift van onze hypothese heeft maar \'e\'en onafhankelijk variable x.
 \newline
 \[ Y = \theta_{1}x_{1} + \theta_{0}\] \\ 
-afbeelding van een rechte.
+\begin{center}
+\begin{tikzpicture}
+\begin{axis}[%
+xlabel={Oppervlakte in $m^2$},
+ylabel={Prijs in 1000-tallen (Euro)},
+title={Prijsvoorspelling Huizen},
+scatter/classes={%
+    a={mark=o,draw=black}}]
+\addplot[only marks] table[row sep=\\] {
+X Y\\
+400 110\\
+550 150\\
+600 200\\
+750 250\\
+950 289\\
+1345 289\\
+1550 300\\
+1750 325\\
+2000 300\\
+1100 300\\
+};
+\addplot table[row sep=\\,
+    y={create col/linear regression={y=Y}}] 
+    {
+X Y\\
+400 110\\
+550 150\\
+600 200\\
+750 250\\
+950 289\\
+1345 289\\
+1550 300\\
+1750 325\\
+2000 300\\
+1100 300\\
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{center}
+\newline
+
 
 De $\theta's$ zijn zo bepaald dat de hypothese of het model voldoet aan de vooropgelegde gemiddelde afwijking van de echte prijs. Andere waarden van $\theta's$ zorgen voor een andere  hypothese, maar alle hypotheses blijven lineair. De techniek waarbij we een hypothese proberen op te stellen gebaseerd op een lineaire verband, noemt men \textbf{\textit{lineaire regressie}}. 
 
@@ -120,12 +160,12 @@ met als model
 Deze kost functie noemt men ook wel de \textbf{\textit{squared error cost function}}. Merk op dat we niet zomaar telkens de som van het verschil tussen het resultaat van de hypothese nemen en de eigelijke waarden. Het kwadraat van het verschil wordt genomen vanwege de negatieve verschillen die ook moeten worden opgenomen als afwijking. Verder vereenvoudigt men het rekenwerk door te delen door twee (deling door 2 zorgt ervoor dat factor 2 wegvalt in de gradient). 
 \newline
 Zoals eerder gezegd is het de bedoeling om de waarden van de $\theta's$ te bepalen zodanig onze kost zo klein mogelijk is. Om het minimum van de kost functie te vinden, gebruiken we de techniek \textbf{\textit{gradi\"ent afdaling}}. Omwille van verschillende redenen is gradi\"ent afdaling een populaire techniek binnen machine learning voor minimalisatie. Algemeen werkt de techniek voor een algemeen kost functie met n parameters J($\theta_{0},\theta_{1},\theta_{2},\theta_{3}, ... ,\theta_{n}$). Gradi\"ent afdeling heeft altijd een oplossing aangezien lineaire regressie met kwadratische kost altijd \'e\'en globaal minimum heeft en gradi\"ent afdaling altijd een minimum kan vinden.
-Op onderstaande afbeelding ziet men een grafische weergave onze eerder bepaalde kost funct ie $J(\theta_{0},\theta_{1})$
+Op onderstaande afbeelding ziet men een grafische weergave onze eerder bepaalde kost functie $J(\theta_{0},\theta_{1})$
 \newline
 %AFBEELDING VAN EEN 3D-PLOT
 %beschrijving: van axissen
 \begin{center}
-  \includegraphics[width=10cm]{3d_plot}
+  \includegraphics[width=10cm]{3d_plot_1}
   \captionof{figure}{Driedimensionale weergave van de kostfunctie}
 \end{center}
 %
@@ -195,7 +235,10 @@ Unsupervised learning is een techniek waarbij het algoritme zelfstandig moet ler
 \newline
 Men probeert structuren en patronen proberen in de dataset te herkennen en aan de hand hiervan een hypothese op te stellen. Het herkennen van structuren en patronen en dan juist identificeren doet men aan de hand van cluster algoritmes. Concreet gaat een cluster algoritme de data groeperen of \textbf{\textit{clusteren}} in groepen en zo de data concreet identificeren. Onderstaand voorbeeld illustreert hoe deze identificatie kan verlopen.\\
 
-afbeelding van identificatie bij clustering
 
-
+\begin{center}
+  \includegraphics[width=5cm]{clustering}
+  \captionof{figure}{Identificatie bij clustering}
+\end{center}
+\newline
 We gaan niet verder in op unsupervised learning. Het is minder interessant in verband met text mining.

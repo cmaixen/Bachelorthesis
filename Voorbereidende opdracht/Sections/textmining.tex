@@ -4,17 +4,15 @@ Nu men een algemeen begrip heeft van wat machine learning juist is en welke alge
 \newline
 %
 Text mining of text data mining is een techniek waarbij men aan tekstanalyse doet om zo trends en patronen te kunnn vaststelllen. Neem opnieuw als voorbeeld onze artikels. Met text mining wil men de artikels zodanig analyseren zodanig dat men kan uitmaken welk artikel positief en welk negatief is.
-Een probleem dat zich onmiddelijk bij text mining voordoet is het ontbreken van een  \'e\'en-op-\'en relatie van woorden en een concept. Woorden verwijzen zelfden eenduidig naar één concept. Zo het voorkomen van het woord "bank" in een tekst zowel verwijzen naar de finaciele instelling als naar een doodgewone zitbank in het park. Dergelijke dubbele betekenis van woorden maakt het moeilijk om de woorden, met als gevolg ook de tekst, te mappen op een bepaald concept.
-%
+Een probleem dat zich onmiddelijk bij text mining voordoet is het ontbreken van een  \'e\'en-op-\'e\'en relatie van woorden en een concept. Woorden verwijzen zelfden eenduidig naar \'e\'en concept. Zo het voorkomen van het woord "bank" in een tekst zowel verwijzen naar de finaciele instelling als naar een doodgewone zitbank in het park. Dergelijke dubbele betekenis van woorden maakt het moeilijk om de woorden, met als gevolg ook de tekst, te mappen op een bepaald concept.
+% 
 Verder heeft men ook woorden in een tekst die weinig bijdragen tot de bepaling van het concept van de tekst bijvoorbeeld: ik,en,want...
 Deze woorden kan men uit de tekst filteren door een database aan te leggen met woorden die moeten men moet negeren. Deze techniek en nog soortgelijke alternatieven vereisen dat er al een voorverwerking plaatsvindt voordat men de dataset echt gaat analyseren op patronenen trends. Algemeen kan men zeggen als men de resultaten van de text mining wil optimaliseren, men aan \textbf{\textit{document pre-processing}} moet doen.
 
 \section{Document Pre-processing }\label{Document Pre-processing}
 
-Document pre-processing is een optionele, maar zeker nuttig stap in het text mining proces. Document pre-processing bestaat eruit om je dataset al eens te verwerken, zodanig je extra informatie hebt, die je kan gebruiken bij de eigelijke analyse van de dataset. Zo kan je bijvoorbeeld alle stopwoorden verwijderen uit de dataset. Wanneer men dan op deze gewijzigde dataset een analyze uitvoert, geeft men indirect de informatie mee dat stopwoorden er niet toe doen. Uiteraard is het verwijderen van stopwoorden \'e\'en van de technieken.  Er bestaan nog andere technieken die nuttig zijn als voorverwerking van een dataset. Zo kan men tekst en stucturen afleiden. Bijvoorbeeld het omzetten van Microsoft Word of Latex documenten naar XML maakt het parsen en analyseren van de documenten voor het algoritme veel gemakkelijker.Verder kan men ook \textbf{\textit{stemming}} toepassen. Stemming is een techniek waarbij men tracht om de stam van het woord te achterhalen. Bijvoorbeeld uit het woord \textit{katachtig} kan men het woord \textit{kat} afleiden. De techniek kan gebaseerd zijn op een woordenboek bijvoorbeeld \textit{Mmorph} is zo'n stemming woordenboek ontwikkeld door de Universiteit van Gen\`eve. Verder kan men de stemming ook baseren op een set van regels, bepaald door taalkundige. Het onderstaande voorbeeld illustreert een set van stemming regels voor het Frans:
-
+Document pre-processing is een optionele, maar zeker nuttig stap in het text mining proces. Document pre-processing bestaat eruit om je dataset al eens te verwerken, zodanig je extra informatie hebt, die je kan gebruiken bij de eigelijke analyse van de dataset. Zo kan je bijvoorbeeld alle stopwoorden verwijderen uit de dataset. Wanneer men dan op deze gewijzigde dataset een analyze uitvoert, geeft men indirect de informatie mee dat stopwoorden er niet toe doen. Uiteraard is het verwijderen van stopwoorden \'e\'en van de technieken.  Er bestaan nog andere technieken die nuttig zijn als voorverwerking van een dataset. Zo kan men tekst en stucturen afleiden. Bijvoorbeeld het omzetten van Microsoft Word of Latex documenten naar XML maakt het parsen en analyseren van de documenten voor het algoritme veel gemakkelijker.Verder kan men ook \textbf{\textit{stemming}} toepassen. Stemming is een techniek waarbij men tracht om de stam van het woord te achterhalen. Bijvoorbeeld uit het woord \textit{katachtig} kan men het woord \textit{kat} afleiden. De techniek kan gebaseerd zijn op een woordenboek bijvoorbeeld \textit{Mmorph} \cite{petitpierre1995mmorph} is zo'n stemming woordenboek. Verder kan men de stemming ook baseren op een set van regels, bepaald door taalkundige. Het onderstaande voorbeeld illustreert een set van stemming regels voor het Frans: \\
 %Voorbeeld van stemming regels   
-\newline
 \begin{center}
   \includegraphics[width=5cm]{stemming_regels_frans}
   \captionof{figure}{Voorbeeld van stemming regels in het Frans}
@@ -30,10 +28,10 @@ Algemeen ziet men dat al deze technieken samen worden gecombineerd, wat alleen m
 \end{center}
 
 \section{Methoden}\label{Methoden}
-Na de document pre-proccesing kan men beginnen aan de eigelijk analyse van de dataset. Voor de text mining kan men 2 methodes gebruiken: de vector space methode en  probablistic methode.
+Na de document pre-proccesing kan men beginnen aan de eigelijk analyse van de dataset. Voor de text mining kan men de vector space methode gebruiken.
 \subsection{Vector Space Methode}\label{Vector Space Methode}
-De vector space methode is een methode waarbij men in principe een document als een vector voorsteld waarbij ieder elemenent overeenkomt met een woord en zijn frequentie in het document. Als men concreet een document voorsteld kan men zeggen dat document $j$ voorgesteld wordt door $\textbf{d}_{j}$ met $f_{ij}$ de frequentie van het woord $w_{i}$. Het aantal woorden stelt men voor door $n_{w}$, wat eveneens de dimensie is van de vector.
-Het document kan dus als volgt worden voorgesteld:
+De vector space methode is een methode waarbij men in principe een document als een vector voorsteld waarbij ieder elemenent overeenkomt met een woord en zijn frequentie in het document. De elementen van de vector worden ook wel features genoemd. Als men concreet een document voorstelt kan men zeggen dat document $j$ voorgesteld wordt door $\textbf{d}_{j}$ met $f_{ij}$ de frequentie van het woord $w_{i}$. Met de frequentie $f_{ij}$ bedoelt men het totaal aantal voorkomens van het woord $w_{i}$ in document $j$. Het aantal verschillende woorden in het document stelt men voor door $n_{w}$, wat eveneens de dimensie is van de vector.
+Het document $j$ kan dus als volgt worden voorgesteld:
 
 \[ d_{j}  = \begin{bmatrix}
     f_{1j} \\
@@ -69,13 +67,16 @@ Als men even stil staat bij onze TDM met woordfrequenties, kan men zeggen dat ni
 %
 De quantiteit van dit gewicht wordt vaak de \textbf{inverse document frequency  (idf)} genoemd en wordt bepaald aan de hand van volgende formule:
 
-\[w_{i}: idf_{i} = -log_{2}[P(w_{i})] \] \text{met $P(w_{i})$ dat priori probability dat word $w_{i}$ voorkomt in het document} 
+\[w_{i}: idf_{i} = -log_{2}[P(w_{i})] \] 
+
+met $P(w_{i})$ de priori probability dat woord $w_{i}$ voorkomt in het document.
 %
-In woorden geeft de inverse document frequency het algemeen belang van het woord $w_{i}$ weer. Men kan dit benaderen door het logarithme te nemen van het aantal documenten waar $w_{i}$ in voorkomt en het totaal aantal documenten.
+De inverse document frequency geeft het algemeen belang van het woord $w_{i}$ weer. Men kan dit benaderen door het logarithme te nemen van het aantal documenten waar $w_{i}$ in voorkomt en het totaal aantal documenten.
 Een andere nuttige quantiteit is de  \textbf{term frequency} $tf_{ij}$. Deze geeft het belang weer van het woord $w_{i}$ binnen in het document $d_{j}$  en wordt als volgt genoteerd:
 \[ tf_{ij} = \frac{f_{ij}}{ \sum_{i=1}^{n_{w}}f_{ij}} \]
 %
-Met deze twee quantiteiten kan men een nieuwe begrip introduceren: de textbf{tf-idf score}. Wat overeenkomt met het product van tf en idf.
+$tf_{ij}$ wordt berekend door de frequetie,het aantal voorkomens, van een woord $w_{i}$ in document $d_{j}$ te delen door de som van alle woordfrequenties in document $d_{j}$.
+Met deze twee quantiteiten kan men een nieuwe begrip introduceren: de \textbf{tf-idf score}. Wat overeenkomt met het product van tf en idf.
  
 \[ \text{tf-idf score} = tf . idf_{ij} = idf_{i} . tf_{ij} \]
 %
@@ -85,38 +86,52 @@ Deze matrix wordt bijvoorbeeld vaak gebruikt om de gelijkenissen tussen twee doc
 
 \subsubsection{Latent Semantic Models}\label{Latent Semantic Models}
 
-Als tweede verfijninig van het vector space model, heeft men latent sementic models (LSM). Met LSM probeert men een notie te krijgen van de semantische informatie en maar bepaald het semantisch verband tussen woorden. Bijvoorbeeld als men zoekt naar documenten met het woord "economie", men ook documenten met "financi\"en" zou terugkrijgen. Voor LSM zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen 2 woorden als ze vaak voorkomen in hetelfde documenten.
+Als tweede verfijninig van het vector space model, heeft men latent sementic models (LSM). Met LSM probeert men een notie te krijgen van de semantische informatie en maar bepaald het semantisch verband tussen woorden. Bijvoorbeeld als men zoekt naar documenten met het woord "economie", men ook documenten met "financi\"en" zou terugkrijgen. Voor LSM zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen 2 woorden als ze vaak voorkomen in hetzelfde documenten.
 \newline
 Merk op dat bij Latent Semantic Models het wederom belangrijk is dat ieder woord, naar \'e\'en concept verwijst.
 %
-Analystisch wordt LSM toegepast door \textbf{Singular Value Decomposition (SVD)} toe te passen op de terms-document matrix. SVD is een concept uit de lineaire algebra en gaat gegeven een rank $m$ de matrix met rank $n$ zo goed mogelijk benaderen, resulterend in een matrix met rank $m<n$. Concreet betekent dit dat men een document,voorgesteld als een vector met $n$ woorden, kan transformeren naar een vector met $m$ getallen. De getallen van de vector die het document voorstellen, noemt men ook wel \textbf{features}.
+Analystisch wordt LSM toegepast door \textbf{Singular Value Decomposition (SVD)} toe te passen op de terms-document matrix. DVD is een concept uit de lineaire algebra en zegt dat een matrix A opgesplits kan worden als een product van matrixen namelijk \\
+\[A = U\Sigma V^T \]
+De reductie van de dimensie gebeurt aan de hand van volgend principe
 %
-Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Laat dit toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset.
-%%
-%moet ik nog verder svd uitleggen?
-%
-\subsection{Probablistic methode}\label{Probablistic methode}
+%afbeelding van SVD in latex
+\newcommand{\vect}{\mathbf}
+\newcommand{\nul}{\operatorname{Nul}}
+\newcommand{\col}{\operatorname{Kolommen }}
+\newcommand{\row}{\operatorname{Rijen}}
+\[
+   A= U\Sigma V^T=
+  \begin{matrix}
+    \underbrace{\left[\begin{matrix}\vect u_1 & \vect u_2 & \dots & \vect u_r\end{matrix}\right.}& 
+    \underbrace{\left.\begin{matrix}\vect u_{r+1} & \dots &  \vect u_m\end{matrix}\right]}\\
+    \col A & \nul A^T
+  \end{matrix}
+  \begin{bmatrix}
+      \sigma_1 & 0 & \dots & 0 & 0 & \dots & 0 \\
+         0 & \sigma_2  & \dots & 0 & 0 & \dots & 0 \\
+         \dots& & & & &  \\
+         0 & 0 & \dots & \sigma_k  & 0 & \dots & 0 \\
+         0 & 0 & \dots & 0 & 0 & \dots & 0 \\
+         \dots& & & & &  \\
+         0 & 0 & \dots & 0 & 0 & \dots & 0 
+  \end{bmatrix}
+  \begin{bmatrix}
+    \vect v_1^T \\ \vect v_2^T \\ \dots \\ \vect v_r^T \\
+    \vect v_{r+1}^T \\ \dots \\ \vect v_n^T
+  \end{bmatrix}
+  \begin{matrix}
+    \left.\vphantom{\begin{bmatrix}
+       \vect v_1^T \\ \vect v_2^T \\ \dots \\ \vect v_r^T 
+       \end{bmatrix}}\right\}\row A \\ 
+    \left.\vphantom{\begin{bmatrix}
+      \vect v_{r+1}^T \\ \dots \\ \vect v_n^T 
+    \end{bmatrix}}\right\}\nul A
+  \end{matrix}
+\] 
+\newline
+U is de unitaire matrix waarbij men $u_1, u_2, ... , u_n$ de linker siguliere vectors noemt. Deze stellen een document met zijn features voor. $V^T$ is de geconjugeerde getransponeerde matrix van V. $v_1, v_2, ... , v_n$ noemt men de rechter singuliere vectors en stellen de woorden met hun features over alle documenten voor. $\Sigma$ is diagonaal matrix met singuliere waarden $\sigma_1,\sigma_2,..,\sigma_n$'  op de diagonaal. De reductie van een term-document matrix naar een dimensie van $K$ gebeurt door de hoogste $K$ singuliere waarden te nemen in $\Sigma$ met de overeenkomstige singuliere vectoren uit $U$ en $V$.    
+Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Dit laat toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat  SVD toepassen een zeer nuttige eerste stap is bij text mining \cite{maas2011learning} omdat men nieuwe efficientere features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen ze dienen als input voor een machine learning algoritme dat probeert text te analyseren bijvoorbeeld bij classificatie of sentiment prediction. 
 
-Een probablistic methode gaat statistiek gebruiken om zo inzicht te krijgen over de data. Ieder user profile $u_{k}$ wordt voorgesteld door een statististich model. Een document kan relevant ($R=1$) of niet relevant ($R=0$) zijn voor een user. Die relevantie kan men bepalen op basis van een gestorteerd vector space model. Op basis van die ordening in het vector space model gaat men de kans berekenen dat het document relevant is voor $u_{k}$.
 
-%Eventueel afbeelding van vectorspace met afbakening , relevant en niet relevant 
-%
-Men kan formeel de kans dat een gegeven document $d=x$ relevant is voor user profile $u_{k}$ formeel neerschrijven als
-
-\[ P(R=1|d=x,u_{k}) \]
-
-Hoe grotere deze waarde, hoe grotere de kans dat document $x$ relevant is.
-
-Een voorbeeld van een probalistic methode is de na\"ive bayens classifier. Deze kijkt naar de kans dat men een document beschouwd dat relevant is voor user $u_{k}$. Dit wordt als volgt neergeschreven:
-
-\[ P(d_{n}=x_{n}|R=1,u_{k}) \]
-
-Dit is zeer gemakkelijk te berekenen door te kijken naar de verhouding tussen de documenten met woord $w_{n}$ en de relevante documenten. Analoog kan men ook de kans dat men een document beschouwd dat niet relevant is voor user $u_{k}$ bepalen.
-
-Merk op, een model waarbij men twee staten heeft, relevant en niet relevant, noemt men een binary independence probabilistic retrieval model. Dit model gaat er vanuit dat alle woordvoorkomens onafhankelijk zijn.
-
-%moet ik nog iets verdellen over de precisie ven de classificatie en assesment?
-
-\section{LSA Experiment}\label{LSA Experiment}
 
 %is dit wel een meerwaarde voor de voorbereinde tekst ?

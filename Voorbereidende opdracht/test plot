@@ -1,0 +1,39 @@
+\begin{tikzpicture}
+\begin{axis}[%
+xlabel={Oppervlakte in $m^2$},
+ylabel={Prijs in 1000-tallen (Euro)},
+title={Prijsvoorspelling Huizen},
+scatter/classes={%
+    a={mark=o,draw=black}}]
+\addplot[only marks] table[row sep=\\] {
+x y\\
+400 110\\
+550 150\\
+600 200\\
+750 250\\
+950 289\\
+1345 289\\
+1550 300\\
+1750 325\\
+2000 300\\
+1100 300\\
+    };
+\addplot table[row sep=\\,
+    y={create col/linear regression={y=Y}}] 
+    {
+x y\\
+400 110\\
+550 150\\
+600 200\\
+750 250\\
+950 289\\
+1345 289\\
+1550 300\\
+1750 325\\
+2000 300\\
+1100 300\\
+    };
+
+\end{axis}
+\end{tikzpicture}
+\newline

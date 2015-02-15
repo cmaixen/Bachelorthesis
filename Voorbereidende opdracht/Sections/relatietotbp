@@ -1,0 +1,12 @@
+\chapter{Beschrijving Bachelorproef}\label{Beschrijving Bachelorproef}
+
+Context
+While a lot of research has focused on the use (or lack thereof) of Sentiment Analysis in social networks only little effort has been spent in language specific research for the Dutch language. Social networks can be very useful to track different interests across multiple countries and cultures. But because users tend to express their opinions in their native language, tools such as Sentiment Analysis need to be able to cope with different languages in order to obtain useful insights.
+Proposal bachelor thesis
+In this bachelor thesis you will train and evaluate multiple existing Sentiment Analysis techniques. This will range from straightforward approaches such as translating existing word lists to more sophisticated approaches, such as training classifiers by gathering new training data (eg.
+reviews from Dutch websites and magazines). The performance of these techniques will be evaluated by testing them against data sets such as the one from our NMBS experiment and see whether these specific Sentiment Analysis values can help to differentiate between different types of twitter users (eg. the ones who complain often versus the ones who inform)
+More precise, your project will consist out of multiple tasks:
+­ Assemble training data from Twitter and label this data manually for a classifier
+­ Gather training data from different (Dutch) websites for advanced training
+­ Compare the performance of your techniques to general (English optimised) techniques
+­ Run experiments to test the impact of Sentiment Analysis in our other projects

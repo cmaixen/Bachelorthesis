@@ -27,20 +27,22 @@
 
 \newpage
 
+\include{sections/abstract}
 \renewcommand{\contentsname}{Inhoud}
 \tableofcontents
-
-\include{sections/abstract}
 \include{sections/introductie}
 \include{sections/machinelearning}
+\begingroup
+\let\clearpage\relax
 \include{sections/Textmining}
 \include{sections/experiment}
+\endgroup
 \include{sections/conclusie}
 \include{sections/relatietotbp}
 \newpage
 \bibliographystyle{apacite}
 \bibliography{sections/Thesisbib}
 \end{document}
-
-
+    
+    
         

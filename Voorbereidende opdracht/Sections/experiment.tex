@@ -8,8 +8,8 @@ Als eerste verkrijgen we onze trainingsset door de polarity v2 dataset (website:
 
 \subsection{Werkwijze}\label{Werkwijze}
 
-De werkwijze verloopt als volgt.
-Eerst passen we document pre-processing toe. We halen alle stopwoorden en leestekens uit de dataset. Vervolgens stellen we een document-term matrix op. Dan optimaliseren we deze matrix voor classficatie door de matrix om te vormen naar een tf-idf matrix. Dit is de techniek waarbij we iedere frequentie $f_{ij}$ van een woord $w_{i}$ vervangen door de tf-idf score van het woord. Daaropvolgend reduceren we de dimensie van onze tf-idf matrix naar twee door de latent semantic methode toe te passen. Iedere recensie wordt na de reductie voorgesteld door middel van twee features. 
+De werkwijze verloopt als volgt:
+Eerst passen we document pre-processing toe. We halen alle stopwoorden en leestekens uit de dataset. Vervolgens stellen we een document-term matrix op. Dan optimaliseren we deze matrix voor classificatie door de matrix om te vormen naar een tf-idf matrix. Dit is de techniek waarbij we iedere frequentie $f_{ij}$ van een woord $w_{i}$ vervangen door de tf-idf score van het woord. Daaropvolgend reduceren we de dimensie van onze tf-idf matrix naar twee door de latent semantic methode toe te passen. Iedere recensie wordt na de reductie voorgesteld door middel van twee features. 
 De recensies plotten we dan met elke recensie als een punt met een andere kleur voor positieve en negatieve recensies.
 Ten slotte nemen we terug onze tf-idf matrix en reduceren het naar door een bepaald aantal features bijvoorbeeld 10, 50, 100, 500. En we kijken of onze hypothese geld waarbij we betere classificatie resultaten krijgen bij meer features.
 
@@ -27,7 +27,7 @@ Als we de twee plots vergelijken, de ene zonder term weighting dan andere met te
     \label{fig:example}%
 \end{figure}
 %
-Tenslotte kunnen we ook onze hypothese bevestigen. We zien dat de hoeveelheid aan features, de nauwkeurigheid van de classificatie beïnvloed. Onderstaande afbeelding geeft deze relatie weer. De x-waarde stelt het aantal gelijkaardige recensies dat men opvraagt voor. De y-waarde geeft aan hoeveel er gemiddeld effectief juist geclassifiseerd zijn. Belangrijk om te weten is dat de dataset voor de helft uit positieve recensies bestaat en voor de helft uit negatieve. We trachten dus bij de classificatie een gemiddeld percentage van 50 percent te halen en we zien dat op onderstaand voorbeeld de lijn van 500 features hier het beste in slaagt.
+Tenslotte kunnen we ook onze hypothese bevestigen. We zien dat de hoeveelheid aan features, de nauwkeurigheid van de classificatie be\"invloed. Onderstaande afbeelding geeft deze relatie weer. De x-waarde stelt het aantal gelijkaardige recensies dat men opvraagt voor. De y-waarde geeft aan hoeveel er gemiddeld effectief juist geclassificeerd zijn. Belangrijk om te weten is dat de dataset voor de helft uit positieve recensies bestaat en voor de helft uit negatieve. We trachten dus bij de classificatie een gemiddeld percentage van 50 percent te halen en we zien dat op onderstaand voorbeeld de lijn van 500 features hier het beste in slaagt.
 
 
 \begin{center}

@@ -4,7 +4,7 @@ Nu we een algemeen begrip hebben van wat machine learning juist is en welke alge
 \newline
 %
 Text mining of text data mining is een techniek waarbij men aan tekstanalyse doet om zo trends en patronen te kunnen vaststellen. Neem opnieuw als voorbeeld onze artikels. Met text mining wil men de artikels zodanig analyseren dat men kan uitmaken welke artikels positief en welk negatief zijn.
-Een probleem dat zich onmiddelijk bij text mining voordoet is het ontbreken van een  \'e\'en-op-\'e\'en relatie van woorden en een concept. Woorden verwijzen zelden eenduidig naar \'e\'en concept. Zo kan het voorkomen van het woord "bank" in een tekst zowel verwijzen naar de financi\"ele instelling als naar een doodgewone zitbank in het park. Dergelijke dubbele betekenis van woorden maakt het moeilijk om de woorden, met als gevolg ook de tekst, te mappen op een bepaald concept.
+Een probleem dat zich onmiddellijk bij text mining voordoet is het ontbreken van een  \'e\'en-op-\'e\'en relatie van woorden en een concept. Woorden verwijzen zelden eenduidig naar \'e\'en concept. Zo kan het voorkomen van het woord ``bank'' in een tekst zowel verwijzen naar de financi\"ele instelling als naar een doodgewone zitbank in het park. Dergelijke dubbele betekenis van woorden maakt het moeilijk om de woorden, met als gevolg ook de tekst, te mappen op een bepaald concept.
 % 
 Verder heeft men ook woorden in een tekst die weinig bijdragen tot de bepaling van het concept van de tekst bijvoorbeeld: ik,en,want...
 Deze woorden kan men uit de tekst filteren door een database aan te leggen met woorden die men moet negeren. Deze techniek en nog soortgelijke alternatieven vereisen dat er al een voorverwerking plaatsvindt voordat men de dataset echt gaat analyseren op patronen en trends. Dit noemt men \textbf{\textit{document pre-processing}}.
@@ -18,7 +18,10 @@ Document pre-processing is een optionele, maar zeker nuttig stap in het text min
   \captionof{figure}{Voorbeeld van stemming regels in het Frans}
 \end{center}
 %%
-Tenslotte is \textbf{\textit{named entity recognition}} (NER) ook een techniek die men gebruikt bij document pre-processing. Hierbij gaat men entiteiten proberen te detecteren in de tekst en deze labelen. Neem bijvoorbeeld de zin \textit{Yannick heeft zich ingeschreven in de richting Computerwetenschappen aan de Vrije Universiteit Brussel in 2012}. Men kan met NER de entiteiten eruit halen, labelen en volgend resultaat verkrijgen:\\ \textit{$\text{[Yannick]}_{persoon}$ heeft zich ingeschreven in de richting Computerwetenschappen aan de $\text{[Vrije Universiteit Brussel]}_{organisatie}$ in $\text{[2012]}_{tijdsaanduiding}$}
+Tenslotte is \textbf{\textit{named entity recognition}} (NER) ook een techniek die men gebruikt bij document pre-processing. Hierbij gaat men entiteiten proberen te detecteren in de tekst en deze labelen. Neem bijvoorbeeld de zin \textit{Yannick heeft zich ingeschreven in de richting Computerwetenschappen aan de Vrije Universiteit Brussel in 2012}. Men kan met NER de entiteiten eruit halen, labelen en volgend resultaat verkrijgen:\\ 
+\newline
+\textit{$\text{[Yannick]}_{persoon}$ heeft zich ingeschreven in de richting Computerwetenschappen aan de\\ $\text{[Vrije Universiteit Brussel]}_{organisatie}$ in $\text{[2012]}_{tijdsaanduiding}$}
+\newline
 \newline
 Algemeen kan men stellen dat een combinatie van deze technieken alleen maar de uiteindelijke resultaten ten goede komt. Hoe deze gecombineerd kunnen worden, wordt in het onderstaande voorbeeld ge\"illustreerd. 
 \begin{center}
@@ -63,7 +66,7 @@ In de praktijk is gebleken dat documenten vergelijken op basis van woordfrequent
 
 \subsubsection{Term weighting}\label{Term weighting}
 
-Als men even stil staat bij onze TDM met woordfrequenties, kan men zeggen dat niet elk woord evenveel doorweegt. Een woord dat in alle documenten voorkomt biedt geen of minder waardevolle informatie, dan een woord dat zelden voorkomt. En hierop baseert term weighting zich. Het gaat een wegingsfactor introduceren. Ieder woord krijgt een gewicht toegewezen, dat weergeeft hoe belangrijk het woord is. Neem als voorbeeld een hoop recensies van de film "Pulp Fiction" en de woorden "Pulp" en "excellent". "Pulp" is een woord dat voorkomt in de titel van de film en komt ongetwijfeld in elke recensie voor. "Excellent" daarentegen is een woord dat enkel maar voorkomt wanneer de recensist de film fantastisch vond, het zal niet in elk document voorkomen en is waardevolle informatie. Term weighting zal dus bij dit voorbeeld "excellent" een grotere gewicht toewijzen als "Pulp". 
+Als men even stil staat bij onze TDM met woordfrequenties, kan men zeggen dat niet elk woord evenveel doorweegt. Een woord dat in alle documenten voorkomt biedt geen of minder waardevolle informatie, dan een woord dat zelden voorkomt. En hierop baseert term weighting zich. Het gaat een wegingsfactor introduceren. Ieder woord krijgt een gewicht toegewezen, dat weergeeft hoe belangrijk het woord is. Neem als voorbeeld een hoop recensies van de film ``Pulp Fiction'' en de woorden ``Pulp'' en ``excellent''. ``Pulp'' is een woord dat voorkomt in de titel van de film en komt ongetwijfeld in elke recensie voor. ``Excellent'' daarentegen is een woord dat enkel maar voorkomt wanneer de recensist de film fantastisch vond, het zal niet in elk document voorkomen en is waardevolle informatie. Term weighting zal dus bij dit voorbeeld ``excellent'' een grotere gewicht toewijzen als ``Pulp''. 
 %
 De kwantiteit van dit gewicht wordt vaak de \textbf{inverse document frequency  (idf)} genoemd en wordt bepaald aan de hand van volgende formule:
 \[w_{i}: idf_{i} = -log_{2}[P(w_{i})] \]
@@ -82,7 +85,7 @@ Deze matrix wordt bijvoorbeeld vaak gebruikt om de gelijkenissen tussen twee doc
 %
 \subsubsection{Latent Semantic Models}\label{Latent Semantic Models}
 
-Als tweede verfijning van het vector space model, hebben we latent semantic models (LSM). Met LSM probeert men een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord "economie", willen we ook documenten met "financi\"en" terugkrijgen. Voor LSM zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen 2 woorden als ze vaak voorkomen in dezelfde documenten.
+Als tweede verfijning van het vector space model, hebben we latent semantic models (LSM). Met LSM probeert men een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord ``economie'', willen we ook documenten met ``financi\"en'' terugkrijgen. Voor LSM zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen 2 woorden als ze vaak voorkomen in dezelfde documenten.
 \newline
 Merk op dat bij Latent Semantic Models het wederom belangrijk is dat ieder woord naar \'e\'en concept verwijst.
 %

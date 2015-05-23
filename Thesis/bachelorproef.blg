@@ -1,0 +1,88 @@
+This is BibTeX, Version 0.99d (TeX Live 2012)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: bachelorproef.aux
+A level-1 auxiliary file: sections/abstract.aux
+A level-1 auxiliary file: sections/acknowledgements.aux
+A level-1 auxiliary file: sections/introductie.aux
+A level-1 auxiliary file: sections/achtergrondinformatie.aux
+A level-1 auxiliary file: sections/experiment.aux
+A level-1 auxiliary file: sections/conclusie.aux
+The style file: apacite.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=20001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Database file #1: sections/Thesisbib.bib
+Repeated entry---line 112 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+apacite.bst [2012/02/25 v6.01 APA bibliography style]
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5189 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5198 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5198 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5202 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5202 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5210 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5216 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5219 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5227 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5227 of file apacite.bst
+Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
+while executing---line 5227 of file apacite.bst
+You've used 12 entries,
+            6735 wiz_defined-function locations,
+            1310 strings with 12523 characters,
+and the built_in function-call counts, 18733 in all, are:
+= -- 2389
+> -- 135
+< -- 732
++ -- 778
+- -- 18
+* -- 1099
+:= -- 3109
+add.period$ -- 52
+call.type$ -- 12
+change.case$ -- 137
+chr.to.int$ -- 0
+cite$ -- 24
+duplicate$ -- 492
+empty$ -- 906
+format.name$ -- 212
+if$ -- 3795
+int.to.chr$ -- 0
+int.to.str$ -- 24
+missing$ -- 0
+newline$ -- 276
+num.names$ -- 72
+pop$ -- 603
+preamble$ -- 1
+purify$ -- 40
+quote$ -- 0
+skip$ -- 1148
+stack$ -- 0
+substring$ -- 881
+swap$ -- 267
+text.length$ -- 27
+text.prefix$ -- 0
+top$ -- 1
+type$ -- 1096
+warning$ -- 0
+while$ -- 76
+width$ -- 0
+write$ -- 331
+(There were 12 error messages)

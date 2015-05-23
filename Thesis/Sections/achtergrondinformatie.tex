@@ -1,0 +1,59 @@
+
+\chapter{Achtergrondinformatie}\label{Achtergrondinformatie}
+
+In dit hoofdstuk bespreken we de technieken, classifiers en de valkuilen voor het onderzoek, waar zeker rekening mee moet gehouden worden. Zoals eerder vermeld is het doel van deze bachelorproef om met behulp van enkele gekende technieken uit de machine learning een gevoelsanalyse uit te voeren op Nederlandse tekst. En vervolgens analyseren hoe deze prestaties zijn.
+
+Voor het onderzoek gebruiken we supervised learning. Hierbij weten we al onze oplossingen van onze dataset. De dataset die we meegeven aan ons programma bevat alle oplossingen over hoe welke tekst positief is en welke negatief. Het programma moet dan aan de hand van de tekst en de oplossing verbanden proberen te leggen, zodanig dat wanneer het algoritme een onbekende tekst binnen krijgt deze kan toewijzen naar het concept positief of negatief.
+
+Nu kunnen we het programma een handje helpen door, voor dat men de dataset meegeeft aan het algoritme, de dataset al eens voor te verwerken of Pre-processen. Hoe we dit juist kunnen doen wordt in de volgenden sectie besproken.
+
+\section{Technieken voor Pre-Processing}\label{Technieken voor Pre-Processing}
+
+Het voor verwerken of pre-processen van een dataset kan op verschillend manieren gebeuren. We willen classificeren voor het algoritme vergemakkelijken. Hoe we dit gaan doen wordt in deze sectie uitgelegd.
+
+\subsection{Bag of Words}\label{Bag of Words}
+
+Bag of Words is de eenvoudigste methode die er is. Ieder document wordt beschouwd als een zak met woorden, waarbij de woorden in het document de kenmerken of de features van het document voorstellen. Bij de volgende technieken wordt Bag of Words vaak als startpunt genomen en wordt er vervolgens nog andere optimalisatie op toegepast.
+
+\subsection{Verwijderen van stopwoorden}\label{Verwijderen van stopwoorden en leestekens}
+
+Wat we vaak zien in het Nederlands,maar ook in taal algemeen,  is dat er veel stopwoorden gebruiken. Stopwoorden als \"klopt\" en \"eigenlijk\" zeggen niet veel over of de tekst nu positief of negatief is. Als het niet bijdraagt voor het algoritme kunnen stopwoorden beschouwen als noise in de dataset en verwijdert men ze beter. Het verwijderen van stopwoorden en leestekens is ook een manier van pre-processing.
+
+\subsection{Bigran Collocaties}\label{Bigram Collocaties}
+
+Bigrams Collocaties is een techniek waarbij men op zoek gaat naar  paren woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen voor de gevoelsanalyse. De bepaling van de significantie van een paar woorden is gebaseerd op de op de interne frequentie van de woorden de frequentie van de combinatie van de woorden in de tekst. Als men een overzicht krijgt over de frequentie kan men deze associeren met een  score aan de hand van een scorefunctie, zoals bijvoorbeeld de Chi-kwadraattoets. De Chi-kwadraattoets is een statistische toets die het mogelijk maakt om de onafhankelijkheid tussen waarnemingen te onderzoeken. Bij Bigram Collocaties onderzoekt men via de Chi-kwadraattoets de afhankelijkheid tussen twee woorden. Hoe grotere de afhankelijkheid, hoe hoger de score.   
+
+\subsubsection{Chi-Kwadraattoets}\label{Chi-Kwadraattoest}
+
+De Chi-Kwadraattoets is een techniek uit de statistiek die gebruikt  kan worden als een onafhankelijkheidstoets voor waarnemingen. De reden waarom we deze toets ondermeer voor Bigram collocatie gebruiken is dat het parametervrije toets is. Hiermee bedoeld men dat er voor de chi-kwadraattoets bij de start van de toets geen aannames over de populatie of gemiddelde verwacht. In deze sectie leggen we aan de hand van een voorbeeld uit hoe de chi-kwadraattoets juist deze afhankelijkheid bepaald.
+
+ Neem als voorbeeld het bigram \"(heel , goed)\". Zoals bij iedere statistische test neemt men eerst een nulhypothese aan. Voor de chi-kwadraattoets is dit ook het geval. De toets neemt als nulhypothese aan dat beide woorden onafhankelijk van elkaar zijn. Men vergelijkt de waargenomen frequenties van de woorden met de verwachte frequenties wanneer de woorden onafhankelijk zouden zijn. Als deze waarden te veel verschillen kan men de nulhypothese verwerpen en de alternative hypothese aannemen, namelijk dat de woorden afhankelijk zijn van elkaar. 
+
+De toetsingsgrootheid om de geobserveerde frequentie te toetsen met de verwachte frequenties volgt volgende formule:
+
+\[{\chi}^2=\sum_{i,j}^{} \frac{(O_ij - E_ij)^2}{E_ij}\]
+
+Waarbij ${O_ij}$ het aantal keer dat het paar $(i,j)$ voorkomt. $E_ij$ stelt de voorspelde waarden voor als de woorden onafhankelijk moesten voorkomen\\
+$E_ij$ wordt bepaald door volgende formule:
+
+\[{E_ij}=\frac{O_i* O_*j}{n}\]
+
+met ${O_i*}$ het aantal voorkomens van het i met andere woorden, analoog voor ${O_*j}$ en ${n}$ het totaal aantal aantal woorden.
+
+\subsection{Selecteren van de beste features}\label{Selecteren van de beste features}
+
+
+
+\subsection{Latent Semantic Analysis}\label{Latent Semantic Analysis}
+
+
+\section{Classifiers}\label{Classifiers}
+
+\subsection{Naive Bayes Classifier}\label{Naive Bayes Classifier}
+
+\subsection{Decision Tree}\label{Decision Tree}
+
+\section{Valkuilen onderzoek}\label{Valkuilen onderzoek}
+\subsection{Overfitting}\label{Overfitting}
+\subsection{Bais}\label{Bais}
+\subsection{Variantie}\label{Variantie}

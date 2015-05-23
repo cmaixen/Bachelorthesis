@@ -1,0 +1,48 @@
+
+
+% The following makes latex use nicer postscript fonts.
+
+\input{preamble.tex}
+
+\author{Yannick Merckx}
+\title{Gevoelsanalyse in het Nederlands}
+
+\promotortitle{Promotor}
+\promotor{Yann-Micha\"el De Hauwere}
+\advisors{Maarten Deville\\
+          Peter Vrancx}
+\advisortitle{Begeleiders}
+\faculty{Faculteit Wetenschappen}
+\department{Departement Computerwetenschappen}
+\reason{Bachelorproef}
+\date{Juni 2015}
+\rolenumber{Rolnummer: 500294}
+          
+\begin{document}
+
+% First dutch TitlePage
+\maketitlepage
+
+\setlength{\arrayrulewidth}{0.1mm}
+
+\newpage
+
+\include{sections/abstract}
+\include{sections/acknowledgements}
+\renewcommand{\contentsname}{Inhoud}
+\tableofcontents
+\include{sections/introductie}
+
+\include{sections/achtergrondinformatie}
+\begingroup
+\include{sections/experiment}
+\endgroup
+\include{sections/conclusie}
+\newpage
+\nocite{*}
+\bibliographystyle{apacite}
+\bibliography{sections/Thesisbib}
+\end{document}
+    
+    
+        

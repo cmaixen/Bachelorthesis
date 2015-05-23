@@ -1,0 +1,301 @@
+\begin{thebibliography}{}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {Decomposing signals in components (matrix factorization
+  problems)}}{%
+\APACcitebtitle {Decomposing signals in components (matrix factorization
+  problems)}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+}
+\APACinsertmetastar {%
+}%
+\APACrefbtitle {Decomposing signals in components (matrix factorization
+  problems).} {Decomposing signals in components (matrix factorization
+  problems).}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APAChowpublished
+  {\url{http://scikit-learn.org/stable/modules/decomposition.html}}.
+\newblock
+\APACrefnote{Accessed: 2014-30-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Landauer%
+, Foltz%
+\BCBL {}\ \BBA {} Laham%
+}{%
+Landauer%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1998}}%
+}]{%
+doi:10.1080/01638539809545028}
+\APACinsertmetastar {%
+doi:10.1080/01638539809545028}%
+\begin{APACrefauthors}%
+Landauer, T\BPBI K.%
+, Foltz, P\BPBI W.%
+\BCBL {}\ \BBA {} Laham, D.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1998}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An introduction to latent semantic analysis} {An
+  introduction to latent semantic analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Discourse Processes}{25}{2-3}{259-284}.
+\newblock
+\begin{APACrefURL} \url{http://dx.doi.org/10.1080/01638539809545028}
+  \end{APACrefURL}
+\newblock
+\begin{APACrefDOI} \doi{10.1080/01638539809545028} \end{APACrefDOI}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {Latent Semantic Analysis (LSA) Tutorial}}{%
+\APACcitebtitle {Latent Semantic Analysis (LSA) Tutorial}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+LSA}
+\APACinsertmetastar {%
+LSA}%
+\APACrefbtitle {Latent Semantic Analysis (LSA) Tutorial.} {Latent semantic
+  analysis (lsa) tutorial.}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APAChowpublished
+  {\url{http://www.puffinwarellc.com/index.php/news-and-articles/articles/33-latent-semantic-analysis-tutorial.html?showall=1}}.
+\newblock
+\APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maas%
+\ \protect \BOthers {.}}{%
+Maas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+}]{%
+maas2011learning}
+\APACinsertmetastar {%
+maas2011learning}%
+\begin{APACrefauthors}%
+Maas, A\BPBI L.%
+, Daly, R\BPBI E.%
+, Pham, P\BPBI T.%
+, Huang, D.%
+, Ng, A\BPBI Y.%
+\BCBL {}\ \BBA {} Potts, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Learning word vectors for sentiment analysis} {Learning
+  word vectors for sentiment analysis}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 49th Annual Meeting of the
+  Association for Computational Linguistics: Human Language Technologies-Volume
+  1} {Proceedings of the 49th annual meeting of the association for
+  computational linguistics: Human language technologies-volume 1}\ (\BPGS\
+  142--150).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Manning%
+, Raghavan%
+\BCBL {}\ \BBA {} Sch{\"u}tze%
+}{%
+Manning%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+manning2008introduction}
+\APACinsertmetastar {%
+manning2008introduction}%
+\begin{APACrefauthors}%
+Manning, C\BPBI D.%
+, Raghavan, P.%
+\BCBL {}\ \BBA {} Sch{\"u}tze, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2008}.
+\newblock
+\APACrefbtitle {Introduction to information retrieval} {Introduction to
+  information retrieval}\ (\BVOL~1).
+\newblock
+\APACaddressPublisher{}{Cambridge university press Cambridge}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mantrach~Amin%
+}{%
+Mantrach~Amin%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+MantrachAmin}
+\APACinsertmetastar {%
+MantrachAmin}%
+\begin{APACrefauthors}%
+Mantrach~Amin, H\BPBI B\BPBI M\BPBI S., Nicolas~Vanzeebroeck.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Machine Learning Course ULB: Text mining.} {Machine learning
+  course ulb: Text mining.}
+\newblock
+\APAChowpublished
+  {\url{https://ai.vub.ac.be/sites/default/files/textmining2011.pdf}}.
+\newblock
+\APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+McKinney%
+}{%
+McKinney%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+mckinney2012python}
+\APACinsertmetastar {%
+mckinney2012python}%
+\begin{APACrefauthors}%
+McKinney, W.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2012}.
+\newblock
+\APACrefbtitle {Python for data analysis: Data wrangling with Pandas, NumPy,
+  and IPython} {Python for data analysis: Data wrangling with pandas, numpy,
+  and ipython}.
+\newblock
+\APACaddressPublisher{}{" O'Reilly Media, Inc."}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Mitchell%
+}{%
+Mitchell%
+}{%
+{\protect \APACyear {1997}}%
+}]{%
+mitchell1997machine}
+\APACinsertmetastar {%
+mitchell1997machine}%
+\begin{APACrefauthors}%
+Mitchell, T\BPBI M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1997}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Machine learning. 1997} {Machine learning. 1997}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Burr Ridge, IL: McGraw Hill}{45}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ng%
+}{%
+Ng%
+}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+Ng}
+\APACinsertmetastar {%
+Ng}%
+\begin{APACrefauthors}%
+Ng, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APACrefbtitle {Machine Learning Course.} {Machine learning course.}
+\newblock
+\APAChowpublished {\url{https://class.coursera.org/ml-005/lecture/preview}}.
+\newblock
+\APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Petitpierre%
+\ \BBA {} Russell%
+}{%
+Petitpierre%
+\ \BBA {} Russell%
+}{%
+{\protect \APACyear {1995}}%
+}]{%
+petitpierre1995mmorph}
+\APACinsertmetastar {%
+petitpierre1995mmorph}%
+\begin{APACrefauthors}%
+Petitpierre, D.%
+\BCBT {}\ \BBA {} Russell, G.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1995}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {MMORPH-the Multext morphology program} {Mmorph-the
+  multext morphology program}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Multext deliverable report for the task}{2}{1}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Samuel%
+}{%
+Samuel%
+}{%
+{\protect \APACyear {2000}}%
+}]{%
+samuel2000some}
+\APACinsertmetastar {%
+samuel2000some}%
+\begin{APACrefauthors}%
+Samuel, A\BPBI L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2000}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Some studies in machine learning using the game of
+  checkers} {Some studies in machine learning using the game of
+  checkers}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{IBM Journal of research and
+  development}{44}{1.2}{206--226}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {A Tutorial on Clustering Algorithms}}{%
+\APACcitebtitle {A Tutorial on Clustering Algorithms}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+clustering}
+\APACinsertmetastar {%
+clustering}%
+\APACrefbtitle {A Tutorial on Clustering Algorithms.} {A tutorial on clustering
+  algorithms.}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APAChowpublished
+  {\url{http://home.deib.polimi.it/matteucc/Clustering/tutorial_html/index.html}}.
+\newblock
+\APACrefnote{Accessed: 2015-01-11}
+\PrintBackRefs{\CurrentBib}
+
+\end{thebibliography}

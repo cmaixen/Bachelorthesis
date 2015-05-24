@@ -1,15 +1,122 @@
-\chapter{Het Experiment}\label{Het Experiment}
+\chapter{Het Onderzoek}\label{Het Onderzoek}
 
+Voor deze bachelorproef onderzoek we of we een algemene technieken binnen de machine learning ons een goede analyse van gevoelens kunnen geven op Nederlandse tekst. Verder situeert men zich met het onderzoek  onder supervised learning waarbij we data proberen te classificeren. Zoals eerder vermeldt duidt supervised learning op een gelabelde dataset waar zowel de inputwaarden als de outputwaarde gekend zijn. Concreter hadden we voor het onderzoek de gevoelens veralgemeent tot positief en negatief en een dataset opgebouwd uit reviews van films, muziek en boeken, afkomstig van \url{wwww.moviemeter.nl}, \url{wwww.muziekmeter.nl}
+en \url{wwww.boekmeter.nl}.
 
-\section{Proefopstelling}\label{Proefopstelling}
+Het onderzoek is opgedeeld in twee delen. Er is Initi\"eel deel waarbij we de classifiers trainen met een dataset en een onderscheidt maken op basis van de pre-processing techniek. Vervolgens worden de resultaten bekeken op besis van hun precisie. In het tweede deel volgt er een verdere uitdieping van interessante resultaten uit deel \'e\'en.
 
-
+\section{Initi\"ele onderzoek}\label{Deel 1}
 
 \section{Werkwijze}\label{Werkwijze}
 
-krijgen bij meer features.
-
-\section{Hypothese}\label{Hypothese}
+Als hoofddoel willen we te weten komen of het mogelijk is om met algemene technieken uit de machine learning goede classificatieresultaten kunnen behalen. Goede classificatieresultaten uit zich in de precisie waar de classifier met classificeert. In dit onderzoek gaat dit de metriek zijn waarop we bepalen of een classificatie goed of slecht verloopt.\\
+We gebruiken de eerder besproken classifiers, namelijk een Naive Bayes classifier en Decission tree als zelflerende algoritmen en trainen Naive bayes classifier telkens met een ander voorbewerkte dataset. De Decission tree trainen we enkel met een LSA voorbewerkte dataset. Als laatste analyseren de telkens de resultaten op basis van de testset en de voorbewerkingstechniek die gebruikt wordt op de dataset.
 
 \section{Resultaten}\label{Resultaten}
+
+Volgende resultaten zijn afkomstig door de classifiers te trainen met een moviedataset van 8000 samples, random gekozen, waarvan 6000 trainsamples en 2000 testsamples en dit gemiddeld genomen over 10 runs.
+Merk op dat zowel de testset als trainigsset evenwichtig verdeeld zijn.  Dit wil zich dat precies de helft van de set positief is en de andere helft negatief. Met andere woorden de minimum precisie die een classifier kan scoren is 50\%.
+
+Verder wordt er telkens paarsgewijs getest. De testset is altijd hetzelfde voorbewerkt als de trainingsset van de classifier.
+
+%resultaten naive bayes classifier movie - movie
+\begin{table}[h]
+\begin{tabular}{lll}
+\hline
+Techniek         & Average Accuracy with Trainset & Average Accuracy with Testset \\    \hline
+Bag of words     & 86,66\%                        & 58,30\%                       \\    \hline
+Remove stopwords & 94,68\%                        & 64,19\%                       \\    \hline
+Bigram (n=200)   & 99,26\%                        & 61,75\%                       \\    \hline
+Bigram (n=50)    & 94,68\%                        & 64,19\%                        \\   \hline
+\end{tabular}
+\end{table}
+
+%resultaten lsa - decision tree
+\begin{table}[h]
+\begin{tabular}{lll}
+\hline
+Model                                          & Average Accuracy of trainingsset & Average Accuracy of testset \\  \hline
+Decision Tree (n-features = 2) - NOT OPTIMISED & 99,77\%                          & 99,22\%                     \\  \hline
+Decision Tree (n-features = 2) - OPTIMISED     & 99,82\%                          & 98,87\%                     \\ \hline
+\end{tabular}
+\end{table}
+
+%resultaten lsa - Naive bayes classfier
+\begin{table}[h]
+\begin{tabular}{lll}
+\hline
+Model                                                   & Average Accuracy of trainingsset & Average Accuracy of testset \\ \hline
+NaIve Bayes classifier (n-features = 2) - NOT OPTIMISED & 99,77\%                          & 51,00\%                     \\ \hline
+NaIve Bayes classifier (n-features = 2) OPTIMISED       & 99,82\%                          & 51,35\%                     \\ \hline 
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\tablewidth=\textwidth
+\begin{tabular}{ll}
+\hline
+Dataset                          & Average Accuracy \\ \hline
+Bag of words                     & 53,81\%          \\ \hline
+Remove stopwords                 & 60,04\%          \\  \hline
+Bigram (n=50)                    & 58,27\%          \\  \hline
+Bigram (n=200)                   & 59,75\%          \\  \hline
+Best Features                    & 54,94\%          \\  \hline
+Best Features + bigram (n = 200) & 61,49\%         
+\end{tabular}
+\caption{This is a ver very very long caption which doesn't overwrites the text on the right side of the paper.}
+\label{tab:accuracy} 
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{ll}
+\hline
+Dataset                          & Average Accuracy \\ \hline
+Bag of words                     & 53,17\%          \\ \hline
+Remove stopwords                 & 58,18\%          \\ \hline
+Bigram (n=50)                    & 56,48\%          \\ \hline
+Bigram (n=200)                   & 57,05\%          \\ \hline
+Best Features                    & 54,24\%          \\ \hline
+Best Features + bigram (n = 200) & 58,72\%         
+\end{tabular}
+ \caption{Speed up for the parallel solution of the trivial problem, 16
+Threads on Dual Xeon E-2690.} 
+ \label{tab:ompdiff} 
+\end{minipage}
+\end{table}
+
+
+
+
+
+\section{Uitdieping onderzoek}\label{Deel 2}
+
+
+
+%deel 2
+\begin{table}[h]
+\begin{tabular}{llll}
+\hline
+Testset & Movies  & Muziek  & Boeken  \\  \hline
+Movies  & 98,90\% & 44,01\% & 47,56\% \\  \hline
+Muziek  & 57,60\% & 98,67\% & 45,93\% \\ \hline
+Boeken  & 42,83\% & 51,89\% & 94,32\% \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\begin{tabular}{llll}
+\hline
+Testset & Movies   & Muziek & Boeken         \\ \hline
+Movies  & 0.6215   &        &                \\ \hline
+Muziek  & 53,165\% &        &                \\ \hline
+Boeken  & 53,81\%  &        & 0.693243243243 \\ \hline
+\end{tabular}
+\end{table}
 

@@ -23,6 +23,25 @@
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+\APACcitebtitle {Goodness-of Fit Test, A Nonparametric Test}}{%
+\APACcitebtitle {Goodness-of Fit Test, A Nonparametric Test}}{%
+{\protect \APACyear {{\protect \bibnodate {}}}}%
+}]{%
+chisquare}
+\APACinsertmetastar {%
+chisquare}%
+\APACrefbtitle {Goodness-of Fit Test, A Nonparametric Test.} {Goodness-of fit
+  test, a nonparametric test.}
+\newblock
+\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\newblock
+\APAChowpublished
+  {\url{http://www2.cedarcrest.edu/academic/bio/hale/biostat/session22links/basics.html}}.
+\newblock
+\APACrefnote{Accessed: 2015-05-23}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Landauer%
 , Foltz%
 \BCBL {}\ \BBA {} Laham%
@@ -130,6 +149,32 @@ Manning, C\BPBI D.%
   information retrieval}\ (\BVOL~1).
 \newblock
 \APACaddressPublisher{}{Cambridge university press Cambridge}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Manning%
+\ \BBA {} Sch{\"u}tze%
+}{%
+Manning%
+\ \BBA {} Sch{\"u}tze%
+}{%
+{\protect \APACyear {1999}}%
+}]{%
+manning1999foundations}
+\APACinsertmetastar {%
+manning1999foundations}%
+\begin{APACrefauthors}%
+Manning, C\BPBI D.%
+\BCBT {}\ \BBA {} Sch{\"u}tze, H.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{1999}.
+\newblock
+\APACrefbtitle {Foundations of statistical natural language processing}
+  {Foundations of statistical natural language processing}.
+\newblock
+\APACaddressPublisher{}{MIT press}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

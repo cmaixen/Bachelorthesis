@@ -1,13 +1,122 @@
-\chapter{Het Onderzoek}\label{Het Onderzoek}
+\chapter{Experiment}\label{Experiment}
 
-Voor deze bachelorproef onderzoek we of we een algemene technieken binnen de machine learning ons een goede analyse van gevoelens kunnen geven op Nederlandse tekst. Verder situeert men zich met het onderzoek  onder supervised learning waarbij we data proberen te classificeren. Zoals eerder vermeldt duidt supervised learning op een gelabelde dataset waar zowel de inputwaarden als de outputwaarde gekend zijn. Concreter hadden we voor het onderzoek de gevoelens veralgemeent tot positief en negatief en een dataset opgebouwd uit reviews van films, muziek en boeken, afkomstig van \url{wwww.moviemeter.nl}, \url{wwww.muziekmeter.nl}
-en \url{wwww.boekmeter.nl}.
+Nu we in alle achterliggende theorie in hoofdstuk \ref{Lectuur} gezien hebben, kunnen we van start gaan met het experiment. Het doel van het experiment is aan de hand van enkele algemene technieken uit te Machine Learning een gevoelsanalyse te kunnen uitvoeren op Nederlandse tekst waarbij we een algoritme het onderscheidt willen tussen positief negatief. Zodanig wanneer we het algoritme een onbekende tekst geven, het kan bepalen of de tekst een positieve of negatieve emotie uitdrukt. De prestatie van zo'n algoritme wordt in dit experiment beoordeeld op basis van de classificatieprecisie.  Wanneer het algoritme met een hoge precisie classificeert en bijna alles input correct kan classificeren als positief of negatief, dan spreken we van een goede prestatie. Wanneer de classificatieprecisie rond de 50\% of minder ligt, spreekt men van een slechte prestatie. Een classificatieprecisie van 50\% kan men vergelijken met een classificatiealgoritme dat telkens bij het bepalen van de output een munt gaat opgooien en op basis van kop of munt de output bepalen. Wat neerkomt op het random bepalen van de output.\\
+%
+Vooraleerst we aan het de resultaten van het experiment bekijken, hebben we het in \ref{De Dataset} over de dataset die we gebruiken. Er is gekozen om gevoelsanalyse uit te voeren op film-, boek- en muziekrecensies  en in deze sectie wordt uitgelegd waarom en hoe het verzamelen van de data is verlopen. In \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset} en \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} volgen dan de experimenten en als laatste vatten we alle de bevindingen van het experiment samen in \ref{Conclusie experiment}.
 
-Het onderzoek is opgedeeld in twee delen. Er is Initi\"eel deel waarbij we de classifiers trainen met een dataset en een onderscheidt maken op basis van de pre-processing techniek. Vervolgens worden de resultaten bekeken op besis van hun precisie. In het tweede deel volgt er een verdere uitdieping van interessante resultaten uit deel \'e\'en.
+\section{De Datatset}\label{De Dataset}
 
-\section{Initi\"ele onderzoek}\label{Deel 1}
+Zoals in de introductie staat vermeld waren film- ,boek- en muziekrecensies niet de eerste keuze. Eerst was het idee om de data van sociale media te nemen zoals tweets van Twitter. Er zou dan rond een bepaald onderwerp tweets verzamelen zoals bijvoorbeeld de nieuwe treinregeling van de NMBS. Omdat we voor het experiment gebruik maken van supervised learning technieken moesten we de tweets manueel labelen als positief of negatief om de tweets als trainingsset te kunnen gebruiken. Naast het feit dat het manueel labelen van de tweets een relatief intensief werkje is, werd er ook opgemerkt dat er veel sarcasme heerst op Twitter. Voor bepaalde mensen is het al moeilijk voor sarcasme te herkennen en voor een algoritme is het dat zeker. Sarcastische tweets zijn onbruik voor de training van de algoritmen en zorgen voor ruis in de dataset. De oplossing lag dan bij film-, muziek- en boekrecensies. Recensies bieden alles wat we nodig hebben. Een recensie is of te wel positief, negatief of neutraal. Maar doordat er meestal een rating aanwezig bij de review is het gemakkelijk om automatische te labelen en enkel de positieve en negatieve reviews op te nemen in onze dataset. De keuze om recensies te nemen over films, boeken en muziek was een beredeneerde keuze. Het aanbod is enorm, meestal niet te specifiek en toegankelijk. Merk op bij het verzamelen van de recensies gefocust werd op korte recensies van gebruikers en niet op de uitgebreide recensies van dagbladen. De recensies voor dit experiment zijn afkomstig van moviemeter.nl, boekmeter.nl en muziekmeter.nl. Deze websites waren de perfecte bron aan informatie. Ze bevatten allemaal toplijsten met films, boeken of muziekalbums waarop vele gebruikers hun persoonlijke mening plaatsen. Samen met die mening laten ze telkens ook een score op 5 achter, die het gevoel bij het betreffende item weerspiegeld. Perfect dus om de labeling van de meningen te automatiseren en een duidelijk onderscheidt te maken tussen positieve en negatieve meningen. Voor dataset van het experimenten werden recensies met een score lager of gelijk aan twee op vijf beschouwd als negatief en recensies met een score gelijk of groter dan drie op vijf beschouwd als positief.\\
 
-\section{Werkwijze}\label{Werkwijze}
+\begin{figure}[h]%
+    \centering
+    \subfloat{{\includegraphics[width=10cm]{voorbeeldrecensie} }}%
+    \caption{Een voorbeeld van een positive commentaar op \url{moviemeter.nl}}%
+\end{figure}
+
+ Alle recensies zijn afkomstig van de ``All Time Top 250''-toplijst op de betreffende website. Door deze lijsten waren we zeker dat voldoende recensies aanwezig waren. Onderstaande tabel geeft het aantal verzamelde recensies van ieder onderwerp weer, waarbij een onderscheidt wordt gemaakt tussen positief en negatief.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|l|l|l|}
+\cline{2-4}
+                                        & \textbf{Films} & \textbf{Muziek} & \textbf{Boeken} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Positief}} & 197358         & 15197           & 146             \\ \hline
+\multicolumn{1}{|l|}{\textbf{Negatief}} & 17978          & 3019            & 3719            \\ \hline
+\end{tabular}
+\caption{Aantal verzamelende recensies} 
+\end{table}
+
+Wat meteen opvalt is dat er aanzienlijk minder positieve boekrecensies verzameld zijn. Hier zullen we rekening mee moeten houden tijdens het experiment. Voor de andere categorie\"en zijn de positieve recensies in grote aantallen aanwezig, wat waarschijnlijk te maken heeft met dat we de ``All Time Top 250''-toplijst gebruiken als databron.
+
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[width=15cm]{toplijsten} }}%
+    \caption{de ``All Time Top 250''-toplijsten op de websites}%
+\end{figure}
+
+\section{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset}\label{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset}
+
+Als eerste experiment gaan we kijken hoe de prestaties van de classifier zijn bij het trainen en testen met data van dezelfde soort. Bijvoorbeeld we trainen met een trainingsset van filmrecensies en testen het getrainde algoritme op een testset van filmrecensies. Dit gaan we voor zowel films, boeken als muziek doen. Als classifier nemen we de Naive Bayes Classifier, in sectie \res{Naive Bayes Classifier} zeiden we al dat dit een goede eerste keuze is als leermethode. Verder geven de data mee aan de classifier als een Bag of Words met TFIDF weging\\
+%
+Algemeen voor alle experimenten zijn de resultaten berekend als gemiddelde over dertig runs. Dit wil zeggen dat er telkens bij iedere run een nieuwe Naive Bayes Classifier wordt aangemaakt,getraind en getest wordt met een andere trainings- en testset als de andere runs. Na het uitvoeren van die runs wordt hier dan het gemiddelde van genomen. Verder worden het aantal benodigde trainings- testsamples random geselecteerd uit onze grote pool van recensies. Verder bestaan de resultaten van experimenten uit de classificatieprecisie van zowel de trainings- en testset, een confidence interval voor 95\%, de standaard afwijking en de confusion matrix. Een confusion matrix geeft aan hoeveel van elke outputmogelijkheden er juist zijn ge\"identificeert door de classifier en hoeveel er fout als juist zijn ge\"indentificeerd, ook wel valse positieve genoemd. Als laatste wordt er ook de learningcurve bekeken om over- of underfitting uit te sluiten.
+
+
+\renewcommand\arraystretch{1.5}
+\setlength\tabcolsep{0pt}
+\begin{table}[h]
+\centering
+\begin{tabular}{c >{\bfseries}r @{\hspace{0.7em}}c @{\hspace{0.4em}}c @{\hspace{0.7em}}l}
+  \multirow{10}{*}{\parbox{1.1cm}{\bfseries\raggedleft eigelijke\\ waarden}} & 
+    & \multicolumn{2}{c}{\bfseries output voorspelling} & \\
+  & & \bfseries p & \bfseries n  \\
+  & p$'$ & \MyBox{Waar}{Positief} & \MyBox{Vals}{Negatief}  \\[2.4em]
+  & n$'$ & \MyBox{Vals}{Positief} & \MyBox{Waar}{Negatief} \\
+\end{tabular}
+\caption{Illustratie van de confusion matrix} 
+\end{table}
+
+
+\subsection{Films als trainings- en testset}\label{Films als trainings- en testset}
+
+Eerst trainen en testen we de Naive Bayes Classifier met filmrecensies. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. Zoals eerder vermeld werden deze samples random geselecteerd en is het volgende resultaat het gemiddelde van 30 runs.\\
+\newline
+\textbf{Standaard afwijking} = 0.0094\\
+\textbf{95\% Confidene Interval} = (0.70656666666666668, 0.70300502660338759, 0.71012830672994576)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Trainingsset}} & 90,52\%           \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 70,66\%           \\ \hline
+\end{tabular}
+\caption{Precisie Naive Bayes Classifier getraind op filmrecensies}
+\label{tab:accuracy}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{824} & \multicolumn{1}{l|}{175} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{410} & \multicolumn{1}{l|}{589} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix testset Naive Bayes Classifier, getraind met filmrecensies} 
+\label{tab:ompdiff} 
+\end{minipage}
+\end{table}
+
+
+
+
+\subsection{Muziek als trainings- en testset}\label{Muziek als trainings- en testset}
+
+Nu trainen en testen we de Naive Bayes Classifier met muziekrecensie. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. Wederom werden deze samples random geselecteerd en is het volgende resultaat het gemiddelde van 30 runs.
+
+
+\subsection{Boeken als trainings- en testset}\label{Boeken als trainings- en testset}
+
+Als laatste trainen en testen we de Naive Bayes Classifier met boekrecensies. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. De samples zijn wederom random geselecteerd en het resultaat is het gemiddelde van 30 runs.
+
+
+
+\section{Naive Bayes Classifier met verschillende onderwerp voor trainings- en testset}\label{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset}
+
+\subsection{Films als trainings- en testset}\label{Films als trainingsset}
+\subsubsection{Muziek als testset}\label{Muziek als testset}
+\subsubsection{Boeken als testset}\label{Boeken testset}
+\subsection{Muziek als trainings- en testset}\label{Muziek als trainingsset}
+\subsubsection{Films als testset}\label{Films als testset}
+\subsubsection{Boeken als testset}\label{Boeken testset}
+\subsection{Boeken als trainings- en testset}\label{Boeken als trainings- en testset}
+\subsubsection{Films als testset}\label{Films als testset}
+\subsubsection{Muziek als testset}\label{Muziek als testset}
+\subsubsectionf{Conclusie experiment}\label{Conclusie experiment}
 
 Als hoofddoel willen we te weten komen of het mogelijk is om met algemene technieken uit de machine learning goede classificatieresultaten kunnen behalen. Goede classificatieresultaten uit zich in de precisie waar de classifier met classificeert. In dit onderzoek gaat dit de metriek zijn waarop we bepalen of een classificatie goed of slecht verloopt.\\
 We gebruiken de eerder besproken classifiers, namelijk een Naive Bayes classifier en Decission tree als zelflerende algoritmen en trainen Naive bayes classifier telkens met een ander voorbewerkte dataset. De Decission tree trainen we enkel met een LSA voorbewerkte dataset. Als laatste analyseren de telkens de resultaten op basis van de testset en de voorbewerkingstechniek die gebruikt wordt op de dataset.
@@ -21,56 +130,6 @@ Verder wordt er telkens paarsgewijs getest. De testset is altijd hetzelfde voorb
 
 Het eerste wat hier is weergegeven, zijn de resultaten van een Naive Bayes Classifier met als trainingsset filmrecensies en als testset film- , muziek en boekrecensies. 
 
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Pre-processing techniek} & \textbf{Precisie Trainingsset} &\textbf{Precisie Testset}      \\    \hline
-Bag of words     & 86,66\%                        & 58,30\%                       \\    \hline
-Remove stopwords & 94,68\%                        & 64,19\%                       \\    \hline
-Bigram (n=200)   & 99,26\%                        & 61,75\%                       \\    \hline
-Bigram (n=50)    & 94,68\%                        & 64,19\%                       \\    \hline
-Best Features + bigram (n = 200) & 94,89\%        & 64,70\%                        \\    \hline
-\end{tabular}
-\caption{Resultaten van de Naive Bayes Classifier met als trainingsset en testset filmrecensies}
-\hspace{2em}
-\end{table}
-
-\begin{table}[h]
-\centering
-\setlength\tabcolsep{4pt}
-\begin{minipage}{0.48\textwidth}
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Pre-processing techniek} & \textbf{Precisie}\\ \hline
-Bag of words                     & 53,81\%          \\ \hline
-Remove stopwords                 & 60,04\%          \\  \hline
-Bigram (n=50)                    & 58,27\%          \\  \hline
-Bigram (n=200)                   & 59,75\%          \\  \hline
-Best Features                    & 54,94\%          \\  \hline
-Best Features + bigram (n = 200) & 61,49\%          \\    \hline
-\end{tabular}
-\caption{Resultaten van een Naive bayes classifier met een als trainingsset filmrecensies en als testset boekrecensies}
-\label{tab:accuracy}
-\end{minipage}%
-\hfill
-\begin{minipage}{0.48\textwidth}
-\centering
-\begin{tabular}{|l|l|}
-\hline
-\textbf{Pre-processing techniek} & \textbf{Precisie}\\ \hline
-Bag of words                     & 53,17\%          \\ \hline
-Remove stopwords                 & 58,18\%          \\ \hline
-Bigram (n=50)                    & 56,48\%          \\ \hline
-Bigram (n=200)                   & 57,05\%          \\ \hline
-Best Features                    & 54,24\%          \\ \hline
-Best Features + bigram (n = 200) & 58,72\%          \\    \hline
-\end{tabular}
- \caption{Resultaten van een Naive bayes classifier met een als trainingsset filmrecensies en als testset muziekrecensies} 
- \label{tab:ompdiff} 
-\end{minipage}
-\end{table}
 
 Wat meteen is dat er niet echt een beduidend verschil is tussen de pre-procestechnieken. Ook zien we in tabel 3.BLA dat de beste resultaten worden behaald wanneer de train- en testset van dezelfde soort zijn. \\
 
@@ -148,96 +207,4 @@ De classificaties van testsets, waarbij de trainingsset een ander onderwerp had,
     \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als train- en testset boekrecensies}
     \label{fig:example}%
 \end{figure}
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Movie/movie-movie-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Movie/movie-movie-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Movie/movie-movie-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als train- en testset filmrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Muziek/muziek-muziek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Muziek/muziek-muziek-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Muziek/muziek-muziek-3} }}%
-    \label{fig:example}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als train- en testset muziekrecensies}
-\end{figure}
-%  
-%andere resultaten 
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-3} }}%
-    \label{fig:example}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset muziekrecensies en testset filmrecensies}
-\end{figure}
-%  
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Boek/muziek-boek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Boek/muziek-boek-2} }}%
-    \label{fig:example}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset muziekrecensies en testset boekrecensies}
-\end{figure}
-%  
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Muziek/movie-muziek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Muziek/movie-muziek-2} }}%
-     \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Muziek/movie-muziek-3} }}%
-     \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset filmrecensies en testset muziekrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Boek/movie-boek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Boek/movie-boek-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Movie/Boek/movie-boek-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset filmrecensies en testset boekrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Movie/boek-movie-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Movie/boek-movie-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Movie/boek-movie-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset boekrecensies en testset filmrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Muziek/boek-muziek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Muziek/boek-muziek-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Muziek/boek-muziek-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset boekrecensies en testset muziekrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Muziek/Movie/muziek-movie-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als trainset muziekrecensies en testset filmrecensies}
-    \label{fig:example}%
-\end{figure}
-%  
-
-
-
-
 

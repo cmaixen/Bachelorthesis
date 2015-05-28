@@ -4,7 +4,7 @@ The top-level auxiliary file: bachelorproef.aux
 A level-1 auxiliary file: sections/abstract.aux
 A level-1 auxiliary file: sections/acknowledgements.aux
 A level-1 auxiliary file: sections/introductie.aux
-A level-1 auxiliary file: sections/achtergrondinformatie.aux
+A level-1 auxiliary file: sections/lectuur.aux
 A level-1 auxiliary file: sections/experiment.aux
 A level-1 auxiliary file: sections/conclusie.aux
 The style file: apacite.bst
@@ -17,7 +17,15 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: sections/Thesisbib.bib
-Repeated entry---line 128 of file sections/Thesisbib.bib
+Repeated entry---line 175 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 181 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 187 of file sections/Thesisbib.bib
  : @misc{
  :       ,
 I'm skipping whatever remains of this entry
@@ -44,45 +52,45 @@ Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersin
 while executing---line 5227 of file apacite.bst
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5227 of file apacite.bst
-You've used 14 entries,
+You've used 19 entries,
             6735 wiz_defined-function locations,
-            1319 strings with 12815 characters,
-and the built_in function-call counts, 21705 in all, are:
-= -- 2780
-> -- 149
-< -- 855
-+ -- 900
-- -- 20
-* -- 1270
-:= -- 3608
-add.period$ -- 60
-call.type$ -- 14
-change.case$ -- 157
+            1348 strings with 13508 characters,
+and the built_in function-call counts, 30066 in all, are:
+= -- 3795
+> -- 245
+< -- 1187
++ -- 1234
+- -- 32
+* -- 1765
+:= -- 5007
+add.period$ -- 81
+call.type$ -- 19
+change.case$ -- 256
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 562
-empty$ -- 1059
-format.name$ -- 236
-if$ -- 4413
+cite$ -- 38
+duplicate$ -- 833
+empty$ -- 1424
+format.name$ -- 398
+if$ -- 6069
 int.to.chr$ -- 0
-int.to.str$ -- 28
+int.to.str$ -- 38
 missing$ -- 0
-newline$ -- 318
-num.names$ -- 80
-pop$ -- 721
+newline$ -- 448
+num.names$ -- 128
+pop$ -- 909
 preamble$ -- 1
-purify$ -- 46
+purify$ -- 68
 quote$ -- 0
-skip$ -- 1309
+skip$ -- 1863
 stack$ -- 0
-substring$ -- 1016
-swap$ -- 297
-text.length$ -- 30
+substring$ -- 1394
+swap$ -- 450
+text.length$ -- 45
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1280
+type$ -- 1656
 warning$ -- 0
-while$ -- 84
+while$ -- 138
 width$ -- 0
-write$ -- 383
-(There were 12 error messages)
+write$ -- 544
+(There were 14 error messages)

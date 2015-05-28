@@ -1,25 +1,28 @@
 \begin{thebibliography}{}
 
 \bibitem [\protect \citeauthoryear {%
-\APACcitebtitle {Decomposing signals in components (matrix factorization
-  problems)}}{%
-\APACcitebtitle {Decomposing signals in components (matrix factorization
-  problems)}}{%
-{\protect \APACyear {{\protect \bibnodate {}}}}%
+Bullinaria%
+}{%
+Bullinaria%
+}{%
+{\protect \APACyear {2004}}%
 }]{%
 }
 \APACinsertmetastar {%
 }%
-\APACrefbtitle {Decomposing signals in components (matrix factorization
-  problems).} {Decomposing signals in components (matrix factorization
-  problems).}
+\begin{APACrefauthors}%
+Bullinaria, J\BPBI A.%
+\end{APACrefauthors}%
+\unskip\
 \newblock
-\APACrefYearMonthDay{{\protect \bibnodate {}}}{}{}.
+\APACrefYearMonthDay{2004}{}{}.
 \newblock
-\APAChowpublished
-  {\url{http://scikit-learn.org/stable/modules/decomposition.html}}.
+\APACrefbtitle {Bias and Variance, Under-Fitting and Over-Fitting.} {Bias and
+  variance, under-fitting and over-fitting.}
 \newblock
-\APACrefnote{Accessed: 2014-30-11}
+\APAChowpublished {\url{http://www.cs.bham.ac.uk/~jxb/NN/l9.pdf}}.
+\newblock
+\APACrefnote{Accessed: 2014-27-05}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -39,6 +42,34 @@ chisquare}%
   {\url{http://www2.cedarcrest.edu/academic/bio/hale/biostat/session22links/basics.html}}.
 \newblock
 \APACrefnote{Accessed: 2015-05-23}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hastie%
+\ \protect \BOthers {.}}{%
+Hastie%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+hastie2009elements}
+\APACinsertmetastar {%
+hastie2009elements}%
+\begin{APACrefauthors}%
+Hastie, T.%
+, Tibshirani, R.%
+, Friedman, J.%
+, Hastie, T.%
+, Friedman, J.%
+\BCBL {}\ \BBA {} Tibshirani, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYear{2009}.
+\newblock
+\APACrefbtitle {The elements of statistical learning} {The elements of
+  statistical learning}\ (\BVOL~2)\ (\BNUM~1).
+\newblock
+\APACaddressPublisher{}{Springer}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -90,6 +121,56 @@ LSA}%
   {\url{http://www.puffinwarellc.com/index.php/news-and-articles/articles/33-latent-semantic-analysis-tutorial.html?showall=1}}.
 \newblock
 \APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Liu%
+\ \BBA {} Yang%
+}{%
+Liu%
+\ \BBA {} Yang%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+liu2012improvement}
+\APACinsertmetastar {%
+liu2012improvement}%
+\begin{APACrefauthors}%
+Liu, M.%
+\BCBT {}\ \BBA {} Yang, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {An improvement of TFIDF weighting in text
+  categorization} {An improvement of tfidf weighting in text
+  categorization}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{International Proceedings of Computer Science and
+  Information Technology}{}{}{44--47}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Lohr%
+}{%
+Lohr%
+}{%
+{\protect \APACyear {2012}}%
+}]{%
+lohr2012age}
+\APACinsertmetastar {%
+lohr2012age}%
+\begin{APACrefauthors}%
+Lohr, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The age of big data} {The age of big data}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{New York Times}{11}{}{}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -228,6 +309,31 @@ McKinney, W.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Michie%
+, Spiegelhalter%
+\BCBL {}\ \BBA {} Taylor%
+}{%
+Michie%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1994}}%
+}]{%
+Michie94machinelearning}
+\APACinsertmetastar {%
+Michie94machinelearning}%
+\begin{APACrefauthors}%
+Michie, D.%
+, Spiegelhalter, D\BPBI J.%
+\BCBL {}\ \BBA {} Taylor, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1994}{}{}.
+\newblock
+\APACrefbtitle {Machine Learning, Neural and Statistical Classification.}
+  {Machine learning, neural and statistical classification.}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Mitchell%
 }{%
 Mitchell%
@@ -271,6 +377,33 @@ Ng, A.%
 \APAChowpublished {\url{https://class.coursera.org/ml-005/lecture/preview}}.
 \newblock
 \APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pang%
+\ \BBA {} Lee%
+}{%
+Pang%
+\ \BBA {} Lee%
+}{%
+{\protect \APACyear {2008}}%
+}]{%
+pang2008opinion}
+\APACinsertmetastar {%
+pang2008opinion}%
+\begin{APACrefauthors}%
+Pang, B.%
+\BCBT {}\ \BBA {} Lee, L.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Opinion mining and sentiment analysis} {Opinion mining
+  and sentiment analysis}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Foundations and trends in information
+  retrieval}{2}{1-2}{1--135}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%

@@ -21,6 +21,20 @@
 \usepackage{apacite}
 \usepackage{subfig}
 \usepackage{siunitx}
-\usepackage{pgfplots}
+\usepackage{pgfplots} 
 \usepackage{pgfplotstable}
 \usepackage[round]{natbib}
+\usepackage{xr}
+\externaldocument{sections/lectuur}
+\externaldocument{sections/experiment}
+\newcommand{\argmax}[1]{\underset{#1}{\operatorname{arg}\,\operatorname{max}}\;}
+\usepackage{array}
+\usepackage{multirow}
+
+\newcommand\MyBox[2]{
+  \fbox{\lower0.75cm
+    \vbox to 1.7cm{\vfil
+      \hbox to 1.7cm{\hfil\parbox{1.4cm}{#1\\#2}\hfil}
+      \vfil}%
+  }%
+}

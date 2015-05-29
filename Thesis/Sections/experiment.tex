@@ -1,20 +1,19 @@
 \chapter{Experiment}\label{Experiment}
 
-Nu we in alle achterliggende theorie in hoofdstuk \ref{Lectuur} gezien hebben, kunnen we van start gaan met het experiment. Het doel van het experiment is aan de hand van enkele algemene technieken uit te Machine Learning een gevoelsanalyse te kunnen uitvoeren op Nederlandse tekst waarbij we een algoritme het onderscheidt willen tussen positief negatief. Zodanig wanneer we het algoritme een onbekende tekst geven, het kan bepalen of de tekst een positieve of negatieve emotie uitdrukt. De prestatie van zo'n algoritme wordt in dit experiment beoordeeld op basis van de classificatieprecisie.  Wanneer het algoritme met een hoge precisie classificeert en bijna alles input correct kan classificeren als positief of negatief, dan spreken we van een goede prestatie. Wanneer de classificatieprecisie rond de 50\% of minder ligt, spreekt men van een slechte prestatie. Een classificatieprecisie van 50\% kan men vergelijken met een classificatiealgoritme dat telkens bij het bepalen van de output een munt gaat opgooien en op basis van kop of munt de output bepalen. Wat neerkomt op het random bepalen van de output.\\
+Nu we in alle achterliggende theorie in hoofdstuk \ref{Lectuur} gezien hebben, kunnen we van start gaan met het experiment. Het doel van het experiment is aan de hand van enkele algemene technieken uit te Machine Learning een gevoelsanalyse te kunnen uitvoeren op Nederlandse tekst, waarbij we een algoritme het onderscheidt willen aanleren tussen positief negatief. Zodanig wanneer we het algoritme een onbekende tekst geven, het kan bepalen of de tekst een positieve of negatieve emotie uitdrukt. De prestatie van zo'n algoritme wordt in dit experiment beoordeeld op basis van de classificatieprecisie.  Wanneer het algoritme met een hoge precisie classificeert en bijna alle input correct kan classificeren als positief of negatief, dan spreken we van een goede prestatie. Wanneer de classificatieprecisie rond de 50\% of minder ligt, spreekt men van een slechte prestatie. Een classificatieprecisie van 50\% kan men vergelijken met een classificatiealgoritme dat telkens bij het bepalen van de output een munt gaat opgooien en op basis van kop of munt de output gaat bepalen. Wat neerkomt op het random bepalen van de output.\\
 %
-Vooraleerst we aan het de resultaten van het experiment bekijken, hebben we het in \ref{De Dataset} over de dataset die we gebruiken. Er is gekozen om gevoelsanalyse uit te voeren op film-, boek- en muziekrecensies  en in deze sectie wordt uitgelegd waarom en hoe het verzamelen van de data is verlopen. In \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset} en \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} volgen dan de experimenten en als laatste vatten we alle de bevindingen van het experiment samen in \ref{Conclusie experiment}.
+Vooraleerst we de resultaten van het experiment bekijken, hebben we het in \ref{De Dataset} over de dataset die we gebruiken. Er is gekozen om gevoelsanalyse uit te voeren op film-, boek- en muziekrecensies  en in deze sectie wordt uitgelegd waarom en hoe het verzamelen van de data is verlopen. In \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} en \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset} volgen dan de experimenten en als laatste vatten we alle de bevindingen van het experiment samen in \ref{Conclusie experiment}.
 
 \section{De Datatset}\label{De Dataset}
 
-Zoals in de introductie staat vermeld waren film- ,boek- en muziekrecensies niet de eerste keuze. Eerst was het idee om de data van sociale media te nemen zoals tweets van Twitter. Er zou dan rond een bepaald onderwerp tweets verzamelen zoals bijvoorbeeld de nieuwe treinregeling van de NMBS. Omdat we voor het experiment gebruik maken van supervised learning technieken moesten we de tweets manueel labelen als positief of negatief om de tweets als trainingsset te kunnen gebruiken. Naast het feit dat het manueel labelen van de tweets een relatief intensief werkje is, werd er ook opgemerkt dat er veel sarcasme heerst op Twitter. Voor bepaalde mensen is het al moeilijk voor sarcasme te herkennen en voor een algoritme is het dat zeker. Sarcastische tweets zijn onbruik voor de training van de algoritmen en zorgen voor ruis in de dataset. De oplossing lag dan bij film-, muziek- en boekrecensies. Recensies bieden alles wat we nodig hebben. Een recensie is of te wel positief, negatief of neutraal. Maar doordat er meestal een rating aanwezig bij de review is het gemakkelijk om automatische te labelen en enkel de positieve en negatieve reviews op te nemen in onze dataset. De keuze om recensies te nemen over films, boeken en muziek was een beredeneerde keuze. Het aanbod is enorm, meestal niet te specifiek en toegankelijk. Merk op bij het verzamelen van de recensies gefocust werd op korte recensies van gebruikers en niet op de uitgebreide recensies van dagbladen. De recensies voor dit experiment zijn afkomstig van moviemeter.nl, boekmeter.nl en muziekmeter.nl. Deze websites waren de perfecte bron aan informatie. Ze bevatten allemaal toplijsten met films, boeken of muziekalbums waarop vele gebruikers hun persoonlijke mening plaatsen. Samen met die mening laten ze telkens ook een score op 5 achter, die het gevoel bij het betreffende item weerspiegeld. Perfect dus om de labeling van de meningen te automatiseren en een duidelijk onderscheidt te maken tussen positieve en negatieve meningen. Voor dataset van het experimenten werden recensies met een score lager of gelijk aan twee op vijf beschouwd als negatief en recensies met een score gelijk of groter dan drie op vijf beschouwd als positief.\\
-
+Zoals in de introductie staat vermeld waren film- ,boek- en muziekrecensies niet de eerste keuze. Eerst was het idee om de data van sociale media te nemen zoals tweets van Twitter. We zouden dan rond een bepaald onderwerp tweets verzamelen zoals bijvoorbeeld de nieuwe treinregeling van de NMBS. Omdat we voor het experiment gebruik maken van supervised learning technieken moesten we de tweets manueel labelen als positief of negatief om de tweets als trainingsset te kunnen gebruiken. Naast het feit dat het manueel labelen van de tweets een relatief intensief werkje is, werd er ook opgemerkt dat er veel sarcasme heerst op Twitter. Voor bepaalde mensen is het al moeilijk voor sarcasme te herkennen en voor een algoritme is het dat zeker. Sarcastische tweets zijn onbruikbaar voor de training van de algoritmen en zorgen voor ruis in de dataset. De oplossing lag dan bij film-, muziek- en boekrecensies. Recensies bieden alles wat we nodig hebben. Een recensie is of te wel positief, negatief of neutraal. Maar doordat er meestal een rating aanwezig bij de review is het gemakkelijk om automatische te labelen en enkel de positieve en negatieve reviews op te nemen in onze dataset. De keuze om recensies te nemen over films, boeken en muziek was een beredeneerde keuze. Het aanbod is enorm, meestal niet te specifiek en toegankelijk. Merk op bij het verzamelen van de recensies gefocust werd op korte recensies van gebruikers en niet op de uitgebreide recensies van dagbladen. De recensies voor dit experiment zijn afkomstig van \url{moviemeter.nl}, \url{boekmeter.nl} en \url{muziekmeter.nl}. Deze websites waren de perfecte bron aan informatie. Ze bevatten allemaal toplijsten met films, boeken of muziekalbums waarop vele gebruikers hun persoonlijke mening plaatsen. Samen met die mening laten ze telkens ook een score op 5 achter, die het gevoel bij het betreffende item weerspiegeld. Perfect dus om de labeling van de meningen te automatiseren en een duidelijk onderscheidt te maken tussen positieve en negatieve meningen. Voor datasets van het experimenten werden recensies met een score lager of gelijk aan twee op vijf beschouwd als negatief en recensies met een score gelijk of groter dan drie op vijf beschouwd als positief.
 \begin{figure}[h]%
     \centering
     \subfloat{{\includegraphics[width=10cm]{voorbeeldrecensie} }}%
     \caption{Een voorbeeld van een positive commentaar op \url{moviemeter.nl}}%
 \end{figure}
-
- Alle recensies zijn afkomstig van de ``All Time Top 250''-toplijst op de betreffende website. Door deze lijsten waren we zeker dat voldoende recensies aanwezig waren. Onderstaande tabel geeft het aantal verzamelde recensies van ieder onderwerp weer, waarbij een onderscheidt wordt gemaakt tussen positief en negatief.
+\newline
+Alle recensies zijn afkomstig van de ``All Time Top 250''-toplijst op de betreffende website. Door deze lijsten waren we zeker dat voldoende recensies aanwezig waren. Onderstaande tabel geeft het aantal verzamelde recensies van ieder onderwerp weer, waarbij een onderscheidt wordt gemaakt tussen positief en negatief.\\
 
 \begin{table}[h]
 \centering
@@ -27,8 +26,8 @@ Zoals in de introductie staat vermeld waren film- ,boek- en muziekrecensies niet
 \caption{Aantal verzamelende recensies} 
 \end{table}
 
-Wat meteen opvalt is dat er aanzienlijk minder positieve boekrecensies verzameld zijn. Hier zullen we rekening mee moeten houden tijdens het experiment. Voor de andere categorie\"en zijn de positieve recensies in grote aantallen aanwezig, wat waarschijnlijk te maken heeft met dat we de ``All Time Top 250''-toplijst gebruiken als databron.
-
+Wat meteen opvalt is dat er aanzienlijk minder positieve boekrecensies verzameld zijn. Hier zullen we rekening mee moeten houden tijdens het experiment. Voor de andere categorie\"en zijn de positieve recensies in grotere aantallen aanwezig dan de negatieve recensies, wat waarschijnlijk te maken heeft met dat we de ``All Time Top 250''-toplijst gebruiken als databron.
+\newpage
 \begin{figure}%
     \centering
     \subfloat{{\includegraphics[width=15cm]{toplijsten} }}%
@@ -37,18 +36,29 @@ Wat meteen opvalt is dat er aanzienlijk minder positieve boekrecensies verzameld
 
 \section{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset}\label{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset}
 
-Als eerste experiment gaan we kijken hoe de prestaties van de classifier zijn bij het trainen en testen met data van dezelfde soort. Bijvoorbeeld we trainen met een trainingsset van filmrecensies en testen het getrainde algoritme op een testset van filmrecensies. Dit gaan we voor zowel films, boeken als muziek doen. Als classifier nemen we de Naive Bayes Classifier, in sectie \res{Naive Bayes Classifier} zeiden we al dat dit een goede eerste keuze is als leermethode. Verder geven de data mee aan de classifier als een Bag of Words met TFIDF weging\\
+Als eerste experiment gaan we kijken hoe de prestaties van een classifier zijn bij het trainen en testen met data van dezelfde soort. Bijvoorbeeld we trainen met een trainingsset van filmrecensies en testen het getrainde algoritme op een testset van filmrecensies. Dit gaan we voor zowel film-, boek- als muziekrecensies doen. Als classifier nemen we de Naive Bayes Classifier, in sectie \ref{Naive Bayes Classifier} zeiden we al dat dit een goede eerste keuze is als leermethode. Verder geven de data mee aan de classifier als een Bag of Words met TFIDF-weging\\
 %
-Algemeen voor alle experimenten zijn de resultaten berekend als gemiddelde over dertig runs. Dit wil zeggen dat er telkens bij iedere run een nieuwe Naive Bayes Classifier wordt aangemaakt,getraind en getest wordt met een andere trainings- en testset als de andere runs. Na het uitvoeren van die runs wordt hier dan het gemiddelde van genomen. Verder worden het aantal benodigde trainings- testsamples random geselecteerd uit onze grote pool van recensies. Verder bestaan de resultaten van experimenten uit de classificatieprecisie van zowel de trainings- en testset, een confidence interval voor 95\%, de standaard afwijking en de confusion matrix. Een confusion matrix geeft aan hoeveel van elke outputmogelijkheden er juist zijn ge\"identificeert door de classifier en hoeveel er fout als juist zijn ge\"indentificeerd, ook wel valse positieve genoemd. Als laatste wordt er ook de learningcurve bekeken om over- of underfitting uit te sluiten.
-
-
+Algemeen voor alle experimenten zijn de resultaten berekend als gemiddelde over dertig runs. Dit wil zeggen dat er telkens bij iedere run een nieuwe Naive Bayes Classifier wordt aangemaakt en vervolgens getraind en getest wordt met een andere trainings- en testset als de andere runs. Na het uitvoeren van die runs wordt hier dan het gemiddelde van genomen. Verder worden het aantal benodigde trainings- en testsamples random geselecteerd uit de grote pool van recensies. De resultaten van experimenten bestaan uit de classificatieprecisie van zowel de trainings- als testset, de standaard afwijking, de confusion matrix en het betrouwbaarheidsinterval voor 95\%. Het betrouwbaarheidsinterval wordt als \textit{(gemiddelde ; linkerlimiet ; rechterlimiet)} genoteerd. Een confusion matrix geeft aan hoeveel van elke outputmogelijkheid er juist zijn ge\"identificeert door de classifier en hoeveel er fout als juist zijn ge\"identificeerd. Als laatste wordt er ook de learning curve bekeken om over- of underfitting uit te sluiten. De learning curve geeft het verloop van de precisie van de classifier weer voor de trainings- en validatieset. Op basis van het verloop en de ligging van de curve kan men detecteren of men te maken heeft met over- of underfitting. Figuur \ref{fig:highbias} en \ref{fig:highvariance} illustreren hoe men overfitting kan herkennen aan de hand van de learning curve. Merk op zowel de trainingsset als de testset altijd evenwichtig zijn verdeeld. Dit wil zeggen dat er telkens 1/2 van het totaal aantal samples bestaat uit positieve recensies en 1/2 uit negatieve recensies.
+\newpage
+\begin{figure}[h]
+    \centering
+    \subfloat{{\includegraphics[width=5cm]{highbias}}}%
+    \caption{Learning curve van een datset met hoge bias. Wat duidt op underfitting [Bron: VUB-Cursus Machine Learning]}
+    \label{fig:highbias}
+ \end{figure}
+ \begin{figure}[h]
+ \centering
+    \subfloat{{\includegraphics[width=5cm]{highvariance} }}%
+    \caption{Learning curve van een datset met hoge variantie. Wat duidt op overfitting [Bron: VUB-Cursus Machine Learning]}
+    \label{fig:highvariance}
+\end{figure}
 \renewcommand\arraystretch{1.5}
 \setlength\tabcolsep{0pt}
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \begin{tabular}{c >{\bfseries}r @{\hspace{0.7em}}c @{\hspace{0.4em}}c @{\hspace{0.7em}}l}
-  \multirow{10}{*}{\parbox{1.1cm}{\bfseries\raggedleft eigelijke\\ waarden}} & 
-    & \multicolumn{2}{c}{\bfseries output voorspelling} & \\
+  \multirow{10}{*}{\parbox{1.1cm}{\bfseries\raggedleft eigelijke\\ waarde}} & 
+    & \multicolumn{2}{c}{\bfseries voorspelde waarde} & \\
   & & \bfseries p & \bfseries n  \\
   & p$'$ & \MyBox{Waar}{Positief} & \MyBox{Vals}{Negatief}  \\[2.4em]
   & n$'$ & \MyBox{Vals}{Positief} & \MyBox{Waar}{Negatief} \\
@@ -57,13 +67,13 @@ Algemeen voor alle experimenten zijn de resultaten berekend als gemiddelde over 
 \end{table}
 
 
-\subsection{Films als trainings- en testset}\label{Films als trainings- en testset}
+
+\subsection{Filmrecensies als trainings- en testset}\label{Films als trainings- en testset}
 
 Eerst trainen en testen we de Naive Bayes Classifier met filmrecensies. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. Zoals eerder vermeld werden deze samples random geselecteerd en is het volgende resultaat het gemiddelde van 30 runs.\\
-\newline
-\textbf{Standaard afwijking} = 0.0094\\
-\textbf{95\% Confidene Interval} = (0.70656666666666668, 0.70300502660338759, 0.71012830672994576)\\
- 
+\newpage\textbf{Standaard afwijking} = 0,0094\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,7064 ; 0,7030 ; 0,7101)\\
+
 \begin{table}[h]
 \centering
 \setlength\tabcolsep{4pt}
@@ -75,8 +85,8 @@ Eerst trainen en testen we de Naive Bayes Classifier met filmrecensies. De train
 \multicolumn{1}{|l|}{\textbf{Trainingsset}} & 90,52\%           \\ \hline
 \multicolumn{1}{|l|}{\textbf{Testset}}      & 70,66\%           \\ \hline
 \end{tabular}
-\caption{Precisie Naive Bayes Classifier getraind op filmrecensies}
-\label{tab:accuracy}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op filmrecensies}
+\label{tab:movie-movie}
 \end{minipage}%
 \hfill
 \begin{minipage}{0.48\textwidth}
@@ -86,125 +96,367 @@ Eerst trainen en testen we de Naive Bayes Classifier met filmrecensies. De train
 \multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{824} & \multicolumn{1}{l|}{175} \\ \cline{2-3} 
 \multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{410} & \multicolumn{1}{l|}{589} \\ \cline{2-3} 
 \end{tabular}
-\caption{Confusion matrix testset Naive Bayes Classifier, getraind met filmrecensies} 
-\label{tab:ompdiff} 
+\caption{Confusion matrix van de testset door de  Naive Bayes Classifier, getraind op filmrecensies} 
+\label{tab:cm-movie-movie} 
+\end{minipage}
+\end{table}
+
+Zoals men kan zien aan de resultaten zijn de prestaties goed. Een classificatieprecisie van 70\% voor een onbekende set met filmrecensies is een goede prestatie. Verder is het betrouwbaarheidsinterval heel klein, wat maakt dat we met 95\% kunnen zeggen dat de classificatie van filmrecensies door een Naive Baiyes Classifier, getraind op filmrecensies, met een precisie tussen 70\% en 71\% gebeurd. De confusion matrix geeft ons  ook een inzicht in wat er juist en fout geclassificeerd is. We zien dat de classifier overwegend beter positieve recensies kan identificeren dan negatieve.\\
+%
+Ten slotte wat we al kunnen afleiden uit de cijfers, waar we zien dat zowel de test- als trainingsset goed presteren, zien we aan de learning curve dat we geen over- of underfitting hebben. 
+
+\begin{figure}[h]%
+    \centering
+    \subfloat{{\includegraphics[width=5cm]{lc-movie-movie}}}%
+    \label{fig:lc-movie-movie}
+    \caption{Learning curve van de training van de Naive Bayes Classifier op filmrecensies}
+\end{figure}
+
+\subsection{Muziekrecensies als trainings- en testset}\label{Muziek als trainings- en testset}
+
+Nu trainen en testen we de Naive Bayes Classifier met muziekrecensie. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. Wederom werden deze samples random geselecteerd en is het volgende resultaat het gemiddelde van 30 runs.
+\newline
+\textbf{Standaard afwijking} = 0,0096\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,8262 ; 0,8226 ; 0,8299)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Trainingsset}} & 93,44\%           \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 82,62\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op muziekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{879} & \multicolumn{1}{l|}{120} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{227} & \multicolumn{1}{l|}{772} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset door de  Naive Bayes Classifier, getraind op muziekrecensies} 
+\end{minipage}
+\end{table}
+
+Hier zien we eveneens goede resultaten. Een classificatieprecisie van 82\% voor een onbekende set met muziekrecensies is een eveneens een goede prestatie. Wederom is het betrouwbaarheidsinterval heel klein, wat maakt dat we met 95\% kunnen zeggen dat de classificatie van muziekrecensies door een Naive Baiyes Classifier, getraind op muziekrecensies, met een precisie van 82\% gebeurd. De confusion matrix toont ons opnieuw dat de classifier beter om kan met positieve recensies.
+%
+Wederom geeft onderstaande learning curve uitsluiting van over- of underfitting .
+
+\begin{figure}[h]%
+    \centering
+    \subfloat{{\includegraphics[width=5cm]{lc-music-music}}}%
+    \label{fig:lc-music-music}
+    \caption{Learning curve van de training van de Naive Bayes Classifier op muziekrecensies}
+\end{figure}
+
+\subsection{Boekrecensies als trainings- en testset}\label{Boeken als trainings- en testset}
+
+Als laatste trainen en testen we de Naive Bayes Classifier met boekrecensies. De trainingsset bestaat uit 218 samples en de testset uit 74 samples. De samples zijn wederom random geselecteerd en het resultaat is het gemiddelde van 30 runs.
+
+\textbf{Standaard afwijking} = 0,0640\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,7176 ; 0,6932 ; 0,7419)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Trainingsset}} & 99,43\%           \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 71,76\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op boekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}            \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{31} & \multicolumn{1}{l|}{5} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{15} & \multicolumn{1}{l|}{21} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset door de  Naive Bayes Classifier, getraind op boekrecensies} 
 \end{minipage}
 \end{table}
 
 
+Hier zien we ook goede resultaten. Een classificatieprecisie van 72\% voor een onbekende set met boekecensies is een eveneens een goede prestatie. Hier zien we wel dat het betrouwbaarheidsinterval ruimer en is met 95\% zekerheid te zeggen, dat de classificatieprecisie zich tussen de 69\% en 74\% situeert, wat nog altijd acceptabel is. De confusion matrix toont ons opnieuw dat de classifier beter om kan met positieve recensies, al valt dit te nuanceren, aangezien we maar een hele klein pool hebben aan boekrecensies ten opzichte van de rest. Onderstaande learning curve sluit opnieuw over- en underfitting uit.\\
+\newpage
+\begin{figure}%
+    \centering
+    \subfloat{{\includegraphics[width=5cm]{lc-boek-boek}}}%
+    \label{fig:lc-boek-boek}
+    \caption{Learning curve van de training van de Naive Bayes Classifier op boekrecensies}
+\end{figure}
 
+Nu we de prestaties weten van de Naive Bayes classifier met als trainings- en testset hetzelfde onderwerp. Kunnen we eens kijken wat de prestaties zijn met de trainingsset en testset verschillend.  
 
-\subsection{Muziek als trainings- en testset}\label{Muziek als trainings- en testset}
+\section{Naive Bayes Classifier met een verschillend onderwerp voor trainings- en testset}\label{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset}
 
-Nu trainen en testen we de Naive Bayes Classifier met muziekrecensie. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. Wederom werden deze samples random geselecteerd en is het volgende resultaat het gemiddelde van 30 runs.
+In \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} zagen we al dat de classificatie met een Naive Bayes Classifier, waarbij trainings- en testset tot hetzelfde onderwerp behoren, goede resultaten oplevert. Nu gaan we kijken of dit ook het geval is wanneer trainingsset en testset verschillend zijn. Wederom alle samples worden random geselecteerd en de resultaten weerspiegelen telkens het gemiddelde van 30 runs.  
 
+\subsection{Filmrecensies als trainingsset}\label{Filmrecensies als trainingsset}
 
-\subsection{Boeken als trainings- en testset}\label{Boeken als trainings- en testset}
+Als eerste nemen we een getrainde Naive Bayes Classifier op filmrecensies en bekijken we de resultaten op een testset van muziek- en boekrecensies. De Naive Bayes Classifier is telkens getraind met 6000 samples.
 
-Als laatste trainen en testen we de Naive Bayes Classifier met boekrecensies. De trainingsset bestaat uit 6000 samples en de testset uit 2000 samples. De samples zijn wederom random geselecteerd en het resultaat is het gemiddelde van 30 runs.
+\subsubsection{Muziekrecensies als testset}\label{Muziekrecensies als testset-movie}
 
+De testset bestaat uit 2000 samples waarvan 1/2 positieve en 1/2 negatieve recensies.\\
 
-
-\section{Naive Bayes Classifier met verschillende onderwerp voor trainings- en testset}\label{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset}
-
-\subsection{Films als trainings- en testset}\label{Films als trainingsset}
-\subsubsection{Muziek als testset}\label{Muziek als testset}
-\subsubsection{Boeken als testset}\label{Boeken testset}
-\subsection{Muziek als trainings- en testset}\label{Muziek als trainingsset}
-\subsubsection{Films als testset}\label{Films als testset}
-\subsubsection{Boeken als testset}\label{Boeken testset}
-\subsection{Boeken als trainings- en testset}\label{Boeken als trainings- en testset}
-\subsubsection{Films als testset}\label{Films als testset}
-\subsubsection{Muziek als testset}\label{Muziek als testset}
-\subsubsectionf{Conclusie experiment}\label{Conclusie experiment}
-
-Als hoofddoel willen we te weten komen of het mogelijk is om met algemene technieken uit de machine learning goede classificatieresultaten kunnen behalen. Goede classificatieresultaten uit zich in de precisie waar de classifier met classificeert. In dit onderzoek gaat dit de metriek zijn waarop we bepalen of een classificatie goed of slecht verloopt.\\
-We gebruiken de eerder besproken classifiers, namelijk een Naive Bayes classifier en Decission tree als zelflerende algoritmen en trainen Naive bayes classifier telkens met een ander voorbewerkte dataset. De Decission tree trainen we enkel met een LSA voorbewerkte dataset. Als laatste analyseren de telkens de resultaten op basis van de testset en de voorbewerkingstechniek die gebruikt wordt op de dataset.
-
-\section{Resultaten}\label{Resultaten}
-
-Belangrijk om te melden dat volgende resultaten afkomstig zijn door de classifiers te trainen met een moviedataset van 8000 samples, random gekozen, waarvan 6000 trainsamples en 2000 testsamples en dit gemiddeld genomen over 10 runs.
-Merk op dat zowel de testset als trainigsset evenwichtig verdeeld zijn.  Dit wil zich dat precies de helft van de set positief is en de andere helft negatief.
-
-Verder wordt er telkens paarsgewijs getest. De testset is altijd hetzelfde voorbewerkt als de trainingsset van de classifier.
-
-Het eerste wat hier is weergegeven, zijn de resultaten van een Naive Bayes Classifier met als trainingsset filmrecensies en als testset film- , muziek en boekrecensies. 
-
-
-Wat meteen is dat er niet echt een beduidend verschil is tussen de pre-procestechnieken. Ook zien we in tabel 3.BLA dat de beste resultaten worden behaald wanneer de train- en testset van dezelfde soort zijn. \\
-
-Volgende classificatieresultaten komen voort uit de classificatie waarbij de train- en testresultaten telkens voorbewerkt zijn door alle stopwoorden en leestekens te verwijderen. Dan de sets om te vormen naar een tfidf-matrix en tenslotte LSA uit te voeren en ieder document te reduceren naar 2 features.
-%
-%resultaten lsa voor verschillende models TFIDF , verwijderen van stopwoorden, LSA 
+\textbf{Standaard afwijking} = 0,01467\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,6207 ; 0,6152 ; 0,6263)\\
+ 
 \begin{table}[h]
 \centering
-\begin{tabular}{|l|l|l|}
-\hline
-\textbf{Model}              &\textbf{Precisie Trainingsset}    &\textbf{Precisie Testset}    \\   \hline
-Decision Tree               & 99,77\%                          & 99,22\%                     \\  \hline
-Naive Bayes classifier      & 99,82\%                          & 51,35\%                     \\ \hline 
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 62,07\%           \\ \hline
 \end{tabular}
-\caption{Resultaten van de classifiers met als trainingsset en testset filmrecensies, beide voorbewerkt door LSA }
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op filmrecensies, getest op muziekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{655} & \multicolumn{1}{l|}{345} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{413} & \multicolumn{1}{l|}{586} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset ,bestaande uit muziekrecensies, door de  Naive Bayes Classifier, getraind op filmrecensies} 
+\end{minipage}
 \end{table}
 
-Deze resultaten zijn zeer interessant. Er is duidelijk een groot verschil tussen de precisie van de testset voor de Decision Tree en de Naive Bayes classifier. De Naive Bayes classifier kan totaal niets opmaken uit de LSA features die een document voorstellen. Zeker als je weet als men random zou sorteren de precisie 50\%  zou bedragen. Aan de andere hand zijn de resultaten van de decision tree in combinatie met de  lsa features verrassend goed. Met bij een perfecte classificatie kan de decision tree heel goed het onderscheidt maken tussen positieve en negatieve filmrecensies. Wat een veel betere prestatie is, dan de Naive bayes classifier waarbij men hoogste 64,70\% haalde.
+De prestatie is minder dan de prestaties in \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset}, maar 62\% is zeker aanvaardbaar. Ook het betrouwbaarheidinterval is klein wat wil zeggen dat we  met 95\% zekerheid kunnen zeggen dat een Naive Bayes Classifier getraind op filmrecensies, muziekrecensies net 61\%-62\% precisie kan classificeren.  
 
-Dit resultaat kan men niet negeren er vergt een dieper onderzoek. Wat we  voorlopig weten op basis van de resultaten is:
-%
-\begin{itemize}
-  \item De Naive Bayes Classifier heeft in het algmeen een slechte classificatieprestatie, zowel wanneer train- en testset van dezelfde soort of verschillend zijn.
-  \item De classificatie verbetert niet beduidend wanneer men een andere pre-processing techniek gebruikt.
-  \item Classificatie aan de hand van LSA features in combinatie met een decision tree classifier levert goede resultaten op wanneer train- en testset van dezelfde soort zijn.
-\end{itemize}
-\\
-Nu we dit weten, bekijken we de combinatie van LSA en de decision tree classifier wat meer in detail. In de uitdieping gaan we bekijken hoe de classificatieresultaten zich verhouden wanneer men een zelfde of verschillende train- en testset gebruikt. Verder gaan we deze resultaten met die van de Naive Bayes Classifier in dezelfde omstandigheden. Als laatste proberen we classificatieresultaten van de decision tree grafisch in kaart te brengen en te kijken waarom het niet of wel goed presteert.   
+\subsubsection{Boekrecensies als testset}\label{Boekrecensies testset-movie}
+
+De testset bestaat uit 146 samples waarvan 1/2 positief en 1/2 negatief.
 
 
-\section{Uitdieping onderzoek}\label{Deel 2}
+\textbf{Standaard afwijking} = 0,03714\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,6586 ; 0,6446 ; 0,6728)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 65,87\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op filmrecensies, getest op boekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{54} & \multicolumn{1}{l|}{18} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{31} & \multicolumn{1}{l|}{41} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset, bestaande uit boekrecensies, door de  Naive Bayes Classifier, getraind op filmrecensies} 
+\end{minipage}
+\end{table}
 
-Onderstaande tabel geeft alle classicatieresultaten weer, waarbij de kolommen het type van de trainingsset voorstelt en de rijen de testsets.
+De prestatie is in dezelfde lijn als de resultaten bij muziek. 
+
+\subsection{Muziekrecensies als trainingsset}\label{Muziekrecensies als trainingsset}
+
+Als tweede nemen we een getrainde Naive Bayes Classifier op muziekrecensies en bekijken we de resultaten op een testset van film- en boekrecensies. De Naive Bayes Classifier is telkens getraind met 6000 samples.
+
+\subsubsection{Filmrecensies als testset}\label{Filmrecensies als testset}
+
+De testset bestaat uit 2000 samples waarvan 1/2 positief en 1/2 negatief.\\
+
+\textbf{Standaard afwijking} = 0,01146\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,6107 ; 0,6063 ; 0,6150)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 61,07\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op muziekrecensies, getest op filmrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{691} & \multicolumn{1}{l|}{308} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{469} & \multicolumn{1}{l|}{530} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset ,bestaande uit filmrecensies, door de  Naive Bayes Classifier, getraind op muziekrecensies} 
+\end{minipage}
+\end{table}
+
+\subsubsection{Boekrecensies als testset}\label{Boekrecensies als testset}
+
+De testset bestaat uit 146 samples waarvan 1/2 positief en 1/2 negatief.\\
+
+\textbf{Standaard afwijking} = 0,03519\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,6146 ; 0,6012 ; 0,6280)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 61,46\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op muziekrecensies, getest op boekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{29} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{26} & \multicolumn{1}{l|}{46} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset, bestaande uit boekrecensies, door de  Naive Bayes Classifier, getraind op muziekrecensies} 
+\end{minipage}
+\end{table}
+
+
+Zowel de Boek- als filmrecensies scoren een gelijkaardig classificatieprecisie die rond de 60\% ligt.
+\subsection{Boekrecensies als trainingsset}\label{Boekrecensies als trainingsset}
+
+Als laatste nemen we een getrainde Naive Bayes Classifier op boekrecensies en bekijken we de resultaten op een testset van film- en muziekrecensies. De Naive Bayes Classifier is telkens getraind met 276 samples.
+
+
+\subsubsection{Filmrecensies als testset}\label{Filmrecensies als testset}
+
+De testset bestaat uit 2000 samples waarvan 1/2 positief en 1/2 negatief.
+\newline
+\textbf{Standaard afwijking} = 0,01812\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,5625 ; 0,5556 ; 0,5693)\\
+ 
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 56,25\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op boekrecensies, getest op filmrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{539} & \multicolumn{1}{l|}{460} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{414} & \multicolumn{1}{l|}{585} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset ,bestaande uit filmrecensies, door de  Naive Bayes Classifier, getraind op boekrecensies} 
+\end{minipage}
+\end{table}
+
+\subsubsection{Muziekrecensies als testset}\label{Muziekrecensies als testset}
+
+De testset bestaat uit 2000 samples waarvan 1/2 positief en 1/2 negatief.
+\newline
+\textbf{Standaard afwijking} = 0,01448\\
+\textbf{95\% betrouwbaarheidsinterval} = (0,5647 ; 0,5592, 0,5702)\\
+\newpage
+\begin{table}[h]
+\centering
+\setlength\tabcolsep{4pt}
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{l|l|}
+\cline{2-2}
+                                            & \textbf{Precisie} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Testset}}      & 56,47\%           \\ \hline
+\end{tabular}
+\caption{Classificatieprecisie Naive Bayes Classifier, getraind op boekrecensies, getest op muziekrecensies}
+\end{minipage}%
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{604} & \multicolumn{1}{l|}{395} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{475} & \multicolumn{1}{l|}{524} \\ \cline{2-3} 
+\end{tabular}
+\caption{Confusion matrix van de testset, bestaande uit muziekrecensies, door de  Naive Bayes Classifier, getraind op boekrecensies} 
+\end{minipage}
+\end{table}
+
+
+De resultaten op muziek- en filmresultaten zijn met 56\% minder als de vorige in \ref{Filmrecensies als trainingsset} en \ref{Muziekrecensies als testset}, waar we rond de 60\% liggen.
+
+\section{Conclusie experiment}\label{Conclusie experiment}
+
+Nu we alle mogelijke combinaties van training en testing hebben uitgevoerd is het interessant om alle resultaten naast elkaar te leggen. Onderstaande tabel geeft nog eens alle classificatiescores in een kruistabel weer.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{l|c|c|c|}
+\cline{2-4}
+                                      & \textbf{Films} & \textbf{Muziek} & \textbf{Boeken} \\ \hline
+\multicolumn{1}{|l|}{\textbf{Films}} & 70,66\%         & 61,00\%         & 56,25\%         \\ \hline
+\multicolumn{1}{|l|}{\textbf{Muziek}} & 62,07\%         & 82,62\%         & 56,47\%         \\ \hline
+\multicolumn{1}{|l|}{\textbf{Boeken}} & 65,87\%         & 61,46\%         & 71,76\%         \\ \hline
+\end{tabular}
+\label{tab:alles}
+\caption{Kruistabel van alle classificatieresultaten uit \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset} en \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} met de kolommen het onderwerp van de trainingsset en de rijen het onderwerp van de testset.} 
+\end{table}
+
+
+Op basis van de tabel kunnen we zeggen dat het trainen en testen met het zelfde onderwerp het beste resultaat geeft. Verder presteren muziek en films goed op een vreemde testset.  Boeken presteren hier minder. Dit kan te wijten zijn aan de kleinere dataset, waardoor er een bias of voorkeur ontstaat op bijvoorbeeld auteurnamen. Die bias op auteurnamen kan helpen bij het classificeren van boeken om positieve of negatieve recensies te herkennen, maar gaat niet helpen in de classificatie van een set over een ander onderwerp. Ook de prestatie van muziek springt in het oog met meer dan 10\% verschil tussen de andere classifiers met de trainingsset en testset over hetzelfde onderwerp. Maar het daalt wel 20\% wanneer het een vreemde set moet classificeren. Dit duidt eveneens op een bias of verkeur op een bepaald feature die specifiek is voor muziek waardoor het classificeren van muziekrecensies veel beter gaat. Nog een interessant inzicht is dat filmrecensies een goede trainingsset blijken te zijn voor boekrecensies.  Ondanks de kleine dataset van boeken, kunnen we toch aan de hand van het betrouwbaarheidsinterval dat met 95\% zekerheid een getrainde Naive Bayes Classifier op filmrecensies, boekrecensies met een precisie tussen de 64\% en 67\% zal classificeren.\\
+\newpage
+Nog een andere manier om de resultaten bij elkaar te leggen, is het bekijken van de confusion matrixen. We kunnen hier een percentueel gemiddelde van nemen en kijken hoe gemiddeld de classificatie verloopt bij \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} waar de sets over hetzelfde onderwerp zijn en \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset}, waar ze verschillend zijn.
 
 \begin{table}[h]
 \centering
 \setlength\tabcolsep{4pt}
 \begin{minipage}{0.48\textwidth}
 \centering
-\begin{tabular}{|l|l|l|l|}
-\hline
-Testset & Movies  & Muziek  & Boeken  \\  \hline
-Movies  & 98,90\% & 44,01\% & 47,56\% \\  \hline
-Muziek  & 57,60\% & 98,67\% & 45,93\% \\ \hline
-Boeken  & 42,83\% & 51,89\% & 94,32\% \\ \hline
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{43\%} & \multicolumn{1}{l|}{6\%} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{18\%} & \multicolumn{1}{l|}{31\%} \\ \cline{2-3} 
 \end{tabular}
-\caption{Resultaten van de classificatie met een Decision Tree, getrained op LSA features met verschillende soorten trainings- en testsets}
-\label{tab:accuracy}
+\caption{Gemiddelde confusion matrix in percent voor een Naive Bayes Classifier, waar trainings- en testset over hetzelfde onderwerp gaan}
 \end{minipage}%
 \hfill
 \begin{minipage}{0.48\textwidth}
 \centering
-\begin{tabular}{|l|l|l|l|}
-\hline
-Testset & Movies   & Muziek & Boeken         \\ \hline
-Movies  & 0.6215   &        &                \\ \hline
-Muziek  & 53,165\% &        &                \\ \hline
-Boeken  & 53,81\%  &        & 0.693243243243 \\ \hline
+\begin{tabular}{lll}
+                                 & \textbf{P}               & \textbf{N}               \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{P'}} & \multicolumn{1}{l|}{32\%} & \multicolumn{1}{l|}{18\%} \\ \cline{2-3} 
+\multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{21\%} & \multicolumn{1}{l|}{29\%} \\ \cline{2-3} 
 \end{tabular}
- \caption{Resultaten van de classificatie van een Naive Bayes Classifier, getrained met verschillende soorten trainings- en testsets volgens Bag 0f Words} 
- \label{tab:ompdiff} 
+\caption{Gemiddelde confusion matrix in percent voor een Naive Bayes Classifier, waar trainings- en testset over een verschillend onderwerp gaan} 
 \end{minipage}
 \end{table}
 
-Als we naar de resultaten kijken zien we dat van alle combinaties de classificatieresultaten waarbij de trainingsset en testset hetzelfde zijn, we de beste resultaten verkrijgen.
-Verder valt het opnieuw op dat LSA in combinatie met een decision tree uitermate goed presteert, zowel voor de film- als de boek- en muziekrecensies.
-De classificaties van testsets, waarbij de trainingsset een ander onderwerp had, presteren voor beide classifiers slecht.
 
-
-\begin{figure}%
-    \centering
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Boek/boek-boek-1} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Boek/boek-boek-2} }}%
-    \subfloat{{\includegraphics[width=5cm]{resultaten/Trainingsset Boek/Boek/boek-boek-3} }}%
-    \caption{Plot van resultaten van de classificatie met een decision Tree, getrained op LSA features met als train- en testset boekrecensies}
-    \label{fig:example}%
-\end{figure}
-
+Voor beide matrixen, ziet men duidelijk dat positieve recensies beter ge\"identificeerd worden. Na het herbekijken van de datasets, is een mogelijk verklaring dat mensen zich bij een positieve recensie zich veel expressiever en uitgebreider uitdrukken dan bij een negatieve recensie. Hierdoor krijgt de classifier meer informatie over de features van een positief document waardoor het beter het concept ``Positief'' kan bepalen 

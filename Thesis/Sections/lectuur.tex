@@ -78,7 +78,7 @@ Bigrams Collocaties is een techniek waarbij men op zoek gaat naar paren van woor
 
 \subsubsection{Chi-Kwadraattoets}\label{Chi-Kwadraattoest}
 
-De Chi-Kwadraattoets is een techniek uit de statistiek die gebruikt  kan worden als een onafhankelijkheidstoets voor waarnemingen. De reden waarom we deze toets voor Bigram collocatie gebruiken is dat de toest parametervrij is. Wat wil zeggen dat er bij de start van de chi-kwadraattoets geen aanname over de populatie of het gemiddelde wordt verwacht. In deze sectie leggen we aan de hand van een voorbeeld uit hoe de chi-kwadraattoets juist deze afhankelijkheid bepaald.\\
+De Chi-Kwadraattoets is een techniek uit de statistiek die gebruikt  kan worden als een onafhankelijkheidstoets voor waarnemingen. De reden waarom we deze toets voor Bigram collocatie gebruiken is dat de toets parametervrij is. Wat wil zeggen dat er bij de start van de chi-kwadraattoets geen aanname over de populatie of het gemiddelde wordt verwacht. In deze sectie leggen we aan de hand van een voorbeeld uit hoe de chi-kwadraattoets juist deze afhankelijkheid bepaald.\\
 %
 Neem als voorbeeld het bigram \textit{(heel , goed)}. Zoals bij iedere statistische test neemt men eerst een nulhypothese aan. Voor de chi-kwadraattoets is dit ook het geval. De toets neemt als nulhypothese aan dat beide woorden onafhankelijk van elkaar zijn en elkaars voorkomen niet be\"invloeden. Men vergelijkt de waargenomen frequenties van de woorden met de verwachte frequenties wanneer de woorden onafhankelijk zouden zijn. Als deze waarden te veel verschillen kan men de nulhypothese verwerpen en de alternatieve hypothese aannemen, namelijk dat de woorden afhankelijk zijn van elkaar. \\
 \newline
@@ -120,7 +120,7 @@ Toegepast op het voorbeeld geeft dit voor het bigram ``(heel , goed)'':
 
 \[{E_11} = \frac{9+3632}{N}+\frac{9+7893}{N} * N \approx 0,0085 \]
 \newline
-Als laatste onderdeel berekenen we de ${\chi}^2$-score, bepalen we het aantal vrijheidsgraden en zoeken we de ${\chi}^2$ distributie op met de berekende vrijheidsgraad. Stel dat het vooropgestelde betrouwbaardheidsinterval 95\% bedraagt dan kunnen we de kritische waarde bepalen voor significantielevel $\alpha$ = 0,005.
+Als laatste onderdeel berekenen we de ${\chi}^2$-score, bepalen we het aantal vrijheidsgraden en zoeken we de ${\chi}^2$ distributie op met de berekende vrijheidsgraad. Stel dat het vooropgestelde betrouwbaarheidsinterval 95\% bedraagt dan kunnen we de kritische waarde bepalen voor significantielevel $\alpha$ = 0,005.
 Als de berekende ${\chi}^2$-score in het verwerpingsgebied ligt, kan de nulhypothese verworpen worden en kan het bigram beschouwd worden als afhankelijk.\\
 %
 Onderstaande afbeelding illustreert hoe de verwerping of aanvaarding van een nulhypothese juist in zijn werking gaat
@@ -190,7 +190,7 @@ De reductie van de dimensie gebeurt aan de hand van volgend principe
 \] 
 \newline
 U is de unitaire matrix waarbij men $u_1, u_2, ... , u_n$ de linker singuliere vectors noemt. Deze stellen een document met zijn features voor. $V^T$ is de geconjugeerde getransponeerde matrix van V. $v_1, v_2, ... , v_n$ noemt men de rechter singuliere vectors en stellen de woorden met hun features over alle documenten voor. $\Sigma$ is een diagonaal matrix met singuliere waarden $\sigma_1,\sigma_2,..,\sigma_n$'  op de diagonaal. De reductie van een terms-documents matrix naar een dimensie van $K$ gebeurt door de hoogste $K$ singuliere waarden te nemen in $\Sigma$ met de overeenkomstige singuliere vectoren uit $U$ en $V$.    
-Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Laat dit toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat SVD toepassen een zeer nuttige eerste stap is bij text mining (\cite{maas2011learning}), omdat men nieuwe meer effici\"ente features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen dienen als input voor het zelflerende algoritme.
+Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Dit laat toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat SVD toepassen een zeer nuttige eerste stap is bij text mining (\cite{maas2011learning}), omdat men nieuwe meer effici\"ente features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen dienen als input voor het zelflerende algoritme.
 
 \section{Leermethode}\label{Leermethode}
 
@@ -243,21 +243,21 @@ In het algemeen zijn beslissingsbomen het best gepast voor problemen met volgend
 
 \begin{itemize}
   \item{Inputwaarden worden voorgesteld door attribuut-waardeparen.}
-  \item{Zowel de trainingsdata als de testdata mag errors bevatten}
+  \item{Zowel de trainingsdata als de testdata mogen errors bevatten}
   \item{Sommige elementen van de trainingsset mogen attributen missen}
 \end{itemize}
 
-Al deze karakteristieken zijn gunstig voor het experiment. In \ref{Voorstelling dataset} zagen we dat de data kan voorgesteld worden door de vector space methode. Een document kunnen we hier beschouwen als input met de woorden en hun aantal voorkomens als het de attribuut-waardeparen. Verder is het bij het verzamelen van data nooit uitgesloten dat de data errors bevat en moet de classifier hier bestand tegen zijn.
+Al deze karakteristieken zijn gunstig voor het experiment. In \ref{Voorstelling dataset} zagen we dat de data kan voorgesteld worden door de vector space methode. Een document kunnen we hier beschouwen als input met woorden en hun aantal voorkomens als het de attribuut-waardeparen. Verder is het bij het verzamelen van data nooit uitgesloten dat de data errors bevat en moet de classifier hier bestand tegen zijn.
 
 \section{Bias en Variantie}\label{Bias en Variantie}
 
 Wanneer we bepaalde modellen onderzoeken is het belangrijk om te weten waarom een bepaald model niet goed presteert. De slechte prestatie kan door verschillende redenen worden veroorzaakt (\cite{mitchell1997machine}). Twee mogelijke oorzaken zijn modellen met een hoge bias en een hoge variantie.\\
 %
 %
-Wanneer we een model trainen zoals bijvoorbeeld een Decision tree uit \ref{Decision Tree}, stelt het model aan de hand van de trainingsdata een hypothese op en aan de hand van de hypothese gaat het model dan voorspelling maken over de ongekende data. Als we nu meermaal een nieuwe analyse uitvoeren met telkens een nieuw model met een andere trainingsset, maar over hetzelfde concept en we bekijken voor elk getraind model de voorspelling voor telkens dezelfde testset. Dan meet Bias hoe ver in het algemeen de getrainde modellen hun voorspelling afwijken van de correcte waarden. Wanneer de voorspellingen sterk afwijken van de correcte waarden, spreekt men van hoge bias.  De variantie duidt op de spreiding van de voorspellingen. Wanneer er een groot verschil is tussen de voorspellingen van de modellen voor een bepaald punt, en dit is gemiddeld ook zo voor de andere punten, dan spreekt men van een hoge variantie.\\
+Wanneer we een model trainen zoals bijvoorbeeld een Decision tree uit \ref{Decision Tree}, stelt het model aan de hand van de trainingsdata een hypothese op en aan de hand van de hypothese gaat het model dan voorspelling maken over de ongekende data. Als we nu meermaal een nieuwe analyse uitvoeren met telkens een nieuw model met een andere trainingsset, maar over hetzelfde concept en we bekijken voor elk getraind model de voorspelling voor telkens dezelfde testset, dan meet bias hoe ver in het algemeen de getrainde modellen hun voorspelling afwijken van de correcte waarden. Wanneer de voorspellingen sterk afwijken van de correcte waarden, spreekt men van hoge bias.  De variantie duidt op de spreiding van de voorspellingen. Wanneer er een groot verschil is tussen de voorspellingen van de modellen voor een bepaald punt, en dit is gemiddeld ook zo voor de andere punten, dan spreekt men van een hoge variantie.\\
 %
 Onderstaande afbeelding geeft een grafische weergave hoe variantie en bias zich tegenover elkaar verhouden en wat voor invloed het heeft.
-De afbeelding stelt een bulls-eye diagram voor waarbij de gele punten de hypotheses van de getrainde modellen voorstellen. Hoe dichter de gele punten bij het centrum van de roos liggen, hoe beter en correcter de voorspellingen. Wanneer de trainingsdata bijvoorbeeld goed verdeeld is, gaan de gele punten dicht bij de roos liggen. Wat duidt op een lage variantie en lage bias. In tegenstelling tot wanneer de dataset vol met outliers en afwijkende waarden gaat zitten. De punten gaan dan heel verspreid en ver van de roos liggen. Wat duidt op een hoge variantie en hoge bias.\\
+De afbeelding stelt een bulls-eye diagram voor waarbij de gele punten de hypotheses van de getrainde modellen voorstellen. Hoe dichter de gele punten bij het centrum van de roos liggen, hoe beter en correcter de voorspellingen. Wanneer de trainingsdata bijvoorbeeld goed verdeeld is, gaan de gele punten dicht bij de roos liggen. Wat duidt op een lage variantie en lage bias. In tegenstelling tot wanneer de dataset vol met outliers en afwijkende waarden gaat zitten. De punten gaan dan heel verspreid en ver van de roos liggen, wat duidt op een hoge variantie en hoge bias.\\
 %
 \begin{center}
   \includegraphics[width=10cm]{bulls-eye}
@@ -282,8 +282,8 @@ Wat neerkomt op
 
 \[Err(X)= Bias^2 + Variantie \]
 %
-Hier zien we wederom dat er een keuze moeten maken tussen het minimalisatie van bias en de minimalisatie van variantie.
-Onderstaande afbeelding illustreert nogmaals het verband tussen bias en variantie en hoe deze zich bijdraagt tot de totale error.
+Hier zien we wederom dat er een keuze moet gemaakt worden tussen de minimalisatie van bias en de minimalisatie van variantie.
+Onderstaande afbeelding illustreert nogmaals het verband tussen bias en variantie en hoe deze bijdraagt tot de totale error.
 \begin{center}
   \includegraphics[width=10cm]{biasvariance_tradeoff}
   \captionof{figure}{Bijdrage Bias en Variantie aan totale error (Bron: \url{http://scott.fortmann-roe.com/docs/docs/BiasVariance/biasvariance.png})}
@@ -306,6 +306,6 @@ Eerder zeiden we al wanneer men spreekt of bias en variantie, men eigelijk bezig
 ``\textit{Given a hypothesis space H , a hypothesis h E H is said to overfit the training data if there exists some alternative hypothesis h' E H, such that h has smaller error than h' over the training examples, but h' has a smaller error than h over the entire distribution of instances.}''
 \newline
 \newline
-Wat eigenlijk wil zeggen dat hypothese H te goed werkt op zijn eigen trainingsset, maar als het andere waarden begint te classificeren is de prestatie veel minder. Bij underfitting is het juist omgekeerd. De prestatie is lager op de trainingsset dan op een grote nieuwe dataset. Het te goed presteren van een trainingsset, wil eigelijk zeggen dat het model te precies, te complex is afgesteld. Aan de hand van figuur \ref{fig:biasvariance}, kunnen we afleiden dat dit duidt op een hoge variantie. Gelijkaardig met underfitting, wanneer het getrainde model slecht presteert met zijn eigen trainingsset, wil dit zeggen dat het model te eenvoudig, niet complex genoeg is. Wat duidt op een hoge bias (zie figuur \ref{fig:biasvariance}).
+Wat eigenlijk wil zeggen dat hypothese H te goed werkt op zijn eigen trainingsset, maar als het andere waarden begint te classificeren de prestatie veel minder is. Bij underfitting is het juist omgekeerd. De prestatie is lager op de trainingsset dan op een grote nieuwe dataset. Het te goed presteren van een trainingsset, wil eigelijk zeggen dat het model te precies, te complex is afgesteld. Aan de hand van figuur \ref{fig:biasvariance}, kunnen we afleiden dat dit duidt op een hoge variantie. Gelijkaardig met underfitting, wanneer het getrainde model slecht presteert met zijn eigen trainingsset, wil dit zeggen dat het model te eenvoudig, niet complex genoeg is. Wat duidt op een hoge bias (zie figuur \ref{fig:biasvariance}).
 %
 Het verband nog eens kort samengevat. Wanneer men spreekt van underfitting, spreekt men van hoge bias. Wanneer men spreekt van overfitting, spreekt men van hoge variantie.

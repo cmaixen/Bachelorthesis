@@ -99,7 +99,7 @@ Als we voor het voorbeeld \textit{(heel , goed)} bovenstaande gegevens in een kr
 \hline
           & w1= heel                                                         & w1 $\neq$ heel                                                                \\ \hline
 w2 = goed & \begin{tabular}[c]{@{}c@{}}9\\ (heel goed)\end{tabular}          & \begin{tabular}[c]{@{}r@{}}7893\\ (bv. niet goed)\end{tabular}           \\ \hline
-w2 ≠ goed & \begin{tabular}[c]{@{}c@{}}3632\\ (bv. heel slecht)\end{tabular} & \begin{tabular}[c]{@{}r@{}}13498000\\ (bv. boeiende thesis)\end{tabular} \\ \hline
+w2 $\neq$ goed & \begin{tabular}[c]{@{}c@{}}3632\\ (bv. heel slecht)\end{tabular} & \begin{tabular}[c]{@{}r@{}}13498000\\ (bv. boeiende thesis)\end{tabular} \\ \hline
 \end{tabular}
 \end{table}
 \newline
@@ -223,7 +223,7 @@ Aan de hand van het Bayes theorema kunnen we dit herschrijven als
 %
 Samengevat is de Naive Bayes Classifier een goede eerste keuze als leermethode aangezien zijn goede algemene prestatie (\cite{Michie94machinelearning}). Voor het maken van voorspelling maakt het gebruik van probabiliteit, gebaseerde op de trainingsset en waar het aanneemt dat ieder feature onafhankelijk is tot de outputwaarde. Samengevat kunnen we dit schrijven als
 
- \[y_{NBres} = \underset{y_i \in Y}{\arg\max} P(x_{i})\prod\limits_{i} P(x_{i}|y_{i}) \]
+ \[y_{NBres} = \underset{y_i \in Y}{\arg\max} P(y_{i})\prod\limits_{i} P(x_{i}|y_{i}) \]
 %
 Ten slotte stellen we de verzameling van al deze probabiliteiten samen als de hypothese van de Naive Bayes Classifier.
 

@@ -17,18 +17,25 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: sections/Thesisbib.bib
-Repeated entry---line 175 of file sections/Thesisbib.bib
+Repeated entry---line 296 of file sections/Thesisbib.bib
  : @misc{
  :       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 181 of file sections/Thesisbib.bib
+Repeated entry---line 302 of file sections/Thesisbib.bib
  : @misc{
  :       ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 187 of file sections/Thesisbib.bib
+Repeated entry---line 308 of file sections/Thesisbib.bib
  : @misc{
  :       ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 314 of file sections/Thesisbib.bib
+ : @article{
+ :          ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "altoglou2010study"
+Warning--I didn't find a database entry for "edersen2001decision"
+Warning--I didn't find a database entry for "maas2011learning"
 apacite.bst [2012/02/25 v6.01 APA bibliography style]
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5189 of file apacite.bst
@@ -52,45 +59,46 @@ Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersin
 while executing---line 5227 of file apacite.bst
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5227 of file apacite.bst
-You've used 19 entries,
+Warning--`others' not consistent with 6th ed. of the APA Manual
+You've used 32 entries,
             6735 wiz_defined-function locations,
-            1348 strings with 13508 characters,
-and the built_in function-call counts, 30066 in all, are:
-= -- 3795
-> -- 245
-< -- 1187
-+ -- 1234
-- -- 32
-* -- 1765
-:= -- 5007
-add.period$ -- 81
-call.type$ -- 19
-change.case$ -- 256
+            1425 strings with 16647 characters,
+and the built_in function-call counts, 60481 in all, are:
+= -- 7832
+> -- 531
+< -- 2570
++ -- 2669
+- -- 61
+* -- 3604
+:= -- 10163
+add.period$ -- 150
+call.type$ -- 32
+change.case$ -- 504
 chr.to.int$ -- 0
-cite$ -- 38
-duplicate$ -- 833
-empty$ -- 1424
-format.name$ -- 398
-if$ -- 6069
+cite$ -- 64
+duplicate$ -- 1603
+empty$ -- 2510
+format.name$ -- 822
+if$ -- 12005
 int.to.chr$ -- 0
-int.to.str$ -- 38
+int.to.str$ -- 68
 missing$ -- 0
-newline$ -- 448
-num.names$ -- 128
-pop$ -- 909
+newline$ -- 786
+num.names$ -- 232
+pop$ -- 1565
 preamble$ -- 1
-purify$ -- 68
+purify$ -- 122
 quote$ -- 0
-skip$ -- 1863
+skip$ -- 3901
 stack$ -- 0
-substring$ -- 1394
-swap$ -- 450
-text.length$ -- 45
+substring$ -- 3037
+swap$ -- 909
+text.length$ -- 128
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 1656
-warning$ -- 0
-while$ -- 138
+type$ -- 3336
+warning$ -- 1
+while$ -- 290
 width$ -- 0
-write$ -- 544
-(There were 14 error messages)
+write$ -- 984
+(There were 15 error messages)

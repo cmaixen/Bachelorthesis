@@ -26,6 +26,40 @@ Bullinaria, J\BPBI A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Furnas%
+\ \protect \BOthers {.}}{%
+Furnas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {1988}}%
+}]{%
+furnas1988information}
+\APACinsertmetastar {%
+furnas1988information}%
+\begin{APACrefauthors}%
+Furnas, G\BPBI W.%
+, Deerwester, S.%
+, Dumais, S\BPBI T.%
+, Landauer, T\BPBI K.%
+, Harshman, R\BPBI A.%
+, Streeter, L\BPBI A.%
+\BCBL {}\ \BBA {} Lochbaum, K\BPBI E.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{1988}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Information retrieval using a singular value
+  decomposition model of latent semantic structure} {Information retrieval
+  using a singular value decomposition model of latent semantic
+  structure}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 11th annual international ACM SIGIR
+  conference on Research and development in information retrieval} {Proceedings
+  of the 11th annual international acm sigir conference on research and
+  development in information retrieval}\ (\BPGS\ 465--480).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 \APACcitebtitle {Goodness-of Fit Test, A Nonparametric Test}}{%
 \APACcitebtitle {Goodness-of Fit Test, A Nonparametric Test}}{%
 {\protect \APACyear {{\protect \bibnodate {}}}}%
@@ -70,6 +104,35 @@ Hastie, T.%
   statistical learning}\ (\BVOL~2)\ (\BNUM~1).
 \newblock
 \APACaddressPublisher{}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Hu%
+\ \BBA {} Liu%
+}{%
+Hu%
+\ \BBA {} Liu%
+}{%
+{\protect \APACyear {2004}}%
+}]{%
+hu2004mining}
+\APACinsertmetastar {%
+hu2004mining}%
+\begin{APACrefauthors}%
+Hu, M.%
+\BCBT {}\ \BBA {} Liu, B.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2004}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Mining and summarizing customer reviews} {Mining and
+  summarizing customer reviews}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the tenth ACM SIGKDD international
+  conference on Knowledge discovery and data mining} {Proceedings of the tenth
+  acm sigkdd international conference on knowledge discovery and data mining}\
+  (\BPGS\ 168--177).
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -179,10 +242,10 @@ Maas%
 Maas%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2011}}%
-}]{%
-maas2011learning}
+{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
+maas2011learnin}
 \APACinsertmetastar {%
-maas2011learning}%
+maas2011learnin}%
 \begin{APACrefauthors}%
 Maas, A\BPBI L.%
 , Daly, R\BPBI E.%
@@ -193,7 +256,7 @@ Maas, A\BPBI L.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2011}{}{}.
+\APACrefYearMonthDay{2011{\protect \BCnt {1}}}{}{}.
 \newblock
 {\BBOQ}\APACrefatitle {Learning word vectors for sentiment analysis} {Learning
   word vectors for sentiment analysis}.{\BBCQ}
@@ -203,6 +266,43 @@ Maas, A\BPBI L.%
   1} {Proceedings of the 49th annual meeting of the association for
   computational linguistics: Human language technologies-volume 1}\ (\BPGS\
   142--150).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Maas%
+\ \protect \BOthers {.}}{%
+Maas%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2011}}%
+{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+maas-EtAl:2011:ACL-HLT2011}
+\APACinsertmetastar {%
+maas-EtAl:2011:ACL-HLT2011}%
+\begin{APACrefauthors}%
+Maas, A\BPBI L.%
+, Daly, R\BPBI E.%
+, Pham, P\BPBI T.%
+, Huang, D.%
+, Ng, A\BPBI Y.%
+\BCBL {}\ \BBA {} Potts, C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011{\protect \BCnt {2}}}{June}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Learning Word Vectors for Sentiment Analysis} {Learning
+  word vectors for sentiment analysis}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 49th Annual Meeting of the
+  Association for Computational Linguistics: Human Language Technologies}
+  {Proceedings of the 49th annual meeting of the association for computational
+  linguistics: Human language technologies}\ (\BPGS\ 142--150).
+\newblock
+\APACaddressPublisher{Portland, Oregon, USA}{Association for Computational
+  Linguistics}.
+\newblock
+\begin{APACrefURL} \url{http://www.aclweb.org/anthology/P11-1015}
+  \end{APACrefURL}
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -282,6 +382,31 @@ Mantrach~Amin, H\BPBI B\BPBI M\BPBI S., Nicolas~Vanzeebroeck.%
   {\url{https://ai.vub.ac.be/sites/default/files/textmining2011.pdf}}.
 \newblock
 \APACrefnote{Accessed: 2014-15-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Martineau%
+\ \BBA {} Finin%
+}{%
+Martineau%
+\ \BBA {} Finin%
+}{%
+{\protect \APACyear {2009}}%
+}]{%
+martineau2009delta}
+\APACinsertmetastar {%
+martineau2009delta}%
+\begin{APACrefauthors}%
+Martineau, J.%
+\BCBT {}\ \BBA {} Finin, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Delta TFIDF: An Improved Feature Space for Sentiment
+  Analysis.} {Delta tfidf: An improved feature space for sentiment
+  analysis.}{\BBCQ}.
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -380,6 +505,36 @@ Ng, A.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Paltoglou%
+\ \BBA {} Thelwall%
+}{%
+Paltoglou%
+\ \BBA {} Thelwall%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+paltoglou2010study}
+\APACinsertmetastar {%
+paltoglou2010study}%
+\begin{APACrefauthors}%
+Paltoglou, G.%
+\BCBT {}\ \BBA {} Thelwall, M.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A study of information retrieval weighting schemes for
+  sentiment analysis} {A study of information retrieval weighting schemes for
+  sentiment analysis}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the 48th Annual Meeting of the
+  Association for Computational Linguistics} {Proceedings of the 48th annual
+  meeting of the association for computational linguistics}\ (\BPGS\
+  1386--1395).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Pang%
 \ \BBA {} Lee%
 }{%
@@ -404,6 +559,65 @@ Pang, B.%
 \newblock
 \APACjournalVolNumPages{Foundations and trends in information
   retrieval}{2}{1-2}{1--135}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pang%
+, Lee%
+\BCBL {}\ \BBA {} Vaithyanathan%
+}{%
+Pang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2002}}%
+}]{%
+pang2002thumbs}
+\APACinsertmetastar {%
+pang2002thumbs}%
+\begin{APACrefauthors}%
+Pang, B.%
+, Lee, L.%
+\BCBL {}\ \BBA {} Vaithyanathan, S.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2002}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Thumbs up?: sentiment classification using machine
+  learning techniques} {Thumbs up?: sentiment classification using machine
+  learning techniques}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the ACL-02 conference on Empirical
+  methods in natural language processing-Volume 10} {Proceedings of the acl-02
+  conference on empirical methods in natural language processing-volume 10}\
+  (\BPGS\ 79--86).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Pedersen%
+}{%
+Pedersen%
+}{%
+{\protect \APACyear {2001}}%
+}]{%
+pedersen2001decision}
+\APACinsertmetastar {%
+pedersen2001decision}%
+\begin{APACrefauthors}%
+Pedersen, T.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2001}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {A decision tree of bigrams is an accurate predictor of
+  word sense} {A decision tree of bigrams is an accurate predictor of word
+  sense}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Proceedings of the second meeting of the North American
+  Chapter of the Association for Computational Linguistics on Language
+  technologies} {Proceedings of the second meeting of the north american
+  chapter of the association for computational linguistics on language
+  technologies}\ (\BPGS\ 1--8).
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
@@ -433,6 +647,34 @@ Petitpierre, D.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Rothfels%
+\ \BBA {} Tibshirani%
+}{%
+Rothfels%
+\ \BBA {} Tibshirani%
+}{%
+{\protect \APACyear {2010}}%
+}]{%
+rothfels2010unsupervised}
+\APACinsertmetastar {%
+rothfels2010unsupervised}%
+\begin{APACrefauthors}%
+Rothfels, J.%
+\BCBT {}\ \BBA {} Tibshirani, J.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Unsupervised sentiment classification of English movie
+  reviews using automatic selection of positive and negative sentiment items}
+  {Unsupervised sentiment classification of english movie reviews using
+  automatic selection of positive and negative sentiment items}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{CS224N-Final Project}{}{}{}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Samuel%
 }{%
 Samuel%
@@ -458,6 +700,33 @@ Samuel, A\BPBI L.%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Turney%
+, Pantel%
+\BCBL {}\ \protect \BOthers {.}}{%
+Turney%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2010}}%
+}]{%
+turney2010frequency}
+\APACinsertmetastar {%
+turney2010frequency}%
+\begin{APACrefauthors}%
+Turney, P\BPBI D.%
+, Pantel, P.%
+\BCBL {}\ \BOthersPeriod {.}\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2010}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {From frequency to meaning: Vector space models of
+  semantics} {From frequency to meaning: Vector space models of
+  semantics}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Journal of artificial intelligence
+  research}{37}{1}{141--188}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 \APACcitebtitle {A Tutorial on Clustering Algorithms}}{%
 \APACcitebtitle {A Tutorial on Clustering Algorithms}}{%
 {\protect \APACyear {{\protect \bibnodate {}}}}%
@@ -474,6 +743,131 @@ clustering}%
   {\url{http://home.deib.polimi.it/matteucc/Clustering/tutorial_html/index.html}}.
 \newblock
 \APACrefnote{Accessed: 2015-01-11}
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wakade%
+, Shekar%
+, Liszka%
+\BCBL {}\ \BBA {} Chan%
+}{%
+Wakade%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2012}}%
+}]{%
+wakade2012text}
+\APACinsertmetastar {%
+wakade2012text}%
+\begin{APACrefauthors}%
+Wakade, S.%
+, Shekar, C.%
+, Liszka, K\BPBI J.%
+\BCBL {}\ \BBA {} Chan, C\BHBI C.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2012}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Text mining for sentiment analysis of Twitter data}
+  {Text mining for sentiment analysis of twitter data}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {International Conference on Information and Knowledge
+  Engineering (IKE’12)} {International conference on information and knowledge
+  engineering (ike’12)}\ (\BPGS\ 109--114).
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Wang%
+\ \BBA {} Wan%
+}{%
+Wang%
+\ \BBA {} Wan%
+}{%
+{\protect \APACyear {2011}}%
+}]{%
+wang2011sentiment}
+\APACinsertmetastar {%
+wang2011sentiment}%
+\begin{APACrefauthors}%
+Wang, L.%
+\BCBT {}\ \BBA {} Wan, Y.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2011}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sentiment classification of documents based on latent
+  semantic analysis} {Sentiment classification of documents based on latent
+  semantic analysis}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Advanced research on computer education, simulation and
+  modeling} {Advanced research on computer education, simulation and modeling}\
+  (\BPGS\ 356--361).
+\newblock
+\APACaddressPublisher{}{Springer}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Ye%
+, Zhang%
+\BCBL {}\ \BBA {} Law%
+}{%
+Ye%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2009}}%
+}]{%
+ye2009sentiment}
+\APACinsertmetastar {%
+ye2009sentiment}%
+\begin{APACrefauthors}%
+Ye, Q.%
+, Zhang, Z.%
+\BCBL {}\ \BBA {} Law, R.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2009}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sentiment classification of online reviews to travel
+  destinations by supervised machine learning approaches} {Sentiment
+  classification of online reviews to travel destinations by supervised machine
+  learning approaches}.{\BBCQ}
+\newblock
+\APACjournalVolNumPages{Expert Systems with Applications}{36}{3}{6527--6535}.
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
+Zhang%
+, Zuo%
+, Peng%
+\BCBL {}\ \BBA {} He%
+}{%
+Zhang%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2008}}%
+}]{%
+zhang2008sentiment}
+\APACinsertmetastar {%
+zhang2008sentiment}%
+\begin{APACrefauthors}%
+Zhang, C.%
+, Zuo, W.%
+, Peng, T.%
+\BCBL {}\ \BBA {} He, F.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2008}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {Sentiment classification for chinese reviews using
+  machine learning methods based on string kernel} {Sentiment classification
+  for chinese reviews using machine learning methods based on string
+  kernel}.{\BBCQ}
+\newblock
+\BIn{} \APACrefbtitle {Convergence and Hybrid Information Technology, 2008.
+  ICCIT'08. Third International Conference on} {Convergence and hybrid
+  information technology, 2008. iccit'08. third international conference on}\
+  (\BVOL~2, \BPGS\ 909--914).
 \PrintBackRefs{\CurrentBib}
 
 \end{thebibliography}

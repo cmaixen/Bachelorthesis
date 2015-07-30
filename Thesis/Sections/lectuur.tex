@@ -1,14 +1,15 @@
 \chapter{Lectuur}\label{Lectuur}
 
-In dit hoofdstuk wordt de theoretische achtergrond besproken rond wat er juist gebeurd in hoofdstuk \ref{Experiment} tijdens het experiment. In \ref{Voorstelling dataset} bespreken we de voorstelling van de data voor het zelflerende algoritme. In \ref{Technieken voor Pre-Processing} bespreken we enkele optimalisatie technieken die kunnen helpen om de prestaties van het zelflerende algoritme te verbeteren. Daarna volgen in \ref{Leermethode} de zelflerende algoritmes zelf, waarin de werking van de algoritmes wordt uitgelegd. Als laatste volgt er in \ref{Bias en Variantie} meer informatie over bias en variantie, twee begrippen die van belang zijn om in acht te nemen tijdens het experiment.
+In dit hoofdstuk wordt de theoretische achtergrond en de keuze voor de technieken die we gebruiken tijdens het experiment toegelicht. We bespreken in \ref{Voorstelling dataset} de gebruikte voorstelling van de dataset. In \ref{Technieken voor Pre-Processing} bespreken we enkele optimalisatie technieken die kunnen helpen om de classificatieprestaties te verbeteren. Daarna volgen in \ref{Leermethode} de zelflerende algoritmes zelf, waarin de werking van en de keuze voor de algoritmes wordt uitgelegd. 
 
 \section{Voorstelling dataset}\label{Voorstelling dataset}
 %
-De voorstelling van de data is al een eerste element van  het experiment waarmee men rekening moet houden. We kunnen bijvoorbeeld rauwe data meegeven aan het zelflerende algoritme of we kunnen de tekst omvormen naar een vector die het aantal voorkomens van ieder woord in de tekst bevat. Voor het experiment kiezen we het tweede voorbeeld, waarbij we een document voorstellen als een vector met daarin de woordfrequentie. Dit wordt de vector space methode genoemd.
+De voorstelling van de data is een eerste element van het experiment waarmee men rekening moet houden. We kunnen bijvoorbeeld rauwe data meegeven aan het zelflerende algoritme of we kunnen de tekst omvormen naar een vector die het aantal voorkomens van ieder woord in de tekst bevat. Voor het experiment kiezen we het tweede voorbeeld, waarbij we een document voorstellen als een vector met daarin de woordfrequentie. Dit wordt de vector space methode genoemd en wordt door \cite{turney2010frequency} beschouwd als onderdeel van de oplossing voor de problematiek rond semantische analyse. Verder is deze voorstelling een populaire methode binnen het onderzoek naar gevoelsanalyse op het Engels en heeft dit zijn werking al aangetoond. Zie bijvoorbeeld \cite{pang2002thumbs} en \cite{maas2011learnin}.
 
 \subsection{Vector Space Methode}\label{Vector Space Methode}
 %
-De vector space methode is een methode waarbij we een document als een vector voorstellen waarbij ieder element overeenkomt met een woord en zijn frequentie in het document. De elementen van de vector worden ook wel features genoemd. Als men concreet een document voorstelt kan men zeggen dat document $j$ voorgesteld wordt door $d_{j}$ met $f_{ij}$ de frequentie van het woord $w_{i}$. Met de frequentie $f_{ij}$ bedoelt men het totaal aantal voorkomens van het woord $w_{i}$ in document $j$. Het aantal verschillende woorden in het document stelt men voor door $n_{w}$, wat eveneens de dimensie is van de vector.
+De vector space methode (VSM) is een methode waarbij we een document als een vector voorstellen waarbij ieder element overeenkomt met een woord en zijn frequentie in het document. De elementen van de vector worden ook wel features genoemd. 
+Als men concreet een document voorstelt kan men zeggen dat document $j$ voorgesteld wordt door $d_{j}$ met $f_{ij}$ de frequentie van het woord $w_{i}$. Met de frequentie $f_{ij}$ bedoelt men het totaal aantal voorkomens van het woord $w_{i}$ in document $j$. Het aantal verschillende woorden in het document stelt men voor door $n_{w}$, wat eveneens de dimensie is van de vector.
 Het document $j$ kan dus als volgt worden voorgesteld:
 %
 \[ d_{j}  = \begin{bmatrix}
@@ -34,19 +35,17 @@ D =
 %
 Deze matrix wordt een \textbf{\textit{terms-documents matrix (TDM)}} genoemd. Wanneer men spreekt van een \textbf{\textit{documents-terms matrix (DTM)}}, spreekt men een getransponeerde terms-documents matrix. Een rij van een DTM stelt dan een document voor. In het experiment stellen we onze data voor aan de hand van een documents-terms matrix
 %
-De voorstelling in een matrix geeft inzicht en biedt veel meer mogelijkheden om de data te analyseren. We kunnen bijvoorbeeld al eenvoudig een afleiding maken over het verband tussen documenten.
-Door de euclidische afstand te bepalen tussen twee rijen in de DTM kunnen we al zien of de documenten gelijkaardig zijn of niet. Stel men heeft twee documenten met een kleine euclidische afstand. Dit wil zeggen dat de vectorvoorstelling van de documenten gelijkaardig is, wat neerkomt op overeenkomstige woordfrequenties en dus bijvoorbeeld over hetzelfde onderwerp gaan of eenzelfde mening uitdrukken.
+De voorstelling in een matrix geeft inzicht en biedt veel meer mogelijkheden om de data te analyseren. Bijvoorbeeld overeenkomstige woordfrequenties tussen twee documenten kan duiden dat documenten over hetzelfde onderwerp gaan of eenzelfde mening uitdrukken.
 %
-In de praktijk is gebleken dat documenten vergelijken op basis van woordfrequentie niet altijd de gewenste resultaten oplevert. Vaak is het nog altijd moeilijk om verschillend groepen tussen de documenten te onderscheiden. Daarom kan men nog extra verfijningen toepassen zoals bijvoorbeeld \textbf{\textit{term weighting}} of \textbf{\textit{Latent Semantic Analysis (LSA)}}.
-
+In de praktijk is gebleken dat documenten vergelijken op basis van woordfrequentie niet altijd de gewenste resultaten oplevert en \cite{pang2002thumbs} toont aan dat er ruimte is voor verbetering door middel van Pre-Processing technieken.
 
 \section{Technieken voor Pre-Processing}\label{Technieken voor Pre-Processing}
 
-Zoals we in \ref{Vector Space Methode}  al zeiden bestaan er nog verfijning die we kunnen toepassen op de documents-terms matrix. Het verfijnen wordt ook wel de pre-processing of voorverwerking van de dataset genoemd en kan op verschillende manieren gebeuren. Men kan bepaalde data filteren zoals in \ref{Verwijderen van stopwoorden en leestekens} waar men stopwoorden en leestekens uit de dataset verwijdert. Men kan ook het DTM analyseren en en een nieuwe weging van de features introduceren zoals bijvoorbeeld bij term weighting of LSA gebeurd. Het doel van de pre-processing is de data zo goed mogelijk voor te bereiden zodanig dat het zelflerende algoritme een duidelijk beeld kan krijgen over hoe en naar wat het de inkomende data moet classificeren.
+Zoals we in \ref{Vector Space Methode} al vermeldde kan pre-processing voor verbetering van de classifiers zorgen. De pre-pocestechnieken die we gebruiken in deze bachelorproef zijn al eerder gebruikt door \cite{pang2002thumbs} en \cite{wang2011sentiment} en hadden een positief effect.
 
 \subsection{Bag of Words}\label{Bag of Words}
 
-Bag of Words is de eenvoudigste methode die er is en is het principe waarop de vector space methode zich baseert. Ieder document wordt beschouwd als een zak met woorden, waarbij de woorden in het document de kenmerken of de features van het document voorstellen. Bag of Words wordt beschouwd als de eenvoudigste techniek, omdat men bij de techniek geen rekening houdt met spelling, woordorde of voorkomens. Dit gaat wel het geval zijn bij andere technieken.
+De eerste techniek is Bag of Words. Dit is niet echt een pre-procestechniek, maar eerder een referentiepunt voor de andere pre-procestechnieken. Het steunt op het principe waarop de vector space methode zich baseert, waarbij ieder document wordt voorgesteld door zijn woordfrequenties. Het is de basistechniek die wordt uitgevoerd bij een gevoelsanalyse aan de hand van de VSM. 
 
 \subsection{Verwijderen van stopwoorden}\label{Verwijderen van stopwoorden en leestekens}
 
@@ -69,12 +68,14 @@ Met deze twee kwantiteiten kan men een nieuwe begrip introduceren: de \textbf{tf
 \[ \text{tf-idf score} = tf . idf_{ij} = idf_{i} . tf_{ij} \]
 %
 De tf-idf matrix bekomt men dan door alle woordfrequenties van het terms-document matrix te vervangen door de tf-idf score.
-Deze matrix wordt bijvoorbeeld vaak gebruikt om de gelijkenissen tussen twee documenten te bepalen op basis van cosinusgelijkenis.
+Er bestaan nog uitbreiding op term weighting (\cite{altoglou2010study}), maar voor het experiment houden we het bij de standaard tf-idf weighting.
 
 
 \subsection{Bigram Collocaties}\label{Bigram Collocaties}
 
-Bigrams Collocaties is een techniek waarbij men op zoek gaat naar paren van woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen. De bepaling van de informatieve waarde van de bigrams is gebaseerd op de frequentie van het bigram en de frequenties van de andere bigrams. Als men een overzicht krijgt over de frequenties introduceert men een metriek, die met behulp van de frequenties mogelijke verbanden kan blootleggen. Chi-kwadraat is zo'n metriek die er zich toe leent. De Chi-kwadraattoets is een statistische toets die het mogelijk maakt om de onafhankelijkheid tussen waarnemingen te onderzoeken. Bij Bigram Collocaties onderzoekt men via de Chi-kwadraattoets de afhankelijkheid tussen twee woorden. Hoe grotere de afhankelijkheid, hoe hoger de score.   
+Bigrams Collocaties is een techniek waarbij men op zoek gaat naar paren van woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen. In het onderzoek van \cite{pang2002thumbs} bleken bigrams niet voor een verbeterde prestatie te zorgen, al mag men de nuttigheid van bigrams niet onderschatten. Toch nemen we bigrams als een van de technieken,\cite{edersen2001decision} toonde echter aan dat bigrams een nuttig kenmerk vormen voor het oplossen van woord zin ambiguïteit. \cite{pang2002thumbs} merkt dan ook zelf op in zijn onderzoek dat bigram features mogelijks evenwaardig zijn met unigram features.\\
+%
+De bepaling van de informatieve waarde van de bigrams is gebaseerd op de frequentie van het bigram en de frequenties van de andere bigrams. Als men een overzicht krijgt over de frequenties introduceert men een metriek, die met behulp van de frequenties mogelijke verbanden kan blootleggen. Chi-kwadraat is zo'n metriek die er zich toe leent. De Chi-kwadraattoets is een statistische toets die het mogelijk maakt om de onafhankelijkheid tussen waarnemingen te onderzoeken. Bij Bigram Collocaties onderzoekt men via de Chi-kwadraattoets de afhankelijkheid tussen twee woorden. Hoe grotere de afhankelijkheid, hoe hoger de score.   
 
 \subsubsection{Chi-Kwadraattoets}\label{Chi-Kwadraattoest}
 
@@ -145,14 +146,14 @@ Als we duizenden documenten verwerken, is het te voorspellen dat er enorm veel w
 %
 \subsection{Latent Semantic Analysis}\label{Latent Semantic Analysis}
 
-Latent Semantic Analysis is een wiskundige techniek gebaseerd op statistische berekeningen. Met LSA probeert men een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord ``economie'', willen we ook documenten met ``financi\"en'' terugkrijgen. Voor LSA zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen twee woorden als ze vaak voorkomen in dezelfde documenten.
+Latent Semantic Analysis is een wiskundige techniek gebaseerd op statistische berekeningen, waar van aangetoond dat deze zeer nuttig is bij het analyseren van grote collecties tekstdata (\cite{furnas1988information}). Met LSA probeert men een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord ``economie'', willen we ook documenten met ``financi\"en'' terugkrijgen. Voor LSA zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen twee woorden als ze vaak voorkomen in dezelfde documenten.
 \newline
 Merk op dat bij Latent Semantic Analysis het belangrijk is dat ieder woord naar \'e\'en concept verwijst.
 %
 \newline
 Analytisch wordt LSA toegepast door \textbf{Singular Value Decomposition (SVD)} toe te passen op de terms-documents matrix. SVD is een concept uit de lineaire algebra en zegt dat een matrix A opgesplitst kan worden als een product van matrixen namelijk \\
 \[A = U\Sigma V^T \]
-De reductie van de dimensie gebeurt aan de hand van volgend principe
+De reductie van de dimensie gebeurt aan de hand van volgend principe. Neem matrix A met rang r.
 %
 %afbeelding van SVD in latex
 \newcommand{\vect}{\mathbf}
@@ -170,7 +171,7 @@ De reductie van de dimensie gebeurt aan de hand van volgend principe
       \sigma_1 & 0 & \dots & 0 & 0 & \dots & 0 \\
          0 & \sigma_2  & \dots & 0 & 0 & \dots & 0 \\
          \dots& & & & &  \\
-         0 & 0 & \dots & \sigma_k  & 0 & \dots & 0 \\
+         0 & 0 & \dots & \sigma_r  & 0 & \dots & 0 \\
          0 & 0 & \dots & 0 & 0 & \dots & 0 \\
          \dots& & & & &  \\
          0 & 0 & \dots & 0 & 0 & \dots & 0 
@@ -189,23 +190,20 @@ De reductie van de dimensie gebeurt aan de hand van volgend principe
   \end{matrix}
 \] 
 \newline
-U is de unitaire matrix waarbij men $u_1, u_2, ... , u_n$ de linker singuliere vectors noemt. Deze stellen een document met zijn features voor. $V^T$ is de geconjugeerde getransponeerde matrix van V. $v_1, v_2, ... , v_n$ noemt men de rechter singuliere vectors en stellen de woorden met hun features over alle documenten voor. $\Sigma$ is een diagonaal matrix met singuliere waarden $\sigma_1,\sigma_2,..,\sigma_n$'  op de diagonaal. De reductie van een terms-documents matrix naar een dimensie van $K$ gebeurt door de hoogste $K$ singuliere waarden te nemen in $\Sigma$ met de overeenkomstige singuliere vectoren uit $U$ en $V$.    
+U is de unitaire matrix waarbij men $u_1, u_2, ... , u_r$ de linker singuliere vectors noemt. Deze stellen een document met zijn features voor. $V^T$ is de geconjugeerde getransponeerde matrix van V. $v_1, v_2, ... , v_r$ noemt men de rechter singuliere vectors en stellen de woorden met hun features over alle documenten voor. $\Sigma$ is een diagonaal matrix met singuliere waarden $\sigma_1,\sigma_2,..,\sigma_r$'  op de diagonaal. De reductie van een terms-documents matrix naar een dimensie van $K$ gebeurt door de hoogste $K$ singuliere waarden te nemen in $\Sigma$ met de overeenkomstige singuliere vectoren uit $U$ en $V$.    
 Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Dit laat toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat SVD toepassen een zeer nuttige eerste stap is bij text mining (\cite{maas2011learning}), omdat men nieuwe meer effici\"ente features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen dienen als input voor het zelflerende algoritme.
 
 \section{Leermethode}\label{Leermethode}
 
-Zoals we al zeiden in de introductie, gaan we beroep doen voor het experiment op technieken uit de Machine Learning. Specifieker gaan we voor het experiment gebruik maken van supervised learning technieken.
-Dit is een subdomein binnen de Machine Learning waarbij we het algoritme trainen met een dataset die voorbeelden bevat over het concept dat we willen aanleren. De trainingsset bevat zowel de inputwaarden als de verwachte outputwaarde voor de input en men verwacht dat het zelflerende algoritme hier verbanden in kan vinden zodanig dat het voor willekeurige inputwaarden de juiste outputwaarde kan bepalen. Voor het experiment nemen we tekst als input en classificeren we deze als positief of negatief. In de Machine Learning noemt men dit probleem een classificatieprobleem. Dit is een probleem waarbij inputwaarden, in het experiment de recensies, geclassificeerd moeten worden naar een kleine set van mogelijkheden. In het geval van het experiment bestaat die set van mogelijkheden uit positief en negatief.\\
-%
-Nu we het experiment gesitueerd hebben als een classificatieprobleem dat men gaat oplossen met technieken of algoritmes uit supervised learning, kunnen we deze algoritmes bekijken.\\  
-%
-Wanneer we een zelflerende algoritme iets proberen aan te leren, tracht het algoritme een hypothese of model te vormen waarmee het de output kan voorspellen. Het algoritme is een bepaalde leermethode, die het mogelijk maakt om verbanden af te leiden uit de trainingsset en zo een hypothese op te stellen.
-Er zijn veel leermethodes (\cite{mitchell1997machine}), maar we bespreken enkel de relevante leermethode tot het experiment namelijk Naive Bayes Learning en Decision Tree Learning. In \ref{Naive Bayes Classifier} en \ref{Decision Tree} bespreken we de werking van deze methodes en bekijken we de eigenschappen, wat ze zo passend maakt voor het experiment.  
+Voor het experiment hebben moeten we ook het algoritme bepalen dat de data gaat classificeren, ook wel classifier genoemd. Voor het algoritme gaan we beroep doen op de Machine learning en gebruik maken van supervised learning technieken. Deze technieken vereiseen dat men het algoritme eerst traint met een dataset die voorbeelden bevat over het concept dat we willen aanleren. De trainingsset bevat zowel de inputwaarden als de verwachte outputwaarde voor de input en men verwacht dat het algoritme hier verbanden in kan vinden zodanig dat het voor willekeurige inputwaarden de juiste outputwaarde kan bepalen. \cite{ye2009sentiment} toont echter aan dat supervised learning technieken een goede prestatie hebben bij gevoelsanalyse, terwijl dit niet het geval is bij unsupervised learning (\cite{rothfels2010unsupervised}).
+
+
+Concreter kiezen we voor de Naive Bayes Classifier en de Decision Tree als supervised learning technieken voor het experiment. De Naive Bayes Classifier is een heel praktische aanpak voor bepaalde leerproblemen (\cite{mitchell1997machine}). Bijvoorbeeld onderzoekers \cite{Michie94machinelearning} tonen aan dat de prestatie van de Naive Bayes Classifier gelijkaardig of in sommige gevallen zelfs beter is dan andere leeralgoritmen, zoals beslissingsbomen en neurale netwerken onderzocht. Decision Trees zijn eveneens een populaire methode en werd ondermeer gebruikt door \cite{zhang2008sentiment} voor een gevoelsanalyse op productrecensies en klanten feedback.
 
 \subsection{Naive Bayes Classifier}\label{Naive Bayes Classifier}
 
-Als eerste leermethode hebben we de Naive Bayes Classifier. Deze is gebaseerd op Bayesiaans redeneren. Bayesiaans redeneren is een aanpak die gevolgen trekt op basis van probabiliteit. Het is gebaseerd op de veronderstelling dat bepaalde hoeveelheden die ons interesseren probabilistisch verdeeld zijn en door te redeneren over die probabiliteit samen met de trainingsdata er optimale beslissingen kunnen genomen worden.\\%
-Naive Bayes is een van de praktische aanpakken naar bepaalde leerproblemen (\cite{mitchell1997machine}). In een studie van \cite{Michie94machinelearning} rond Naive bayes classifiers werd de  prestatie ten opzichte van andere leeralgoritmen, zoals beslissingsbomen en neurale netwerken onderzocht. Hierin werd aangetoond dat de Naive Bayes Classifier gelijkaardig presteert als de andere leermethode en in sommige gevallen zelfs beter.\\
+De Naive Bayes Classifier is gebaseerd op Bayesiaans redeneren. Bayesiaans redeneren is een aanpak die gevolgen trekt op basis van probabiliteit. Het is gebaseerd op de veronderstelling dat bepaalde hoeveelheden die ons interesseren probabilistisch verdeeld zijn en door te redeneren over die probabiliteit samen met de trainingsdata er optimale beslissingen kunnen genomen worden.\\%
+
 %
 De werking van de Naive Bayes Classifier is volledig gebaseerd op probabiliteit. Neem als inputwaarden $x_{1} , x_{2}, x_{3}, ..., x_{n}$ en als de te voorspellen outputwaarde $y_{res}$. Nu moet de classifier voor de inputwaarden $x_{1} , x_{2}, x_{3}, ..., x_{n}$ de correct $y_{res}$ voorspellen. Volgens het Bayesiaans redenering is, gebaseerd op $x_{1} , x_{2}, x_{3}, ..., x_{n}$,  $y_{res}$ de outputwaarde met de grootste waarschijnlijkheid. We kunnen dit neerschrijven als:
 
@@ -221,7 +219,7 @@ Aan de hand van het Bayes theorema kunnen we dit herschrijven als
 %
  De twee componenten kunnen bepaald worden aan de hand van de trainingsset. $P(y_i)$ kunnen we bepalen door het aantal voorkomens van $y_i$ in de trainingsset te tellen. $P(x_{1},x_{2},x_{3},...,x_{n}|y_i)$ is moeilijker af te leiden aan de hand van de trainingsset aangezien we meerdere voorkomens van $x_{1},x_{2},x_{3},...,x_{n}$ naar $y_i$ moeten hebben om een goede schatting te kunnen maken.  Indien we een heel grote trainingsset hebben is dit mogelijk, anders niet. Om dit toch te kunnen afleiden, gaat de Naive Bayes Classifier er van uit dat elke $x_i$ uit $x_{1},x_{2},x_{3},...,x_{n}$ onafhankelijk is ten opzichte van de outputwaarde $y_i$. Wat betekent dat we het product van iedere probabiliteit kunnen nemen en $P(x_{1},x_{2},x_{3},...,x_{n}|y_i)$  kunnen herschrijven als $\prod\limits_{i} P(x_{i}|y_{i})$.\\
 %
-Samengevat is de Naive Bayes Classifier een goede eerste keuze als leermethode aangezien zijn goede algemene prestatie (\cite{Michie94machinelearning}). Voor het maken van voorspelling maakt het gebruik van probabiliteit, gebaseerde op de trainingsset en waar het aanneemt dat ieder feature onafhankelijk is tot de outputwaarde. Samengevat kunnen we dit schrijven als
+Voor het maken van voorspelling maakt het gebruik van probabiliteit, gebaseerde op de trainingsset en waar het aanneemt dat ieder feature onafhankelijk is tot de outputwaarde. Samengevat kunnen we dit schrijven als
 
  \[y_{NBres} = \underset{y_i \in Y}{\arg\max} P(y_{i})\prod\limits_{i} P(x_{i}|y_{i}) \]
 %
@@ -229,7 +227,7 @@ Ten slotte stellen we de verzameling van al deze probabiliteiten samen als de hy
 
 \subsection{Decision Tree}\label{Decision Tree}
 %
-Als tweede leermethode hebben we de Decision tree of beslissingsboom. Een beslissingsboom is een van de meest gebruikte en praktische methode voor inductieve gevolgtrekking (\cite{mitchell1997machine}). De methode is robust met ruis op de data en houdt rekening met discrete klassen. De techniek gaat een beslissingsboom proberen op te stellen aan de hand van de trainingsdata. Na de training krijgt men een beslissingsboom die de hypothese moet voorstellen. Wanneer het getrainde algoritme onbekende data krijgt, gaat het inductief de output bepalen voor de inputwaarden. Men kan een beslissingsboom voorstellen als een disjuncte set van als-dan regels.\\ 
+Decision Trees of Beslissingsbomen zijn een van de meest gebruikte en praktische methode voor inductieve gevolgtrekking (\cite{mitchell1997machine}). De methode is robust met ruis op de data en houdt rekening met discrete klassen. De classifier gaat een beslissingsboom proberen op te stellen aan de hand van de trainingsdata. Na de training krijgt men een beslissingsboom die de hypothese moet voorstellen. Wanneer het getrainde algoritme onbekende data krijgt, gaat het inductief de output bepalen voor de inputwaarden. Men kan een beslissingsboom voorstellen als een disjuncte set van als-dan regels.\\ 
 %
 Onderstaande afbeelding is een voorbeeld van zo'n beslissingsboom die bepaald of het weer goed genoeg is om basketbal buiten te spelen. De bladeren van de boom stellen de verschillende outputwaarden voor. In dit geval zien we dat er een boom is opgesteld voor twee discrete klassen namelijk ja en nee. In de nodes staan testen beschreven die de het pad van de inputwaarden naar de outputwaarde bepalen. Merk op dat de bepaling altijd top-down gebeurd.
 %
@@ -238,74 +236,3 @@ Onderstaande afbeelding is een voorbeeld van zo'n beslissingsboom die bepaald of
   \captionof{figure}{Voorbeeld van een beslissingsboom}
   \label{fig:beslissingsboom}
 \end{center}
-%
-In het algemeen zijn beslissingsbomen het best gepast voor problemen met volgende kenmerken (\cite{mitchell1997machine}): 
-
-\begin{itemize}
-  \item{Inputwaarden worden voorgesteld door attribuut-waardeparen.}
-  \item{Zowel de trainingsdata als de testdata mogen errors bevatten}
-  \item{Sommige elementen van de trainingsset mogen attributen missen}
-\end{itemize}
-
-Al deze karakteristieken zijn gunstig voor het experiment. In \ref{Voorstelling dataset} zagen we dat de data kan voorgesteld worden door de vector space methode. Een document kunnen we hier beschouwen als input met woorden en hun aantal voorkomens als het de attribuut-waardeparen. Verder is het bij het verzamelen van data nooit uitgesloten dat de data errors bevat en moet de classifier hier bestand tegen zijn.
-
-\section{Bias en Variantie}\label{Bias en Variantie}
-
-Wanneer we bepaalde modellen onderzoeken is het belangrijk om te weten waarom een bepaald model niet goed presteert. De slechte prestatie kan door verschillende redenen worden veroorzaakt (\cite{mitchell1997machine}). Twee mogelijke oorzaken zijn modellen met een hoge bias en een hoge variantie.\\
-%
-%
-Wanneer we een model trainen zoals bijvoorbeeld een Decision tree uit \ref{Decision Tree}, stelt het model aan de hand van de trainingsdata een hypothese op en aan de hand van de hypothese gaat het model dan voorspelling maken over de ongekende data. Als we nu meermaal een nieuwe analyse uitvoeren met telkens een nieuw model met een andere trainingsset, maar over hetzelfde concept en we bekijken voor elk getraind model de voorspelling voor telkens dezelfde testset, dan meet bias hoe ver in het algemeen de getrainde modellen hun voorspelling afwijken van de correcte waarden. Wanneer de voorspellingen sterk afwijken van de correcte waarden, spreekt men van hoge bias.  De variantie duidt op de spreiding van de voorspellingen. Wanneer er een groot verschil is tussen de voorspellingen van de modellen voor een bepaald punt, en dit is gemiddeld ook zo voor de andere punten, dan spreekt men van een hoge variantie.\\
-%
-Onderstaande afbeelding geeft een grafische weergave hoe variantie en bias zich tegenover elkaar verhouden en wat voor invloed het heeft.
-De afbeelding stelt een bulls-eye diagram voor waarbij de gele punten de hypotheses van de getrainde modellen voorstellen. Hoe dichter de gele punten bij het centrum van de roos liggen, hoe beter en correcter de voorspellingen. Wanneer de trainingsdata bijvoorbeeld goed verdeeld is, gaan de gele punten dicht bij de roos liggen. Wat duidt op een lage variantie en lage bias. In tegenstelling tot wanneer de dataset vol met outliers en afwijkende waarden gaat zitten. De punten gaan dan heel verspreid en ver van de roos liggen, wat duidt op een hoge variantie en hoge bias.\\
-%
-\begin{center}
-  \includegraphics[width=10cm]{bulls-eye}
-  \captionof{figure}{Schematische weergave van Bias en Variantie (Gebaseerd op:\url{http://scott.fortmann-roe.com/docs/BiasVariance.html})}
-\end{center}
-\newline
-Concreet kan men zeggen dat wanneer men te maken heeft met bias en variantie, men werkelijk te maken heeft met over- en underfitting. Men spreekt van overfitting wanneer de resultaten op de trainingsset goed zijn, maar voor onbekende sets veel minder.\\
-Stel dat we ons model steeds uitbreiden door het te blijven trainen. Als resultaat stijgt de complexiteit van ons model, wat maakt dat het beter voorspellingen kan doen, dus de bias vermindert, maar er gaan meer outliers en afwijkende waarden zijn. Dus de variantie stijgt. Wat dus maakt dat er een trade-off is tussen bias en variantie.\\ 
-%
-Wiskundig kunnen we dit ook aantonen. Neem $Y$ als de variabele die we willen voorspellen en $X$ als de variabele die de inputwaarden voorstelt. Neem ook aan dat er een relatie bestaat tussen de twee $Y=f(X)$. We willen nu door het algoritme te trainen met de inputwaarden, een hypothese $f_{p}(X)$ maken voor $f(X)$. \\
-Neem nu dat we $f(X)$ willen voorspellen door lineaire regressie te gebruiken en de hypothese te beoordelen aan de hand van de squared prediction error. Dit is een metriek om de kwaliteit van de hypothese te bepalen. Hoe hoger de kwaliteit van het model, hoe lager de squared prediction error van het model. Als we nu de formule van squared prediction error er bij nemen:
-
-\[ Err(X)=E[(Y - f_{p}(X))^2] \]
-%
-met $E$ de verwachtingswaarde.\\
-%
-Als we deze formule nu herschrijven in functie van bias en variantie componenten (\cite{hastie2009elements}), krijgen we :
-
-\[ Err(X)=(E[f_{p}(X)] - f(X))^2+E[f_{p}(X) - E[f_{p}(X)]]^2 \]
-%
-Wat neerkomt op 
-
-\[Err(X)= Bias^2 + Variantie \]
-%
-Hier zien we wederom dat er een keuze moet gemaakt worden tussen de minimalisatie van bias en de minimalisatie van variantie.
-Onderstaande afbeelding illustreert nogmaals het verband tussen bias en variantie en hoe deze bijdraagt tot de totale error.
-\begin{center}
-  \includegraphics[width=10cm]{biasvariance_tradeoff}
-  \captionof{figure}{Bijdrage Bias en Variantie aan totale error (Bron: \url{http://scott.fortmann-roe.com/docs/docs/BiasVariance/biasvariance.png})}
-  \label{fig:biasvariance}
-\end{center}
-\newline
-Zoals men kan zien op bovenstaande afbeelding is het optimum voor de complexiteit van het model, de plaats waar de totaal error het laagste is. Als we nog preciser kijken zien we dat dit de plaats is waar de bias evenveel vermindert als de variantie toeneemt. Wiskundig kunnen we dit formuleren als volgt:
-
-\[\frac{dBias}{dComplexiteit} = -\frac{dVariantie}{dComplexiteit} \]
-%
-In de praktijk is er spijtig genoeg geen analytische methode om dit punt te vinden en moet men samen met de squared predict error functie experimenteren met verschillende levels van complexiteit voor een model en hier het level van complexiteit met de laagste totale error uit selecteren.\\
-%
-Nu dat we een goed algemeen begrip hebben over bias en variantie, kijken iets dieper in op over- en underfitting.
-
-\subsubsection{Over- en Underfitting}\label{Over- en Underfitting}
-
-Eerder zeiden we al wanneer men spreekt of bias en variantie, men eigelijk bezig is met over- en underfitting. Laten we eerst nog eens kijken wat juist overfitting is. \citet{mitchell1997machine} definieert overfitting als volgt:
-\newline
-\newline
-``\textit{Given a hypothesis space H , a hypothesis h E H is said to overfit the training data if there exists some alternative hypothesis h' E H, such that h has smaller error than h' over the training examples, but h' has a smaller error than h over the entire distribution of instances.}''
-\newline
-\newline
-Wat eigenlijk wil zeggen dat hypothese H te goed werkt op zijn eigen trainingsset, maar als het andere waarden begint te classificeren de prestatie veel minder is. Bij underfitting is het juist omgekeerd. De prestatie is lager op de trainingsset dan op een grote nieuwe dataset. Het te goed presteren van een trainingsset, wil eigelijk zeggen dat het model te precies, te complex is afgesteld. Aan de hand van figuur \ref{fig:biasvariance}, kunnen we afleiden dat dit duidt op een hoge variantie. Gelijkaardig met underfitting, wanneer het getrainde model slecht presteert met zijn eigen trainingsset, wil dit zeggen dat het model te eenvoudig, niet complex genoeg is. Wat duidt op een hoge bias (zie figuur \ref{fig:biasvariance}).
-%
-Het verband nog eens kort samengevat. Wanneer men spreekt van underfitting, spreekt men van hoge bias. Wanneer men spreekt van overfitting, spreekt men van hoge variantie.

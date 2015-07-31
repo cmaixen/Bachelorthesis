@@ -7,6 +7,7 @@ A level-1 auxiliary file: sections/introductie.aux
 A level-1 auxiliary file: sections/lectuur.aux
 A level-1 auxiliary file: sections/experiment.aux
 A level-1 auxiliary file: sections/conclusie.aux
+A level-1 auxiliary file: sections/appendix.aux
 The style file: apacite.bst
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=20001) to 20 items from 10.
@@ -62,7 +63,7 @@ while executing---line 5227 of file apacite.bst
 Warning--`others' not consistent with 6th ed. of the APA Manual
 You've used 32 entries,
             6735 wiz_defined-function locations,
-            1425 strings with 16647 characters,
+            1426 strings with 16668 characters,
 and the built_in function-call counts, 60481 in all, are:
 = -- 7832
 > -- 531

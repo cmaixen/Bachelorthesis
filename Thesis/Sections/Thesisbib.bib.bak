@@ -58,6 +58,14 @@
 }
 }
 
+@Article{liebrecht2013perfect,
+  Title                    = {The perfect solution for detecting sarcasm in tweets\# not},
+  Author                   = {Liebrecht, CC and Kunneman, FA and van den Bosch, APJ},
+  Year                     = {2013},
+
+  Publisher                = {New Brunswick, NJ: ACL}
+}
+
 @Article{liu2012improvement,
   Title                    = {An improvement of TFIDF weighting in text categorization},
   Author                   = {Liu, Mingyong and Yang, Jiangang},
@@ -293,10 +301,15 @@
   Note                     = {Accessed: 2014-15-11}
 }
 
+@Article{,
+  Owner                    = {yannickmerckx},
+  Timestamp                = {2015.07.27}
+}
+
 @Misc{,
-  Title                    = {Decomposing signals in components (matrix factorization problems)},
-  HowPublished             = {\url{http://scikit-learn.org/stable/modules/decomposition.html}},
-  Note                     = {Accessed: 2014-30-11}
+  Title                    = {Mean squared prediction error},
+  HowPublished             = {\url{http://en.wikipedia.org/wiki/Mean_squared_prediction_error}},
+  Note                     = {Accessed: 2015-27-05}
 }
 
 @Misc{,
@@ -306,13 +319,8 @@
 }
 
 @Misc{,
-  Title                    = {Mean squared prediction error},
-  HowPublished             = {\url{http://en.wikipedia.org/wiki/Mean_squared_prediction_error}},
-  Note                     = {Accessed: 2015-27-05}
-}
-
-@Article{,
-  Owner                    = {yannickmerckx},
-  Timestamp                = {2015.07.27}
+  Title                    = {Decomposing signals in components (matrix factorization problems)},
+  HowPublished             = {\url{http://scikit-learn.org/stable/modules/decomposition.html}},
+  Note                     = {Accessed: 2014-30-11}
 }
 

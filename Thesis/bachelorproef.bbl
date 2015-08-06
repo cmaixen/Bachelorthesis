@@ -187,6 +187,33 @@ LSA}%
 \PrintBackRefs{\CurrentBib}
 
 \bibitem [\protect \citeauthoryear {%
+Liebrecht%
+, Kunneman%
+\BCBL {}\ \BBA {} van~den Bosch%
+}{%
+Liebrecht%
+\ \protect \BOthers {.}}{%
+{\protect \APACyear {2013}}%
+}]{%
+liebrecht2013perfect}
+\APACinsertmetastar {%
+liebrecht2013perfect}%
+\begin{APACrefauthors}%
+Liebrecht, C.%
+, Kunneman, F.%
+\BCBL {}\ \BBA {} van~den Bosch, A.%
+\end{APACrefauthors}%
+\unskip\
+\newblock
+\APACrefYearMonthDay{2013}{}{}.
+\newblock
+{\BBOQ}\APACrefatitle {The perfect solution for detecting sarcasm in tweets\#
+  not} {The perfect solution for detecting sarcasm in tweets\# not}.{\BBCQ}
+\newblock
+
+\PrintBackRefs{\CurrentBib}
+
+\bibitem [\protect \citeauthoryear {%
 Liu%
 \ \BBA {} Yang%
 }{%

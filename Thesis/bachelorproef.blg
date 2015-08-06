@@ -17,21 +17,21 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Database file #1: sections/Thesisbib.bib
-Repeated entry---line 296 of file sections/Thesisbib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 302 of file sections/Thesisbib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 308 of file sections/Thesisbib.bib
- : @misc{
- :       ,
-I'm skipping whatever remains of this entry
-Repeated entry---line 314 of file sections/Thesisbib.bib
+Repeated entry---line 304 of file sections/Thesisbib.bib
  : @article{
  :          ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 309 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 315 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 321 of file sections/Thesisbib.bib
+ : @misc{
+ :       ,
 I'm skipping whatever remains of this entry
 Warning--I didn't find a database entry for "altoglou2010study"
 Warning--I didn't find a database entry for "edersen2001decision"
@@ -53,6 +53,7 @@ Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersin
 while executing---line 5216 of file apacite.bst
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5219 of file apacite.bst
+Warning--No journal in liebrecht2013perfect
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5227 of file apacite.bst
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
@@ -60,45 +61,45 @@ while executing---line 5227 of file apacite.bst
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5227 of file apacite.bst
 Warning--`others' not consistent with 6th ed. of the APA Manual
-You've used 32 entries,
+You've used 33 entries,
             6735 wiz_defined-function locations,
-            1425 strings with 16647 characters,
-and the built_in function-call counts, 60481 in all, are:
-= -- 7832
-> -- 531
-< -- 2570
-+ -- 2669
-- -- 61
-* -- 3604
-:= -- 10163
-add.period$ -- 150
-call.type$ -- 32
-change.case$ -- 504
+            1430 strings with 16804 characters,
+and the built_in function-call counts, 62248 in all, are:
+= -- 8050
+> -- 550
+< -- 2653
++ -- 2750
+- -- 63
+* -- 3714
+:= -- 10477
+add.period$ -- 154
+call.type$ -- 33
+change.case$ -- 521
 chr.to.int$ -- 0
-cite$ -- 64
-duplicate$ -- 1603
-empty$ -- 2510
-format.name$ -- 822
-if$ -- 12005
+cite$ -- 67
+duplicate$ -- 1647
+empty$ -- 2578
+format.name$ -- 854
+if$ -- 12345
 int.to.chr$ -- 0
-int.to.str$ -- 68
+int.to.str$ -- 70
 missing$ -- 0
-newline$ -- 786
-num.names$ -- 232
-pop$ -- 1565
+newline$ -- 812
+num.names$ -- 240
+pop$ -- 1587
 preamble$ -- 1
-purify$ -- 122
+purify$ -- 126
 quote$ -- 0
-skip$ -- 3901
+skip$ -- 4026
 stack$ -- 0
-substring$ -- 3037
-swap$ -- 909
-text.length$ -- 128
+substring$ -- 3125
+swap$ -- 935
+text.length$ -- 130
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 3336
-warning$ -- 1
-while$ -- 290
+type$ -- 3416
+warning$ -- 2
+while$ -- 302
 width$ -- 0
-write$ -- 984
+write$ -- 1019
 (There were 15 error messages)

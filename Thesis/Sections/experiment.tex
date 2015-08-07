@@ -48,6 +48,7 @@ Alle Nederlandse recensies zijn afkomstig van de ``All Time Top 250''-toplijst o
 \multicolumn{1}{|l|}{Boekrecensies}   & 146      & 3719     \\ \hline
 \end{tabular}
 \caption{Aantal verzamelde Nederlandse recensies} 
+\label{tabel: aantal verzamelde Nederlandse recensies}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
@@ -310,13 +311,15 @@ Onderstaande tabel geeft de resultaten van de classificatie weer met als precisi
 
 Als laatste moet en we ook opmerken dat internetslang, typefouten en uitgesmeerde woorden zoals \textit{sssaaaaiiii} niet in rekening worden gebracht bij woordenlijsten en is een probleem dat moeilijk te vermijden is. 
 
-
 In verder onderzoek kan men een groot deel van de invloeden, zoals de verkeerde vertaling van leenwoorden of andere woordenschat vermijden door eigenhandig een Nederlandse geannoteerde woordenlijst met gevoelens samen te stellen op basis van filmrecensies. Mogelijks kan dit de prestatie verbeteren.
 
 
 \section{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}\label{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}
 
-Nu we weten welke methode goed presteert op het Nederlands en welke niet, kunnen we er nog iets dieper ingaan op Nederlandse gevoelsanalyse. De voorgaande experimenten zijn altijd uitgevoerd op filmrecensies en hadden goede prestaties. Het is interessant om eens te kijken of de voorgaande technieken onderwerp gevoelig zijn of niet. Concreet voor dit experiment onderzoeken we enkel de beste presterende techniek uit \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}, namelijk de Naive Bayes Classifier in combinatie met Term weighting en het verwijderen van stopwoorden. We kijken hoe deze techniek presteert wanneer we het trainen en testen met recensies over hetzelfde onderwerp en hoe het presteert met een verschillend.  Als datasets nemen we film- , muziek en boekrecensies. De prestatie van de classifiers is telkens de gemiddelde classificatieprecisie van 30 runs, waarbij de trainingsset uit 6000 samples bestaat en de testset uit 2000 samples. 
+Nu we weten welke methoden presteren op het Nederlands en welke niet, kunnen we ons nog iets specifieker toeleggen op taalvarianten binnen het Nederlands. De voorgaande analyses in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} en \ref{Classificatie op basis van geannoteerde woordenlijsten} zijn altijd uitgevoerd op filmrecensies en hadden goede prestaties. Het is interessant om te bekijken of er een onderwerpgevoeligheid is binnen het Nederlands. Voor een bepaald onderwerp kan men een bepaalde taal of jargon hebben. Het is daarom ook eens interessant dit te onderzoeken. \\
+
+Concreet voor deze analyse gebruiken we enkel een van de beste presterende techniek uit \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}, namelijk de Naive Bayes Classifier in combinatie met Term weighting en het verwijderen van stopwoorden. We kijken hoe deze techniek presteert wanneer we het trainen en testen met recensies over hetzelfde onderwerp en hoe het presteert met een verschillend onderwerp.  Als datasets nemen we film- , muziek en boekrecensies. De prestatie van de classifiers is telkens de gemiddelde classificatieprecisie van 30 runs, waarbij de trainingsset uit 6000 recensies bestaat en de testset uit 2000 recensies. Met uitzondering de boekrecensies, daarbij wordt de classifier telkens getraind met 266 boekrecensies en werd er getest met 144 boekrecensies. De reden is het extreem laag aantal aan verzamelde positieve boekrecensies (zie tabel \ref{tabel: aantal verzamelde Nederlandse recensies}).
+
 
 Onderstaande kruistabel met classificatieprecisies vat de belangrijkste resultaten van het experiment samen. De volledige resultaten vindt men in bijlage B. Merk op dat men hier ook de controle op over- of onderfitting vindt. Over- en onderfitting zijn symptomen bij machine learning waarbij men de classifier over of ondertrained. Voor de volledigheid hebben we deze grafieken in de bijlage toegevoegd.    
 
@@ -330,7 +333,7 @@ Onderstaande kruistabel met classificatieprecisies vat de belangrijkste resultat
 \multicolumn{1}{|l|}{\textbf{Boeken}} & 65,87\%         & 61,46\%         & 71,76\%         \\ \hline
 \end{tabular}
 \label{tab:alles}
-\caption{Kruistabel van alle classificatieresultaten uit \ref{Naive Bayes Classifier met verschillend onderwerp voor trainings- en testset} en \ref{Naive Bayes Classifier met hetzelfde onderwerp voor trainings- en testset} met de kolommen het onderwerp van de trainingsset en de rijen het onderwerp van de testset.} 
+\caption{Kruistabel van alle classificatieresultaten met de kolommen het onderwerp van de trainingsset en de rijen het onderwerp van de testset.} 
 \end{table}
 
 Als laatste hebben nog de confusion matrixen van het experiment. Een confusion matrix geeft weer hoeveel recensies er juist en fout geclassificeerd zijn. 
@@ -370,4 +373,18 @@ Als laatste hebben nog de confusion matrixen van het experiment. Een confusion m
 \end{tabular}
 \caption{Illustratie van de confusion matrix} 
 \end{table}
+
+
+Op basis van de tabel kunnen we zeggen dat het trainen en testen met het zelfde onderwerp het beste resultaat geeft. We kunnen dit observatie terugkoppelen naar de theorie. Aangezien men de classifier traint op een bepaald onderwerp, krijgt de classifier een bepaalde idee over het concept. In dit geval bijvoorbeeld wat nu juist positieve en negatieve recensies zijn binnen filmrecensies. Wanneer de classifier als testset een dataset krijgt dat in lijn is met het aangeleerde concept gaat de precisie altijd hoger liggen dan wanneer de testset half of helemaal niet in lijn ligt met het aangeleerde concept. En dit is ook hier geval wanneer men een classifier traint op filmrecensies en test met filmrecensies of muziekrecensies. De precisie met als testset filmrecensies ligt hoger. Er is wel een overlap tussen de concepten, aangezien we nog degelijke resultaten hebben bijvoorbeeld bij het trainen op films en testen op muziek. Bij een getrainde classifier op boekrecenies is de prestatie minder met een vreemde testset. Merk op dat we in \ref{De Dataset} hadden vermeld dat het verzameld aantal positieve boekrecensies heel laag is  en dat dit mogelijke oorzaak kan zijn van de slechte prestatie. De dataset is groot genoeg om het concept over boekrecensies aan te leren, maar te klein om een overlappend concept aan te leren over wat in een algemeen een positieve en negatieve recensies is.
+
+Verder springt de prestatie van wanneer men traint en test met muziekrecensies in het oog. Ten opzichte van de andere onderwerpen, waarbij trainingsset en testset met hetzelfde onderwerp werd gebruikt, is er een verschil van ongeveer 10\%. Een mogelijk oorzaak kan bij de lengte van de muziekrecensie liggen. Als we terugkijken naar tabel \ref{tabel: Gemiddeld aantal woorden per recensie Nederlands}, zien we dat de muziekrecensies gemiddeld langer zijn dan de andere recensies. Om dergelijke invloed te onderzoeken, voeren we een kleine subanalyse uit, waarbij we de lengte van de recensies beperken tot 63 woorden. 63 is de gemiddelde lengte van al de andere recensies. \\
+
+resultaten subanalyse + gevolgtrekking
+
+Voor beide matrixen, ziet men duidelijk dat positieve recensies beter ge\"identificeerd worden. Na het herbekijken van de datasets, waarbij we kijken naar de valse positieve zagen we dat....\\
+
+Voorbeelden van vals positieve opzoeken.
+
+Een mogelijk verklaring dat mensen zich bij een positieve recensie zich veel expressiever en uitgebreider uitdrukken dan bij een negatieve recensie. Hierdoor krijgt de classifier meer informatie over de features van een positief document waardoor het beter het concept ``Positief'' kan bepalen 
+
 

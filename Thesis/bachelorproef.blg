@@ -33,9 +33,6 @@ Repeated entry---line 321 of file sections/Thesisbib.bib
  : @misc{
  :       ,
 I'm skipping whatever remains of this entry
-Warning--I didn't find a database entry for "altoglou2010study"
-Warning--I didn't find a database entry for "edersen2001decision"
-Warning--I didn't find a database entry for "maas2011learning"
 apacite.bst [2012/02/25 v6.01 APA bibliography style]
 Too many commas in name 1 of "Mantrach Amin, Nicolas Vanzeebroeck, Hugues Bersini, Marco Saerens" for entry MantrachAmin
 while executing---line 5189 of file apacite.bst
@@ -63,7 +60,7 @@ while executing---line 5227 of file apacite.bst
 Warning--`others' not consistent with 6th ed. of the APA Manual
 You've used 33 entries,
             6735 wiz_defined-function locations,
-            1430 strings with 16804 characters,
+            1427 strings with 16752 characters,
 and the built_in function-call counts, 62248 in all, are:
 = -- 8050
 > -- 550

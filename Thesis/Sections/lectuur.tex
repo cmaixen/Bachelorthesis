@@ -3,13 +3,13 @@
 \section{Overzicht}\label{Overzicht}
 %situering rond het , waar kunnen we het plaatsen
 
-Voordat we aan onze gevoelsanalyse kunnen beginnen moeten er een paar belangrijke stappen doorlopen worden om tot de experimentele analyse te komen. Voor dit onderzoek moeten er drie belangrijke stappen doorlopen worden namelijke: De data, voorverwerking en het aanleren van het concept.\\
+Voordat we aan onze gevoelsanalyse kunnen beginnen moeten er een paar belangrijke stappen doorlopen worden om tot aan de experimentele analyse te komen, namelijke: De dataset, voorverwerking en het aanleren van het concept. Dit zijn de drie grote bouwstenen voor dit onderzoek.
 
-Als eerste stap \textit{de data} lijkt misschien triviaal, maar dit is zeker niet het geval. Om een gevoelsanalyse uit te voeren moet men eerst over data beschikken, die bovendien juist gelabeld is volgens de subjectiviteit die men wil afleiden met de gevoelsanalyse. Meer over hoe we juist deze data verzameld voor dit onderzoek, vindt men in \ref{De Dataset}. Niet alleen het beschikken van de dataset is belangrijk, maar ook het juist en effici\"ent voorstellen van de datasets is belangrijk om bij stil te staan. Meer hierover vindt men in de volgende sectie.\\
+Als eerste stap \textit{de data} lijkt misschien triviaal, maar dit is zeker niet het geval. Om een gevoelsanalyse uit te voeren moet men eerst over data beschikken, die bovendien juist gelabeld is volgens de subjectiviteit die men wil afleiden met gevoelsanalyse. Voor dit onderzoek is het onderscheid kunnen maken tussen een negatieve en positieve opinie de subjectiviteit dat we willen afleiden. Meer over hoe juist de data verzameling voor dit onderzoek is verlopen, vindt men in \ref{De Dataset}. Niet alleen het beschikken van de dataset is belangrijk, maar ook het juist en effici\"ent voorstellen van de dataset is belangrijk om bij stil te staan. Meer hierover vindt men in de volgende sectie.\\
 
 De volgende stap \textit{voorverwerken van data}  is eveneens belangrijk in het proces van gevoelsanalyse en wordt beschouwd in sectie \ref{Technieken voor Pre-Processing}. De sectie omvat technieken die we gebruiken tijdens de experimentele analyse in hoofdstuk \ref{Experiment} om onze data te optimaliseren en zo de classificatieprestatie te verbeteren.\\
 
-Als laatste stap bepalen we het algoritme dat we gebruiken. Voor dit onderzoek is  er gekozen voor zelflerende algoritmes die we een bepaald concept gaan aanleren, in het geval voor de experimentele analyse duidt dit op het onderscheiden van negatieve en positieve recensies. Meer over de leermethode vindt men in sectie \ref{Leermethode}.
+Als laatste stap bepalen we het algoritmen dat we gebruiken. Voor dit onderzoek is  er gekozen voor zelflerende algoritmes, afkomstig uit de Machine Learning, die we een bepaald concept gaan aanleren. In het geval voor de experimentele analyse duidt dit op het onderscheiden van negatieve en positieve recensies. Meer over de leermethode vindt men in sectie \ref{Leermethode}.
 
 \begin{center}
   \includegraphics[width=10cm]{overzicht}
@@ -52,21 +52,21 @@ Deze matrix wordt een \textbf{\textit{terms-documents matrix (TDM)}} genoemd. Wa
 %
 De voorstelling in een matrix geeft inzicht en biedt veel meer mogelijkheden om de data te analyseren. Bijvoorbeeld overeenkomstige woordfrequenties tussen twee documenten kan duiden dat documenten over hetzelfde onderwerp gaan of eenzelfde mening uitdrukken.
 %
-In de praktijk is gebleken dat documenten vergelijken op basis van woordfrequentie niet altijd de gewenste resultaten oplevert en \cite{pang2002thumbs} toont aan dat er ruimte is voor verbetering door middel van Pre-Processing technieken.
+In de praktijk is gebleken dat documenten vergelijken op basis van woordfrequentie niet altijd de gewenste resultaten oplevert. \cite{pang2002thumbs} toont zelfs aan dat er ruimte is voor verbetering door middel van voorverwerkingstechnieken.
 
-\section{Technieken voor Pre-Processing}\label{Technieken voor Pre-Processing}
+\section{Technieken voor Voorverwerking}\label{Technieken voor Pre-Processing}
 
-Zoals we in \ref{Vector Space Methode} al vermeldde kan pre-processing voor verbetering van de classifiers zorgen. De pre-pocestechnieken die we gebruiken in deze bachelorproef zijn al eerder gebruikt door \cite{pang2002thumbs} en \cite{wang2011sentiment} en hadden een positief effect.
+Zoals we in \ref{Vector Space Methode} al vermeldde kan voorverwerking voor verbetering van de prestatie van de classifiers zorgen. De voorverwerkingstechnieken die we gebruiken in deze bachelorproef zijn al eerder gebruikt door \cite{pang2002thumbs} en \cite{wang2011sentiment} en hadden een positief effect.
 
 \subsection{Bag of Words}\label{Bag of Words}
 
-De eerste techniek is Bag of Words. Dit is niet echt een pre-procestechniek, maar eerder een referentiepunt voor de andere pre-procestechnieken. Het steunt op het principe waarop de vector space methode zich baseert, waarbij ieder document wordt voorgesteld door zijn woordfrequenties. Het is de basistechniek die wordt uitgevoerd bij een gevoelsanalyse aan de hand van de VSM. 
+De eerste techniek is Bag of Words. Dit is niet echt een voorverwerkingstechniek, maar eerder een referentiepunt voor de andere pre-procestechnieken. Het steunt op het principe waarop de vector space methode zich baseert, waarbij ieder document wordt voorgesteld door zijn woordfrequenties. Het is de basistechniek die wordt uitgevoerd bij een gevoelsanalyse aan de hand van de VSM. Deze techniek zullen we als referentiepunt nemen in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} tijdens de experimentele analyse, waarbij we de prestaties van de voorverwerkingstechnieken beoordelen.
 
 \subsection{Verwijderen van stopwoorden}\label{Verwijderen van stopwoorden en leestekens}
 
-Wat men vaak ziet in het Nederlands, maar ook in taal algemeen, is dat er veel stopwoorden worden gebruikt. Stopwoorden als ``klopt'' en ``eigenlijk'' zeggen niet veel over teksten of ze nu positief of negatief zijn. Als een bepaald woord niet bijdraagt voor het algoritme kunnen we stopwoorden beschouwen als ruis in de dataset. Ruis vertroebelt het beeld van het concept dat we het algoritme willen aanleren en proberen we te elimineren. Daarom beschouwt men het verwijderen van stopwoorden en leestekens ook als een manier van pre-processing.
+Wat men vaak ziet in het Nederlands, maar ook in taal algemeen, is dat er veel stopwoorden worden gebruikt. Stopwoorden als ``klopt'' en ``eigenlijk'' zeggen niet veel over teksten of ze nu positief of negatief zijn. Als een bepaald woord niet bijdraagt voor het algoritme kunnen we stopwoorden beschouwen als ruis in de dataset. Ruis vertroebelt het beeld van het concept dat we het algoritme willen aanleren en proberen we te elimineren. Daarom beschouwt men het verwijderen van stopwoorden en leestekens ook als een manier van voorverwerking.
 
-Onderstaande tabel geeft het gemiddeld aantal features weer voor dertig Engelse en Nederlandse datasets met 6000 recensies, wanneer wel of geen stopwoorden zijn verwijderd. Later in hoofdstuk \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} bekijken de invloed van deze techniek op de classificatieprestatie.
+Onderstaande tabel geeft het gemiddeld aantal features weer voor dertig Engelse en Nederlandse datasets met 6000 recensies, wanneer wel of geen stopwoorden zijn verwijderd. De tabel geeft een idee over hoeveel features er juist worden verwijderd bij het verwijderen van stopwoorden. Later in hoofdstuk \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} bekijken de invloed van deze techniek op de classificatieprestatie.
 
 \begin{table}[h]
 \centering
@@ -97,17 +97,16 @@ Met deze twee kwantiteiten kan men een nieuwe begrip introduceren: de \textbf{tf
 \[ \text{tf-idf score} = tf . idf_{ij} = idf_{i} . tf_{ij} \]
 %
 De tf-idf matrix bekomt men dan door alle woordfrequenties van het terms-document matrix te vervangen door de tf-idf score.
-Er bestaan nog uitbreiding op term weighting (\cite{altoglou2010study}), maar voor het experimentele analyse houden we het bij de standaard tf-idf weighting.
+Er bestaan nog uitbreiding op term weighting (\cite{paltoglou2010study}), maar voor de experimentele analyse houden we het bij de standaard tf-idf weighting.\\
 
-Als kleine aanloop naar de experimentele analyse zien we met een eenvoudige proefje de kracht van tf-idf. Onderstaande tabel geeft enkele Nederlandse recensies weer met het woord of feature met de hoogste tf-idf voor die recensie na term weighting. De volledige recensies kan je lezen in bijlage X.
+Als kleine aanloop naar de experimentele analyse bekijken we met een eenvoudige proefje de kracht van tf-idf. Onderstaande tabel geeft enkele Nederlandse recensies weer uit onze dataset met het woord of feature met de hoogste tf-idf voor die recensie na term weighting. De volledige recensies kan je lezen in bijlage X.
 
 % Please add the following required packages to your document preamble:
 % \usepackage[normalem]{ulem}
 % \useunder{\uline}{\ul}{}
 \begin{table}[h]
 \centering
-\caption{My caption}
-\label{my-label}
+
 \begin{tabu} to \textwidth {|X|X|}
 \hline
 {\bf Recensie}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  & {\bf Woord met hoogste tf-idf score} \\ \hline
@@ -120,15 +119,17 @@ Geweldige nagelbijtende oorlogsfilm,zo zie je ze jammer genoeg zelden,zien !!!! 
 Een prachtige en zeer meeslepende film. Het blijft ook erg boeiend, omdat ... & het                                  \\ \hline
 Ik vind dat dit een overgewardeerde film is, net als een heleboel andere Nederlandse films op deze site.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        & overgewardeerde                      \\ \hline
 \end{tabu}
+\caption{Enkele recensies met het woord met de hoogste tf-idf score}
+\label{examples recensies}
 \end{table}
 
 
-We zien hier al mooi resultaten zoals \textit{nagelbijtende} en \textit{overgewardeerde}, waar duidelijk de positieve aard van de recensie naar boven komt. Opvallend is dat bij vooral langere recensies nogal redelijk veel stopwoorden zoals \textit{je} of \textit{het} de hoogste tf-idf-score krijgen toegewezen. Het nog eens verwijderen van de stopwoorden voor de term weighting gaat mogelijks dit probleem verhelpen. Dit onderzoeken we verder tijdens de experimentele analyse in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}. 
+We zien hier al mooi resultaten zoals \textit{nagelbijtende} en \textit{overgewardeerde}, waar duidelijk de positieve aard van de recensie naar boven komt. Het is ook interessant om te zien, hoe schrijffouten boven komen. Opvallend is dat bij vooral langere recensies veel stopwoorden zoals \textit{je} of \textit{het} de hoogste tf-idf-score krijgen toegewezen. Het nog eens verwijderen van de stopwoorden voor de term weighting gaat mogelijks dit probleem verhelpen. Dit onderzoeken we verder tijdens de experimentele analyse in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}. 
 
 
 \subsection{Bigram Collocaties}\label{Bigram Collocaties}
 
-Bigrams Collocaties is een techniek waarbij men op zoek gaat naar paren van woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen. In het onderzoek van \cite{pang2002thumbs} bleken bigrams niet voor een verbeterde prestatie te zorgen, al mag men de nuttigheid van bigrams niet onderschatten. Toch nemen we bigrams als een van de technieken,\cite{edersen2001decision} toonde echter aan dat bigrams een nuttig kenmerk vormen voor het oplossen van woord zin ambigu\"iteit. \cite{pang2002thumbs} merkt dan ook zelf op in zijn onderzoek dat bigram features mogelijks evenwaardig zijn met unigram features.\\
+Bigrams Collocaties is een techniek waarbij men op zoek gaat naar paren van woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen. In het onderzoek van \cite{pang2002thumbs} bleken bigrams niet voor een verbeterde prestatie te zorgen, al mag men de nuttigheid van bigrams niet onderschatten en nemen we bigrams als een van de technieken voor de experimentele analyse.\cite{pedersen2001decision} toonde echter aan dat bigrams een nuttig kenmerk vormen voor het oplossen van woord zin ambigu\"iteit. \cite{pang2002thumbs} merkt dan ook zelf op in zijn onderzoek dat bigram features mogelijks evenwaardig zijn met unigram features.\\
 %
 De bepaling van de informatieve waarde van de bigrams is gebaseerd op de frequentie van het bigram en de frequenties van de andere bigrams. Als men een overzicht krijgt over de frequenties introduceert men een metriek, die met behulp van de frequenties mogelijke verbanden kan blootleggen. Chi-kwadraat is zo'n metriek die er zich toe leent. De Chi-kwadraattoets is een statistische toets die het mogelijk maakt om de onafhankelijkheid tussen waarnemingen te onderzoeken. Bij Bigram Collocaties onderzoekt men via de Chi-kwadraattoets de afhankelijkheid tussen twee woorden. Hoe grotere de afhankelijkheid, hoe hoger de score. 
 
@@ -145,7 +146,7 @@ Om een idee te krijgen hoeveel features er juist worden toegevoegd wanneer we ge
 \caption{Gemiddeld aantal features bij Bag of Words en Bigrams (Gemiddelde van 30 dataset met 6000 recensies/dataset)}
 \end{table}
 
-In de tabel zien we duidelijk dat er een stevig aantal features wordt wanneer men bigrams mee in rekening brengt. Bij het Engels stijgt het aantal features met 1240\% en bij het Nederlands met 820\%, wat een enorme bron aan extra informatie voor het leeralgoritme kan betekenen. Of het een verbetering is voor gevoelsanalyse onderzoeken we verder tijdens de experimentele analyse in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}.
+In de tabel zien we duidelijk dat er een stevig aantal features wordt toegevoegd wanneer men bigrams mee in rekening brengt. Bij het Engels stijgt het aantal features met 1240\% en bij het Nederlands met 820\%, wat een enorme bron aan extra informatie voor het leeralgoritme kan betekenen. Of het een verbetering is voor gevoelsanalyse onderzoeken we verder tijdens de experimentele analyse in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}.
 
 \subsubsection{Chi-Kwadraattoets}\label{Chi-Kwadraattoest}
 
@@ -187,7 +188,7 @@ $E_ij$ wordt bepaald door volgende formule:
 %
 met $\frac{O_i*}{N}$ de marginale probabiliteit dat $i$ als eerste deel van het bigram voorkomt en $\frac{O_j*}{N}$ de marginale probabiliteit dat $j$ als tweede deel van het bigram voorkomt. $N$ stelt het totaal aantal bigrams voor.
 %
-Toegepast op het voorbeeld geeft dit voor het bigram ``(heel , goed)'':
+Toegepast op het voorbeeld geeft dit voor het bigram \textit{(heel , goed)}:
 
 \[{E_11} = \frac{9+3632}{N}+\frac{9+7893}{N} * N \approx 0,0085 \]
 \newline
@@ -212,11 +213,11 @@ Kort samengevat baseert de Chi-kwadraattoets zich op de afwijking tussen de geob
 
 \subsection{Best feature selection}\label{Low-information feature el}
 
-Als we duizenden documenten verwerken, is het te voorspellen dat er enorm veel woorden algemeen voorkomen in de documenten, maar niet veel informatie bijdragen over het document zelf. Het is sterk vergelijkbaar met de voorgaande techniek in \ref{Verwijderen van stopwoorden en leestekens} bij het verwijderen van stopwoorden. Veel voorkomende features kunnen voor het document niet als iets identificerend dienen en zorgen voor ruis in de dataset. Daarom kan men verkiezen om deze low-information features te verwijderen zodanig dat men enkel de features overhoudt die echt iets zeggen over een document. Het bepalen van de informatiewinst kan gebeuren aan de hand van het aantal voorkomens in de verschillende klassen. Als een bepaalde feature voornamelijk in positieve documenten voorkomt en amper in negatieve documenten, kan men afleiden dat deze feature zeer informatief is omtrent positieve documenten. Als metriek om de informatiewinst te meten kan men wederom ${\chi}^2$ uit \ref{Chi-Kwadraattoest} gebruiken. Chi-kwadraat laat ons namelijk toe om de correlatie tussen een bepaalde feature en de klassen te meten.
+Als we duizenden documenten verwerken, is het te voorspellen dat er enorm veel woorden algemeen voorkomen in de documenten, maar niet veel informatie bijdragen over het document zelf. Het is sterk vergelijkbaar met de voorgaande techniek in \ref{Verwijderen van stopwoorden en leestekens} bij het verwijderen van stopwoorden. Veel voorkomende features kunnen voor het document niet als iets identificerend dienen en zorgen voor ruis in de dataset. Daarom kiezen we om deze low-information features te verwijderen zodanig dat men enkel de features overhoudt die echt iets zeggen over een document. Het bepalen van de informatiewinst gebeurt aan de hand van het aantal voorkomens in de verschillende klassen. Als een bepaalde feature voornamelijk in positieve documenten voorkomt en amper in negatieve documenten, leiden we af dat deze feature zeer informatief is omtrent positieve documenten. Als metriek om de informatiewinst te meten kan men wederom ${\chi}^2$ uit \ref{Chi-Kwadraattoest} gebruiken. Chi-kwadraat laat ons namelijk toe om de correlatie tussen een bepaalde feature en de klassen te meten.
 %
 \subsection{Latent Semantic Analysis}\label{Latent Semantic Analysis}
 
-Latent Semantic Analysis is een wiskundige techniek gebaseerd op statistische berekeningen, waar van aangetoond dat deze zeer nuttig is bij het analyseren van grote collecties tekstdata (\cite{furnas1988information}). Met LSA probeert men een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord ``economie'', willen we ook documenten met ``financi\"en'' terugkrijgen. Voor LSA zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen twee woorden als ze vaak voorkomen in dezelfde documenten.
+Latent Semantic Analysis is een wiskundige techniek gebaseerd op statistische berekeningen, waar van aangetoond dat deze zeer nuttig is bij het analyseren van grote collecties tekstdata (\cite{furnas1988information}). Met LSA proberen we een notie te krijgen van de semantische informatie en meer bepaald het semantisch verband tussen woorden. Bijvoorbeeld als we zoeken naar documenten met het woord ``economie'', willen we ook documenten met ``financi\"en'' terugkrijgen. Voor LSA zijn twee woorden semantisch gerelateerd als ze gebruikt worden in dezelfde context. Met het concrete voorbeeld kunnen we zeggen dat er een semantisch verband is tussen twee woorden als ze vaak voorkomen in dezelfde documenten.
 \newline
 Merk op dat bij Latent Semantic Analysis het belangrijk is dat ieder woord naar \'e\'en concept verwijst.
 %
@@ -261,14 +262,14 @@ De reductie van de dimensie gebeurt aan de hand van volgend principe. Neem matri
 \] 
 \newline
 U is de unitaire matrix waarbij men $u_1, u_2, ... , u_r$ de linker singuliere vectors noemt. Deze stellen een document met zijn features voor. $V^T$ is de geconjugeerde getransponeerde matrix van V. $v_1, v_2, ... , v_r$ noemt men de rechter singuliere vectors en stellen de woorden met hun features over alle documenten voor. $\Sigma$ is een diagonaal matrix met singuliere waarden $\sigma_1,\sigma_2,..,\sigma_r$'  op de diagonaal. De reductie van een terms-documents matrix naar een dimensie van $K$ gebeurt door de hoogste $K$ singuliere waarden te nemen in $\Sigma$ met de overeenkomstige singuliere vectoren uit $U$ en $V$.    
-Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Dit laat toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat SVD toepassen een zeer nuttige eerste stap is bij text mining (\cite{maas2011learning}), omdat men nieuwe meer effici\"ente features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen dienen als input voor het zelflerende algoritme.
+Doordat men de dimensionaliteit van de vectoren kan beperken door semantisch gelijkaardige woorden bijeen te voegen. Dit laat toe om een soort van context groepen te cre\"eren en zo een zeker inzicht te krijgen in de dataset. Het is dan ook gebleken dat SVD toepassen een zeer nuttige eerste stap is bij text mining (\cite{maas2011learnin}), omdat we nieuwe meer effici\"ente features krijgt. De nieuwe features geven meer duidelijkheid en inzicht en kunnen dienen als input voor het zelflerende algoritme.
 
 \section{Leermethode}\label{Leermethode}
 
-Voor het experiment hebben moeten we ook het algoritme bepalen dat de data gaat classificeren, ook wel classifier genoemd. Voor het algoritme gaan we beroep doen op de Machine learning en gebruik maken van supervised learning technieken. Deze technieken vereiseen dat men het algoritme eerst traint met een dataset die voorbeelden bevat over het concept dat we willen aanleren. De trainingsset bevat zowel de inputwaarden als de verwachte outputwaarde voor de input en men verwacht dat het algoritme hier verbanden in kan vinden zodanig dat het voor willekeurige inputwaarden de juiste outputwaarde kan bepalen. \cite{ye2009sentiment} toont echter aan dat supervised learning technieken een goede prestatie hebben bij gevoelsanalyse, terwijl dit niet het geval is bij unsupervised learning (\cite{rothfels2010unsupervised}).
+Voor de experimentele analyse hebben moeten we ook het algoritme bepalen dat de data gaat analyseren en classificeren, ook wel classifier genoemd. Zoals eerder vermeld in \ref{Overzicht}, gaan we beroep doen op zelflerende algoritme uit de Machine Learning en meer bepaald op supervised learning technieken. Deze technieken vereisen dat we het algoritme eerst traint met een dataset die voorbeelden bevat over het concept dat we willen aanleren. De trainingsset bevat zowel de inputwaarden als de verwachte outputwaarde voor de input en we verwachten dat het algoritme hier verbanden in kan vinden zodanig dat het voor willekeurige inputwaarden de juiste outputwaarde kan bepalen. Eerder werd aangetoond door \cite{ye2009sentiment} dat supervised learning technieken een goede prestatie hebben bij gevoelsanalyse, terwijl dit niet het geval is bij unsupervised learning technieken (\cite{rothfels2010unsupervised}).
 
 
-Concreter kiezen we voor de Naive Bayes Classifier en de Decision Tree als supervised learning technieken voor het experiment. De Naive Bayes Classifier is een heel praktische aanpak voor bepaalde leerproblemen (\cite{mitchell1997machine}). Bijvoorbeeld onderzoekers \cite{Michie94machinelearning} tonen aan dat de prestatie van de Naive Bayes Classifier gelijkaardig of in sommige gevallen zelfs beter is dan andere leeralgoritmen, zoals beslissingsbomen en neurale netwerken onderzocht. Decision Trees zijn eveneens een populaire methode en werd ondermeer gebruikt door \cite{zhang2008sentiment} voor een gevoelsanalyse op productrecensies en klanten feedback.
+Concreter kiezen we voor de Naive Bayes Classifier en de Decision Tree als supervised learning technieken voor de experimentele analyse. De Naive Bayes Classifier is een heel praktische aanpak voor bepaalde leerproblemen (\cite{mitchell1997machine}). Bijvoorbeeld onderzoekers \cite{Michie94machinelearning} tonen aan dat de prestatie van de Naive Bayes Classifier gelijkaardig of in sommige gevallen zelfs beter is dan andere leeralgoritmen, zoals beslissingsbomen en neurale netwerken. Decision Trees zijn eveneens een populaire methode en werd ondermeer gebruikt door \cite{zhang2008sentiment} voor een gevoelsanalyse op productrecensies en klantenfeedback.
 
 \subsection{Naive Bayes Classifier}\label{Naive Bayes Classifier}
 

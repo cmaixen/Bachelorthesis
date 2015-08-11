@@ -269,39 +269,7 @@ Maas%
 Maas%
 \ \protect \BOthers {.}}{%
 {\protect \APACyear {2011}}%
-{\protect \APACexlab {{\protect \BCnt {1}}}}}]{%
-maas2011learnin}
-\APACinsertmetastar {%
-maas2011learnin}%
-\begin{APACrefauthors}%
-Maas, A\BPBI L.%
-, Daly, R\BPBI E.%
-, Pham, P\BPBI T.%
-, Huang, D.%
-, Ng, A\BPBI Y.%
-\BCBL {}\ \BBA {} Potts, C.%
-\end{APACrefauthors}%
-\unskip\
-\newblock
-\APACrefYearMonthDay{2011{\protect \BCnt {1}}}{}{}.
-\newblock
-{\BBOQ}\APACrefatitle {Learning word vectors for sentiment analysis} {Learning
-  word vectors for sentiment analysis}.{\BBCQ}
-\newblock
-\BIn{} \APACrefbtitle {Proceedings of the 49th Annual Meeting of the
-  Association for Computational Linguistics: Human Language Technologies-Volume
-  1} {Proceedings of the 49th annual meeting of the association for
-  computational linguistics: Human language technologies-volume 1}\ (\BPGS\
-  142--150).
-\PrintBackRefs{\CurrentBib}
-
-\bibitem [\protect \citeauthoryear {%
-Maas%
-\ \protect \BOthers {.}}{%
-Maas%
-\ \protect \BOthers {.}}{%
-{\protect \APACyear {2011}}%
-{\protect \APACexlab {{\protect \BCnt {2}}}}}]{%
+}]{%
 maas-EtAl:2011:ACL-HLT2011}
 \APACinsertmetastar {%
 maas-EtAl:2011:ACL-HLT2011}%
@@ -315,7 +283,7 @@ Maas, A\BPBI L.%
 \end{APACrefauthors}%
 \unskip\
 \newblock
-\APACrefYearMonthDay{2011{\protect \BCnt {2}}}{June}{}.
+\APACrefYearMonthDay{2011}{June}{}.
 \newblock
 {\BBOQ}\APACrefatitle {Learning Word Vectors for Sentiment Analysis} {Learning
   word vectors for sentiment analysis}.{\BBCQ}

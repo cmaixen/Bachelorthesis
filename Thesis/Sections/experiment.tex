@@ -1,19 +1,19 @@
 \chapter{Experimentele analyse}\label{Experiment}
 
-In hoofdstuk \ref{Lectuur} hebben we deze bouwstenen meer in detail bekeken om nu tot de experimentele analyse te komen. Voor de voorstelling van de dataset hebben we de Vector Space Methode gekozen (zie \ref{Voorstelling dataset}) . Nu in sectie \ref{De Dataset} gaan we dieper in op het verzamelen van de data voor deze experimentele analyse. Uiteindelijk is het beschikken over een goede dataset even belangrijk als het beschikken over goede technieken en evengoed een onderdeel van de experimentele analyse.\\
-Deze analyse is opgedeeld in verschillende subanalyses om zo een optimaal beeld te krijgen over al dan niet de verschillen tussen Nederlandse en Engelse Gevoelsanalyse. 
+In hoofdstuk \ref{Lectuur} hebben we de bouwstenen meer in detail bekeken om nu tot de experimentele analyse te komen. Voor de voorstelling van de dataset hebben we de Vector Space Methode gekozen (zie \ref{Voorstelling dataset}) . In sectie \ref{De Dataset} gaan we dieper in op het verzamelen van de data voor deze experimentele analyse. Uiteindelijk is het beschikken over een goede dataset even belangrijk als het beschikken over goede technieken en evengoed een onderdeel van de experimentele analyse.\\
+Deze analyse is opgedeeld in verschillende subanalyses om zo een optimaal beeld te krijgen over de verschillen tussen Nederlandse en Engelse Gevoelsanalyse. 
 
 Voor de gevoelsanalyse gebruiken we de voorverwerkingstechnieken uit sectie \ref{Technieken voor Pre-Processing} zoals het verwijderen van stopwoorden, Term weigthing en LSA. Ook gebruiken we de Naive Bayes Classifier en Decision tree uit sectie \ref{Leermethode} als leermethoden en proberen we een onderscheid te maken tussen recensies met een negatieve of positieve opinie. De prestaties van de gevoelsanalyses beoordelen we in dit onderzoek op basis van de precisie waarmee negatieve en positieve recensies worden onderscheiden.\\
 
-Als eerste analyse beginnen we in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} met de verschillen te bekijken tussen Engelse en Nederlandse gevoelsanalyse op basis van de prestatie. Nadat we deze analyse hebben uitgevoerd, bekijken we in sectie \ref{Classificatie op basis van geannoteerde woordenlijsten} gevoelsanalyse met een andere eenvoudige en initu\"itievere kijk en analyseren we de classificatie op basis van geannoteerde woordenlijsten met gevoelens.
+Als eerste analyse beginnen we in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} met de verschillen te bekijken tussen Engelse en Nederlandse gevoelsanalyse op basis van de prestatie. Nadat we deze analyse hebben uitgevoerd, bekijken we in sectie \ref{Classificatie op basis van geannoteerde woordenlijsten} gevoelsanalyse met een andere eenvoudige en intu\"itievere kijk en analyseren we de classificatie op basis van geannoteerde woordenlijsten met gevoelens.
 
-Afhankelijk van het positief karakter van de voorgaande analyses gaan we nog iets dieper in op het Nederlands in sectie \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse} en analyseren we de onderwerp-gevoeligheid van Nederlandse gevoelsanalyse.
+Afhankelijk van het positief karakter van de voorgaande analyses gaan we nog iets dieper in op het Nederlands in sectie \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse} en analyseren we de onderwerpgevoeligheid van Nederlandse gevoelsanalyse.
 
 \section{De Dataset}\label{De Dataset}
 
-Het verzamelen van data lijkt misschien een triviaal onderdeel van heel de experimentele analyse, maar dit is zeker niet het geval. Er moet heel verstandig en kritisch omgegaan worden bij het verzamelen van data voor gevoelsanalyse. Een eerste punt is sarcasme. Sarcasme is vandaag de dag nog altijd een onopgelost probleem (\cite{liebrecht2013perfect}) en is iets waar we rekening mee moeten houden als we de bron voor de verzameling van onze data selecteren. Sociale media zoals Twitter en dergelijke kunnen we dus voor onze gevoelsanalyse niet gebruiken. Een andere probleem is het labelen van de data, omdat we voor deze experimentele analyse supervised learning technieken gebruiken, is het heel arbeidsintensief om de data manueel te labelen.Echter Reviewsites bieden hier de oplossing. Deze sites laten gebruikers toe om omtrend een bepaald product een recensie te posten en hierbij ook een score mee te geven. Door die score kunnen we tijdens het verzamelen van de data, de recensies ook automatisch labelen.\\
+Het verzamelen van data lijkt misschien een triviaal onderdeel van heel de experimentele analyse, maar dit is zeker niet het geval. Er moet heel verstandig en kritisch omgegaan worden bij het verzamelen van data voor gevoelsanalyse. Een eerste punt is sarcasme. Sarcasme is vandaag de dag nog altijd een onopgelost probleem (\cite{liebrecht2013perfect}) en is iets waar we rekening mee moeten houden als we de bron voor de verzameling van onze data selecteren. Sociale media zoals Twitter en dergelijke kunnen we dus voor onze gevoelsanalyse niet gebruiken. Een andere probleem is het labelen van de data, omdat we voor deze experimentele analyse supervised learning technieken gebruiken, is het heel arbeidsintensief om de data manueel te labelen. Echter reviewsites bieden hier de oplossing. Deze sites laten gebruikers toe om omtrent een bepaald product een recensie te posten en hierbij ook een score mee te geven. Door die score kunnen we tijdens het verzamelen van de data, de recensies ook automatisch labelen.\\
 
-Uiteraard zijn er enorm veel reviewsites beschikbaar en stuiten we hier op enkele problemen. Men moet rekening houden met het aanbod. Om een zo goed mogelijk beeld te krijgen willen we in onze datasets een algemeen onderwerp inbrengen. Dit wil zeggen dat we niet in het wilde weg recensies kunnen scrapen van iedere reviewsite dat we tegenkomen, maar selectief te werk moeten gaan. Als eerste ingeving gingen we de oplossing zoeken bij webshops zoals Coolblue \url{http://www.coolblue.be/}, Tweakers \url{http://tweakers.net/} en Amazon \url{http://www.amazon.com/}. Op deze website kan men een enorme hoeveelheid aan productrecensies, ideaal dus voor onze gevoelsanalyse. Het probleem echter bij deze websites is dat de reviews vaak te specifiek zijn en mogelijks de analyses kunnen be\"invloeden, door bijvoorbeeld een bepaald model van beamer meteen als doorweegfactor voor een positieve recensie te beschouwen.
+Uiteraard zijn er enorm veel reviewsites beschikbaar en stuiten we hier op enkele problemen. Men moet rekening houden met het aanbod. Om een zo goed mogelijk beeld te krijgen willen we in onze datasets een algemeen onderwerp inbrengen. Dit wil zeggen dat we niet in het wilde weg recensies kunnen scrapen van iedere reviewsite dat we tegenkomen, maar selectief te werk moeten gaan. Als eerste ingeving gingen we de oplossing zoeken bij webshops zoals Coolblue (\url{http://www.coolblue.be/}), Tweakers (\url{http://tweakers.net/}) en Amazon (\url{http://www.amazon.com/}). Op deze website kan men een enorme hoeveelheid aan productrecensies vinden, ideaal dus voor onze gevoelsanalyse. Het probleem bij deze websites is dat de reviews vaak te specifiek zijn en mogelijks de analyses kunnen be\"invloeden, door bijvoorbeeld een bepaald model van beamer meteen als doorweegfactor voor een positieve recensie te beschouwen.
 
 \begin{figure}%
     \centering
@@ -21,17 +21,17 @@ Uiteraard zijn er enorm veel reviewsites beschikbaar en stuiten we hier op enkel
     \caption{Enkele voorbeelden van reviews met verschillende onderwerpen, afkomstig van \url{http://www.coolblue.be} en \url{http://www.tweakers.net} }
 \end{figure}
 
-Uiteindelijk hebben we de oplossing gevonden bij film-, muziek- en boekrecensies. Er al veel onderzoek gedaan naar Engelse gevoelsanalyse en filmrecensies zijn hier een populaire dataset. Dit maakt het voor ons mogelijk om Engelse datasets over te nemen uit eerder onderzoek. De Engelse dataset die we gebruiken in dit onderzoek is afkomstig uit een eerder onderzoek door \cite{maas-EtAl:2011:ACL-HLT2011}. Al deze gebruikersrecensies zijn toen gescraped geweest van de website imdb (\url{http://www.imdb.com/}) en zijn dus filmrecensies.\\
+Uiteindelijk hebben we de oplossing gevonden bij film-, muziek- en boekrecensies. Er is al veel onderzoek gedaan naar Engelse gevoelsanalyse en filmrecensies zijn hier een populaire dataset. Dit maakt het voor ons mogelijk om Engelse datasets over te nemen uit eerder onderzoek. De Engelse dataset die we gebruiken in dit onderzoek is afkomstig uit een eerder onderzoek door \cite{maas-EtAl:2011:ACL-HLT2011}. Al deze gebruikersrecensies zijn toen gescraped geweest van de website imdb (\url{http://www.imdb.com/}) en zijn dus filmrecensies.\\
 Voor de Nederlandse gevoelsanalyse waren er geen datasets beschikbaar en moeten we deze scrapen. De websites \url{moviemeter.nl}, \url{boekmeter.nl} en \url{muziekmeter.nl} vormen de perfecte bron aan informatie om te scrapen. Ze bevatten allemaal toplijsten met films, boeken of muziekalbums waarop in grote aantallen gebruikers hun persoonlijke mening plaatsen.\\
 
-Belangrijk om te vermelden is dat zowel bij het labelen van de Engelse als de Nederlandse dataset dezelfde voorwaarden werd gerespecteerd. Enkel hoog gepolariseerde recensies worden beschouwd in de dataset. Onderzoek rond polarisatie classificatie (\cite{maas-EtAl:2011:ACL-HLT2011}) ondersteund deze keuze. Een recensie wordt negatief gelabeld als het een score heeft van 4 op 10 of minder. Een positieve labeling wordt gegeven aan recensies met een score van 6 op 10 of meer.\\
+Belangrijk om te vermelden is dat zowel bij het labelen van de Engelse als de Nederlandse dataset dezelfde voorwaarden werden gerespecteerd. Enkel hoog gepolariseerde recensies worden beschouwd in de dataset. Onderzoek rond polarisatie classificatie (\cite{maas-EtAl:2011:ACL-HLT2011}) ondersteund deze keuze. Een recensie wordt negatief gelabeld als het een score heeft van 4 op 10 of minder. Een positieve labeling wordt gegeven aan recensies met een score van 6 op 10 of meer. Een recensie die niet voldoet aan de vereisten voor een positieve of negatieve recensie, worden niet opgenomen in de dataset.\\
 
 Later in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} gaan we de grenskeuze  nog beter analyseren, door de prestaties te vergelijken, wanneer er een hogere polarisatie wordt doorgevoerd.
 
 \begin{figure}[h]%
     \centering
     \subfloat{{\includegraphics[width=10cm]{voorbeeldrecensie} }}%
-    \caption{Een voorbeeld van een positieve commentaar op \url{http://www.moviemeter.nl}}%
+    \caption{Een voorbeeld van een positieve commentaar met een score van 5 op 5 op \url{http://www.moviemeter.nl}}%
 \end{figure}
 
 Alle Nederlandse recensies zijn afkomstig van de ``All Time Top 250''-toplijst op de betreffende website.
@@ -73,7 +73,7 @@ Onderstaande linkertabel geeft het aantal verzamelde Nederlandse recensies van i
 
 Wat meteen opvalt is dat het aantal verzamelde positieve boekrecensies heel klein is tegen over de andere recensies. Later bij het gebruik van deze dataset in \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse} zullen we hier rekening mee moeten houden.\\
 
-Om nog een beter inzicht te krijgen over de dataset geven onderstaande tabellen nog wat extra statistieken weer over de datasets.\\
+Om nog een beter inzicht te krijgen over de dataset geven onderstaande tabellen extra statistieken weer over de datasets.\\
 
 \begin{table}[h]
 \centering
@@ -144,17 +144,17 @@ Onderstaande tabel geeft weer hoe de woordenlijsten zich tegenover elkaar verhou
 
 \begin{table}[h]
 \centering
-\caption{Aantal woorden in iedere woordenlijst}
-\label{table: Verlies in woordenschat}
 \begin{tabular}{l|l|l|}
 \cline{2-3}
  & Positief & Negatief \\ \hline
 \multicolumn{1}{|l|}{Engels Woordenlijsten}     & 2006     & 4783     \\ \hline
 \multicolumn{1}{|l|}{Nederlands Woordenlijsten} & 2006     & 4647     \\ \hline
 \end{tabular}
+\caption{Aantal woorden in iedere woordenlijst}
+\label{table: Verlies in woordenschat}
 \end{table}
 
-We zien dat er een klein verlies van woorden is bij de negatieve Nederlandse woordenlijst. Dit komt door de vertaling van het Engels naar het Nederlands.
+We zien dat er een klein verlies van woorden is bij de negatieve Nederlandse woordenlijst. Dit komt door de vertaling van het Engels naar het Nederlands. Voor een aantal Engelse woorden geeft Google Vertalen geen Nederlands woord. 
 
 \begin{figure}%
     \centering
@@ -169,8 +169,8 @@ Als eerste analyse vergelijken we de Engelse gevoelsanalyse met de Nederlandse g
 
 Concreter is de gevoelsanalyse die we in dit onderzoek uitvoeren, het correct kunnen onderscheiden van positieve en negatieve filmrecensies. De vergelijking wordt dan telkens gemaakt op basis van de prestaties van de analyses. De prestatie wordt beoordeeld op basis van de precisie waarmee de classifier de recensies classificeert. De precisie die we opnemen in onze resultaten voor een classifier wordt bepaald door het gemiddelde te nemen van 30 runs. Bij iedere run wordt er een ongetrainde classifier getraind met een trainingsset en wordt de precisie getest door het classificeren van de testset. In dit experiment bestaat iedere trainingsset uit 6000 filmrecensies en testset uit 2000 filmrecensies. Ook zorgen we er telkens voor dat zowel de trainingsset als de testset willekeurig en gebalanceerd samengesteld worden. Dit wil zeggen dat de datasets telkens voor de helft uit positieve en de andere helft uit negatieve recensies bestaan en wanneer men deze willekeurig zou classificeren, men een precisie baseline van $50\%$ krijgt.\\
 
-Zoals eerder vermeld gebruiken we voor onze analyse de verschillende voorverwerkingstechnieken uit \ref{Technieken voor Pre-Processing}. We hebben ook de vrijheid genomen om verschillende voorverwerkingstechnieken te combineren en hier de resultaten van te bekijken.\\
-Onderstaande tabellen geeft de belangrijkste resultaten weer van de gevoelsanalyses. In bijlage A vindt men de volledig tabel met de resultaten. \\ 
+Naast de verschillende voorverwerkingstechnieken uit \ref{Technieken voor Pre-Processing}, hebben we ook verschillende voorverwerkingstechnieken gecombineerd.\\
+Onderstaande tabellen geeft de belangrijkste resultaten weer van de gevoelsanalyses. In bijlage \ref{bijlage vs} vindt men de volledig tabel met de resultaten. \\ 
 Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed van de andere technieken te vergelijken. Om een overzicht te krijgen hebben we in de tabellen de resultaten die beter presteren dan Bag of Word vet gedrukt. 
 
 \begin{table}[h]
@@ -178,22 +178,22 @@ Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed v
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{|l|l|l|l|}
 \hline
-{\bf Nr} & \{\bf Title\}                                                                       & \{\bf Precisie Naive Bayes Classifier\} & \{\bf Precisie Decision Tree\} \\ \hline
+{\bf Nr} & {\bf Title}                                                                       & {\bf Precisie Naive Bayes Classifier} & {\bf Precisie Decision Tree} \\ \hline
 1        & Bag of Words                                                                        & 85,74\%                                 & 69,06\%                        \\ \hline
-2        & Best Feature selection on Bag of Words (max features)                               & 67,79\%                                 & {\bf 69,43\%}                  \\ \hline
-3        & Best Feature selection on TFIDF (max features)                                      & 74,90\%                                 & {\bf 69,79\%}                  \\ \hline
-4        & Bigram Collocaties                                                                  & {\bf 89,23\%}                           & {\bf 69,41\%}                  \\ \hline
-5        & LSA on Bag of Words (max features)                                                  & 63,11\%                                 & 62,07\%                        \\ \hline
-6        & LSA on TFIDF (max features)                                                         & 78,98\%                                 & {\bf 71,54\%}                  \\ \hline
+2        & Best Feature selection + Bag of Words                               & 67,79\%                                 & {\bf 69,43\%}                  \\ \hline
+3        & Best Feature selection + Term Weighting                                    & 74,90\%                                 & {\bf 69,79\%}                  \\ \hline
+4        & Bigrams                                                                  & {\bf 89,23\%}                           & {\bf 69,41\%}                  \\ \hline
+5        & LSA + Bag of Words (max features)                                                  & 63,11\%                                 & 62,07\%                        \\ \hline
+6        & LSA + Term Weighting                                                        & 78,98\%                                 & {\bf 71,54\%}                  \\ \hline
 7        & Term Weighting                                                                      & {\bf 86,75\%}                           & {\bf 69,76\%}                  \\ \hline
 8        & Term Weighting + Bigrams                                                            & {\bf 89,00\%}                           & {\bf 69,28\%}                  \\ \hline
 9        & Verwijderen van stopwoorden                                                         & {\bf 86,62\%}                           & {\bf 69,45\%}                  \\ \hline
-10        & Verwijderen van stopwoorden + Best feature selection on Bag of Words (max features) & 74,43\%                                 & {\bf 69,36\%}                  \\ \hline
-11       & Verwijderen van stopwoorden + Best feature selection on TFIDF (max features)        & 74,94\%                                 & {\bf 69,47\%}                  \\ \hline
-12       & Verwijderen van stopwoorden + Bigram Collocaties                                    & {\bf 89,23\%}                           & {\bf 69,51\%}                  \\ \hline
-13       & Verwijderen van stopwoorden + Bigram Collocaties + Term Weighting                   & {\bf 89,29\%}                           & {\bf 69,44\%}                  \\ \hline
-14       & Verwijderen van stopwoorden + LSA on Bag of Words (max features)                    & 54,88\%                                 & 68,66\%                        \\ \hline
-15       & Verwijderen van stopwoorden + LSA on TFIDF (max features)                           & 73,58\%                                 & {\bf 75,50\%}                  \\ \hline
+10        & Verwijderen van stopwoorden + Best Feature selection + Bag of Words & 74,43\%                                 & {\bf 69,36\%}                  \\ \hline
+11       & Verwijderen van stopwoorden + Best Feature selection + Term Weighting        & 74,94\%                                 & {\bf 69,47\%}                  \\ \hline
+12       & Verwijderen van stopwoorden + Bigrams                                    & {\bf 89,23\%}                           & {\bf 69,51\%}                  \\ \hline
+13       & Verwijderen van stopwoorden + Bigrams + Term Weighting                   & {\bf 89,29\%}                           & {\bf 69,44\%}                  \\ \hline
+14       & Verwijderen van stopwoorden + LSA + Bag of Words (max features)                    & 54,88\%                                 & 68,66\%                        \\ \hline
+15       & Verwijderen van stopwoorden + LSA + Term Weighting                          & 73,58\%                                 & {\bf 75,50\%}                  \\ \hline
 16       & Verwijderen van stopwoorden + Term Weighting                                        & {\bf 87,41\%}                           & {\bf 69,60\%}                  \\ \hline
 \end{tabular}
 \end{adjustbox}
@@ -207,22 +207,22 @@ Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed v
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{|l|l|l|l|}
 \hline
-{\bf Nr} & {\bf \{\bf Title\}}                                                                  & \{\bf Precisie Naive Bayes Classifier\} & \{\bf Precisie Decision Tree\} \\ \hline
+{\bf Nr} & {\bf {\bf Title}}                                                                  & {\bf Precisie Naive Bayes Classifier} & {\bf Precisie Decision Tree} \\ \hline
 1        & Bag of Words                                                                         & 70,51\%                                 & 59,34\%                        \\ \hline
-2        & Best Feature selection Bag of Words                                                  & 58,86\%                                 & {\bf 59,45\%}                  \\ \hline
-3        & Best Feature selection on TFIDF ( max features)                                      & 59,53\%                                 & {\bf 59,35\%}                  \\ \hline
-4        & Bigram Collocaties                                                                   & 70,20\%                                 & {\bf 59,35\%}                  \\ \hline
-5        & LSA on Bag of Words                                                                  & 54,84\%                                 & 57,53\%                        \\ \hline
-6        & LSA on TFIDF (100 features)                                                          & 63,15\%                                 & 58,58\%                        \\ \hline
+2        & Best Feature selection + Bag of Words                                                  & 58,86\%                                 & {\bf 59,45\%}                  \\ \hline
+3        & Best Feature selection + Term Weighting                                      & 59,53\%                                 & {\bf 59,35\%}                  \\ \hline
+4        & Bigrams                                                                   & 70,20\%                                 & {\bf 59,35\%}                  \\ \hline
+5        & LSA + Bag of Words                                                                  & 54,84\%                                 & 57,53\%                        \\ \hline
+6        & LSA + Term Weighting                                                         & 63,15\%                                 & 58,58\%                        \\ \hline
 7        & Term Weighting                                                                       & 69,40\%                                 & 58,83\%                        \\ \hline
 8        & Term Weighting + Bigrams                                                             & 67,96\%                                 & 59,06\%                        \\ \hline
 9        & Verwijderen van stopwoorden                                                          & 70,35\%                                 & 56,82\%                        \\ \hline
-10        & Verwijderen van stopwoorden + Best feature selection on Bag of Words ( max features) & 60,76\%                                 & 56,74\%                        \\ \hline
-11       & Verwijderen van stopwoorden + Best feature selection on TFIDF (max features)         & 59,18\%                                 & 56,44\%                        \\ \hline
-12       & Verwijderen van stopwoorden + Bigram Collocaties                                     & {\bf 70,63\%}                           & 56,80\%                        \\ \hline
-13       & Verwijderen van stopwoorden + Bigram Collocaties + Term Weighting                    & {\bf 70,66\%}                           & 56,58\%                        \\ \hline
-14       & Verwijderen van stopwoorden + LSA on Bag of Words (100 features)                     & 53,74\%                                 & 57,23\%                        \\ \hline
-15       & Verwijderen van stopwoorden + LSA on TFIDF (max features)                            & 60,15\%                                 & 59,24\%                        \\ \hline
+10        & Verwijderen van stopwoorden + Best Feature selection + Bag of Words & 60,76\%                                 & 56,74\%                        \\ \hline
+11       & Verwijderen van stopwoorden + Best Feature selection + Term Weighting         & 59,18\%                                 & 56,44\%                        \\ \hline
+12       & Verwijderen van stopwoorden + Bigrams                                     & {\bf 70,63\%}                           & 56,80\%                        \\ \hline
+13       & Verwijderen van stopwoorden + Bigrams + Term Weighting                    & {\bf 70,66\%}                           & 56,58\%                        \\ \hline
+14       & Verwijderen van stopwoorden + LSA + Bag of Words                     & 53,74\%                                 & 57,23\%                        \\ \hline
+15       & Verwijderen van stopwoorden + LSA + Term Weighting                            & 60,15\%                                 & 59,24\%                        \\ \hline
 16       & Verwijderen van stopwoorden + Term Weighting                                         & {\bf 70,54\%}                           & 56,55\%                        \\ \hline
 \end{tabular}
 \end{adjustbox}
@@ -242,20 +242,20 @@ Wat meteen opvalt als we de resultaten bekijken in tabel \ref{tabel: resultaten 
 \hline
 {\bf Title}                                                                          & {\bf Verschil in Precisie Naive Bayes Classifier} & {\bf Verschil in Precisie Decision Tree} \\ \hline
 Bag of Words                                                                         & 14,72\%                                           & 16,05\%                                  \\ \hline
-Best Feature selection Bag of Words                                                  & 8,78\%                                            & 12,18\%                                  \\ \hline
-Best Feature selection on TFIDF ( max features)                                      & 15,36\%                                           & 10,44\%                                  \\ \hline
-Bigram Collocaties                                                                   & 16,25\%                                           & 10,41\%                                  \\ \hline
-LSA on Bag of Words                                                                  & 27,27\%                                           & 10,37\%                                  \\ \hline
-LSA on TFIDF (100 features)                                                          & 19,83\%                                           & 10,69\%                                  \\ \hline
+Best Feature selection + Bag of Words                                                  & 8,78\%                                            & 12,18\%                                  \\ \hline
+Best Feature selection + Term Weighting                                      & 15,36\%                                           & 10,44\%                                  \\ \hline
+Bigrams                                                                   & 16,25\%                                           & 10,41\%                                  \\ \hline
+LSA + Bag of Words                                                                  & 27,27\%                                           & 10,37\%                                  \\ \hline
+LSA + Term Weighting                                                          & 19,83\%                                           & 10,69\%                                  \\ \hline
 Term Weighting                                                                       & 11,79\%                                           & 10,89\%                                  \\ \hline
 Term Weighting + Bigrams                                                             & 21,04\%                                           & 10,22\%                                  \\ \hline
 Verwijderen van stopwoorden                                                          & 31,79\%                                           & 11,92\%                                  \\ \hline
-Verwijderen van stopwoorden + Best feature selection on Bag of Words ( max features) & 35,55\%                                           & 12,22\%                                  \\ \hline
-Verwijderen van stopwoorden + Best feature selection on TFIDF (max features)         & -2,56\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + Bigram Collocaties                                     & 18,60\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + Bigram Collocaties + Term Weighting                    & 13,67\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + LSA on Bag of Words (100 features)                     & 15,09\%                                           & 12,48\%                                  \\ \hline
-Verwijderen van stopwoorden + LSA on TFIDF (max features)                            & -15,67\%                                          & 12,11\%                                  \\ \hline
+Verwijderen van stopwoorden + Best Feature selection + Bag of Words & 35,55\%                                           & 12,22\%                                  \\ \hline
+Verwijderen van stopwoorden + Best Feature selection + Term Weighting         & -2,56\%                                           & 12,61\%                                  \\ \hline
+Verwijderen van stopwoorden + Bigrams                                     & 18,60\%                                           & 12,61\%                                  \\ \hline
+Verwijderen van stopwoorden + Bigrams + Term Weighting                    & 13,67\%                                           & 12,61\%                                  \\ \hline
+Verwijderen van stopwoorden + LSA + Bag of Words                   & 15,09\%                                           & 12,48\%                                  \\ \hline
+Verwijderen van stopwoorden + LSA + Term Weighting                            & -15,67\%                                          & 12,11\%                                  \\ \hline
 Verwijderen van stopwoorden + Term Weighting                                         & 3,93\%                                            & 5,63\%                                   \\ \hline
 {\bf Gemiddeld verschil}                                                             & {\bf 13,40\%}                                     & {\bf 10,83\%}                            \\ \hline
 \end{tabular}
@@ -264,7 +264,7 @@ Verwijderen van stopwoorden + Term Weighting                                    
 \label{tabel: verschil engels en nederlandse prestatie}
 \end{table}
 
-Nu in tabel \ref{tabel: Gemiddeld aantal woorden per recensie Engels} uit \ref{De Dataset} zien we dat de Engelse dataset gemiddeld meer woorden heeft dan de Nederlandse dataset. Dit kan mogelijks een positieve invloed hebben op de classificatie, aangezien hoe meer woorden, hoe meer informatie betekent en mogelijks zo de classifier beter kan classificeren. Om dergelijke stelling te kunnen onderbouwen voeren we een extra analyse uit. We voeren opnieuw een gevoelsanalyse uit op beide datasets, enkel beperken we het aantal woorden per recensie voor zowel de Engelse als de Nederlandse dataset tot de eerste 60 woorden. Als referentie gebruiken we de best presterende combinatie van voorverwerkingstechniek en classifier. Dit is de Naive Bayes Classifier met als voorverwerkingstechniek \textit{Verwijderen van stopwoorden + Bigrams + Term Weighting} (zie rij 13).\\
+In tabel \ref{tabel: Gemiddeld aantal woorden per recensie Engels} uit \ref{De Dataset} zien we dat de Engelse dataset gemiddeld meer woorden heeft dan de Nederlandse dataset. Dit kan mogelijks een positieve invloed hebben op de classificatie, aangezien hoe meer woorden, hoe meer informatie betekent en mogelijks zo de classifier beter kan classificeren. Om dergelijke stelling te kunnen onderbouwen voeren we een extra analyse uit. We voeren opnieuw een gevoelsanalyse uit op beide datasets, enkel beperken we het aantal woorden per recensie voor zowel de Engelse als de Nederlandse dataset tot de eerste 60 woorden. Als referentie gebruiken we de best presterende combinatie van voorverwerkingstechniek en classifier. Dit is de Naive Bayes Classifier met als voorverwerkingstechniek \textit{Verwijderen van stopwoorden + Bigrams + Term Weighting} (zie rij 13).\\
 
 \begin{table}[h]
 \centering
@@ -278,9 +278,9 @@ Nu in tabel \ref{tabel: Gemiddeld aantal woorden per recensie Engels} uit \ref{D
 \label{tabel: beperking tot 60 woorden}
 \end{table}
 
-In \ref{tabel: beperking tot 60 woorden} kunnen we afleiden dat door de reductie er een daling is van de prestatie voor Engelse recensies. Maar het is niet zo dat door de beperking van 60 woorden per recensie de prestaties voor Engelse en Nederlandse gevoelsanalyse gelijk zijn. Er is nog altijd een verschil van ongeveer 12\%. We zien wel een invloed van de beperking tot 60 woorden met een daling van 7\%, maar dit is slechts een deel van de oorzaak waarom de Engelse gevoelsanalyse beter presteert.\\
+Uit tabel \ref{tabel: beperking tot 60 woorden} kunnen we afleiden dat er door de reductie een daling is van de prestatie voor Engelse recensies. Maar het is niet zo dat door de beperking van 60 woorden per recensie de prestaties voor Engelse en Nederlandse gevoelsanalyse gelijk zijn. Er is nog altijd een verschil van ongeveer 12\%. We zien wel een invloed van de beperking tot 60 woorden met een daling van 7\%, maar dit is slechts een deel van de oorzaak waarom de Engelse gevoelsanalyse beter presteert.\\
 
-Ook is het interessant om te zien naar het verschil in de prestatie van de classifiers voor een bepaalde voorverwerkingstechniek. Bij rij 13 in tabel \ref{tabel: resultaten engelse gevoelsanalyse} zien we bijvoorbeeld een verschil van bijna 20 \%. We onderzoek dit nader door eens te kijken naar de recensies waarbij de ene classifier de recensie juist classificeert en de andere fout.
+Ook is het interessant om te zien naar het verschil in de prestatie van de classifiers voor een bepaalde voorverwerkingstechniek. Bij rij 13 in tabel \ref{tabel: resultaten engelse gevoelsanalyse} zien we bijvoorbeeld een verschil van bijna 20 \%. We onderzoeken dit nader door te kijken naar de recensies waarbij de ene classifier de recensie juist classificeert en de andere fout.
 
 \begin{table}[h]
 \centering
@@ -295,13 +295,13 @@ Naar mijn smaak te veel een bewegende graphic novel.Aan de ene kant is het indru
 \label{tabel: DT NB verschillend}
 \end{table}
 
-Aan de hand van de voorbeelden in tabel \ref{tabel: DT NB verschillend} kunnen we een idee vormen, waardoor er juist verwarring kan ontstaan bij de verschillende classifiers. Neem de recensie op rij 1. De recensie begint positief met woorden als \textit{Best} en \textit{goed} en bigram \textit{echt super}, wat duidt op een positieve opinie. Maar daarna gaat het over naar een eerder negatieve opinie met woorden als \textit{te langdradig} en \textit{saai}. Zo'n genuanceerde recensies zorgen in het algemeen voor de meeste verdeeldheid tussen de classifiers. Wat we ook zien is dat de Naive Bayes Classifier hier het best mee om kan ten opzichte van de Decision tree. Als we terugkoppelen naar de theorie is dit gemakkelijk te begrijpen, aangezien de Naive Bayes Classifier zijn keuzes baseert op probabiliteit en de Decision tree deductief te werk gaat.\\
+Aan de hand van voorbeelden in tabel \ref{tabel: DT NB verschillend} kunnen we een idee vormen, waardoor er juist verwarring kan ontstaan bij de verschillende classifiers. Neem de recensie op de eerste rij. De recensie begint positief met woorden als \textit{Best} en \textit{goed} en bigram \textit{echt super}, wat duidt op een positieve opinie. Maar daarna gaat het over naar een eerder negatieve opinie met woorden als \textit{te langdradig} en \textit{saai}. Zo'n genuanceerde recensies zorgen in het algemeen voor de meeste verdeeldheid tussen de classifiers. Wat we ook zien is dat de Naive Bayes Classifier hier het best mee om kan ten opzichte van de Decision tree. Als we terugkoppelen naar de theorie is dit gemakkelijk te begrijpen, aangezien de Naive Bayes Classifier zijn keuzes baseert op probabiliteit en de Decision tree deductief te werk gaat.\\
 
-Verder zien we ook in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} dat de prestatie voor beide talen een grotere spreiding heeft bij de Naive Bayes Classifier dan bij de Decision tree. Voor het Engels vallen de resultaten van de Naive Bayes Classifier binnen een interval van 36\% en bij de Decision Tree heeft dit interval een lengte van 14\%. Voor het Nederlandse we hetzelfde verschijnsel. De resultaten van de Naive Bayes classifier vallen binnen een interval van 18\% en bij de Decision tree is dit 2\%. Dit valt opnieuw terug te koppelen naar de theorie. De Naive Bayes Classifier baseert zich op basis van probabiliteit. Hier zit veel meer vrijheid in en kan beter om met afwijkingen. Waarbij we dit met de Decision tree niet hebben. Er wordt een beslissingsboom opgesteld op basis van de trainingsset en het is dan veel moeilijk om iets ongezien, wat helemaal niet het deductief patroon volgt, te classificeren.\\
+Verder zien we ook in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} dat de prestatie voor beide talen een grotere spreiding heeft bij de Naive Bayes Classifier dan bij de Decision tree. Voor het Engels vallen de resultaten van de Naive Bayes Classifier binnen een interval van 36\% en bij de Decision Tree heeft dit interval een lengte van 14\%. Voor het Nederlandse zien we hetzelfde verschijnsel. De resultaten van de Naive Bayes classifier vallen binnen een interval van 18\% en bij de Decision tree is dit 2\%. Dit kan opnieuw teruggekoppeld worden aan de theorie. De Naive Bayes Classifier baseert zich op basis van probabiliteit. Hier zit veel meer vrijheid in en kan beter om met afwijkingen. Dit hebben we met de Decision tree niet. Er wordt een beslissingsboom opgesteld op basis van de trainingsset en het is dan veel moeilijker om iets ongezien, wat helemaal niet het deductief patroon volgt, te classificeren.\\
 
 Vervolgens bekijken we de prestaties van de voorverwerkingtechnieken per classifier en nemen we Bag of Words (zie rij 1) als referentietechniek om de prestatie van de andere technieken te vergelijken.\\
-Bij de Naive Bayes Classifier komen de pre-processing technieken: Bigram collocaties, Term Weighting en het verwijderen van stopwoorden positief naar voren. Alleen of in combinatie hebben ze een positieve invloed op de prestatie. Dit is het geval voor beide talen, al is deze bevinding bij het Engels overtuigend aanwezig en bij het Nederlands eerder minimaal. Opmerkelijk is dat de combinatie van de drie pre-processing technieken bij beide talen als best presterende techniek naar boven komt. Opnieuw is bij het Nederlands dit verschil minimaal ten op zichten van de andere combinaties.\\
-Voor de Decision tree springt de prestatie van \textit{Verwijderen van stopwoorden + LSA + Term weighting} in het oog met 75\%als beste resultaat. Bij het Nederlands springt deze techniek er niet uit en is de prestatie zelfs minder goed als Bag of Words, al is het verschil miniem en hoort het nog steeds bij de betere resultaten van de Decision Tree.\\
+Bij de Naive Bayes Classifier komen de pre-processing technieken: Bigrams, Term Weighting en het verwijderen van stopwoorden positief naar voren. Alleen of in combinatie hebben ze een positieve invloed op de prestatie. Dit is het geval voor beide talen, al is deze bevinding bij het Engels overtuigend aanwezig en bij het Nederlands eerder minimaal. Opmerkelijk is dat de combinatie van de drie pre-processing technieken bij beide talen als best presterende techniek naar boven komt. Opnieuw is bij het Nederlands dit verschil minimaal ten opzichte van de andere combinaties.\\
+Voor de Decision tree springt de prestatie van \textit{Verwijderen van stopwoorden + LSA + Term weighting} in het oog met 75\% als beste resultaat. Bij het Nederlands springt deze techniek er niet uit en is de prestatie zelfs minder goed als Bag of Words, al is het verschil miniem en hoort het nog steeds bij de betere resultaten van de Decision Tree.\\
 
 Voor het verwijderen van stopwoorden zagen we in tabel \ref{tabel: verschil in verwijderde stopwoorden} dat het verschil tussen het aantal originele features en het aantal aangepast features eerder klein is en het totale aantal nog niet reduceert met 0,5\%. Echter bij het Engels zien we een kleine verbetering bij de Naive Bayes Classifier door het verwijderen van stopwoorden (zie rij 9). Bij het Nederlands is dit niet zo zichtbaar. Maar wat we wel zien is dat bijna alle technieken samen met de Naive Bayes Classifier een positieve invloed hebben op de prestatie als ze in combinatie zijn met het verwijderen van stopwoorden.\\
 
@@ -311,7 +311,6 @@ Nu eerder was aangetoond dat de polarisatie van de dataset een rol speelt bij de
 
 \begin{table}[h]
 \centering
-\caption{Prestaties bij een hogere polariteit op Nederlanse Filmrecensies. Telkens wordt de kritische score voor een positieve en negatieve recensie in de eerste kolom gegeven door pos - neg  }
 \begin{tabular}{|l|l|}
 \hline
 \cline{2-2}
@@ -321,17 +320,18 @@ pos. score - neg. score    & Precisie \\ \hline
 \multicolumn{1}{|l|}{8-2} & 77,83\%  \\ \hline
 \multicolumn{1}{|l|}{9-1} & 79,61\%  \\ \hline
 \end{tabular}
+\caption{Prestaties bij een hogere polariteit op Nederlanse Filmrecensies. Telkens wordt de kritische score voor een positieve en negatieve recensie in de eerste kolom gegeven door pos - neg  }
 \end{table}
 
 
-Algemeen kunnen we zeggen dat de trends die we zien bij het Engels zich ook voordoen bij het Nederlands. De technieken werken ook op het Nederlands, als men weet dat in eerder onderzoek \cite{pang2002thumbs} aantoont dat een human-based classifier resultaten haalt van ongeveer 58\% tot 64\% op Engelse filmreviews, kunnen we stellen dat de technieken goede prestaties halen op Nederlandse reviews, met als de Naive Bayes Classifier de best presterende van de twee leermethoden.
+Algemeen kunnen we zeggen dat de trends die we zien bij het Engels zich ook voor doen bij het Nederlands. De technieken werken ook op het Nederlands, als men weet dat eerder onderzoek \cite{pang2002thumbs} aantoont dat een human-based classifier resultaten haalt van ongeveer 58\% tot 64\% op Engelse filmreviews, kunnen we stellen dat de technieken goede prestaties halen op Nederlandse reviews, met als de Naive Bayes Classifier de best presterende van de twee leermethoden.
 
 
 \section{Classificatie op basis van geannoteerde woordenlijsten}\label{Classificatie op basis van geannoteerde woordenlijsten}
 
 Om meer inzicht te krijgen over de verschillen in de gevoelsanalyse bij de twee talen, voeren we nog een tweede analyse uit. Bij dit experiment gaan we heel eenvoudig en intu\"itief te werk. We kijken hoe de classificatie verloopt, wanneer we enkel geannoteerde woordenlijsten met gevoelens in beschouwing nemen. Er wordt voor iedere recensie bekeken, hoeveel woorden van de recensie voorkomen in de positieve lijst en hoeveel in de negatieve. De lijst met de meest overeenkomstige woorden geeft aan of de recensie positief of negatief moet worden geclassificeerd.\\
-Voor de woordenlijsten gebruiken we de eerder vermeldden woordenlijsten uit \ref{De Dataset}. De classificatie zelf testen we op de Engelse en Nederlandse filmrecensies.\\
-Onderstaande tabel geeft de resultaten van de classificatie weer met als precisie het gemiddelde van 30 runs en een testset van 2000 samples random en gebalanceerd samengesteld. Merk op dat de classifier ook onbeslist kan blijven over een recensie wanneer het totaal aantal voorkomens in de positieve woordenlijst even groot is als het aantal voorkomens in de negatieve woordenlijst.Voor deze analyse beschouwen we een onbesliste recensie meteen als fout geclassificeerd.
+Voor de woordenlijsten gebruiken we de eerder vermelde woordenlijsten uit \ref{De Dataset}. De classificatie zelf testen we op de Engelse en Nederlandse filmrecensies.\\
+Onderstaande tabel geeft de resultaten van de classificatie weer met als precisie het gemiddelde van 30 runs en een testset van 2000 samples willekeurig en gebalanceerd samengesteld. Merk op dat de classifier ook onbeslist kan blijven over een recensie wanneer het totaal aantal voorkomens in de positieve woordenlijst even groot is als het aantal voorkomens in de negatieve woordenlijst.Voor deze analyse beschouwen we een onbesliste recensie meteen als fout geclassificeerd.
 
 \begin{table}[h]
 \centering
@@ -344,7 +344,7 @@ Onderstaande tabel geeft de resultaten van de classificatie weer met als precisi
 \caption{Classificatieprecisie aan de hand van woordenlijsten}
 \end{table}
 
- Het resultaat voor Engelse recensies met 68\% is goed. Voor het Nederlands met 36,82\% kunnen we zeggen dat de classificatie methode slecht werkt, aangezien onze dataset altijd gebalanceerd was en dus bij een randomclassificatie een baseline van 50\% haalt. Echter omdat we elke onbesliste recensie meteen als fout beschouwen, is het mogelijk om een veel slechter percentage dan 50\% te halen.\\
+ Het resultaat voor Engelse recensies met 67,43\% is goed. Voor het Nederlands met 36,82\% kunnen we zeggen dat de classificatie methode slecht werkt, aangezien onze dataset altijd gebalanceerd was en dus bij een randomclassificatie een baseline van 50\% haalt. Echter omdat we elke onbesliste recensie meteen als fout beschouwen, is het mogelijk om een veel slechter percentage dan 50\% te halen.\\
  Omwille van de slechte resultaten voor het Nederlands, zijn we de woordenlijst iets meer in detail gaan bekijken. Een eerste bevinding is dat de leenwoorden niet correct worden omgezet door Google translate. De woorden uit de Engelse woordenlijst kunnen juist vertaald zijn door Google translate, maar kunnen onnatuurlijk overkomen in het Nederlands. Bijvoorbeeld in figuur \ref{vbwoordenlijsten} zien we dat het positieve woord \textit{cool} wordt vertaald door Google translate als \textit{koel}, wat in het Nederlands helemaal niet wordt gebruikt als positief woord.\\
  Het is daarom interessant om te kijken, wat de prestatie is voor het Nederlandse gevoelsanalyse wanneer men enkel de Engelse woordenlijst gebruikt. Of wanneer we de Engelse en Nederlandse woordenlijsten samenvoegen.
 
@@ -356,13 +356,13 @@ Onderstaande tabel geeft de resultaten van de classificatie weer met als precisi
 \multicolumn{1}{|l|}{{\bf Eng + Ned WL}} & 38,27\%        & 3,49           & 3,00           & 3,25            \\ \hline
 \multicolumn{1}{|l|}{{\bf Eng WL}}       & 26,18\%        & 0,35           & 1,34           & 0,84            \\ \hline
 \end{tabular}
-\caption{Classificatieprecisie van Nederlandse filmrecensies bij het gebruik van alternatieve woordenlijsten. De tabel geeft ook het gemiddeld aantal overeenkomsten met de woordenlijsten weer voor een recensie }
+\caption{Classificatieprecisie van Nederlandse filmrecensies bij het gebruik van alternatieve woordenlijsten. De tabel geeft ook het gemiddeld aantal overeenkomsten met de woordenlijsten weer voor een Nederlandse recensie }
 \label{altwoordenlijsten}
 \end{table}
 
-We zien dat onze vaststelling, zich weerspiegeld in de resultaten. We zien een lichte stijging van 2\% van de classificatieprecisie, wanneer we de Engelse en Nederlandse woordenlijsten combineren. Al is de prestatie met 38,27\% nog altijd onder die baseline van 50\% bij willekeurige classificatie. Merk op dat we in de tabel nog extra info hebben toegevoegd, later wordt het nut van deze info duidelijk.\\
+We zien dat onze vaststelling, zich weerspiegelt in de resultaten. We zien een lichte stijging van 2\% van de classificatieprecisie, wanneer we de Engelse en Nederlandse woordenlijsten combineren. Al is de prestatie met 38,27\% nog altijd onder die baseline van 50\% bij willekeurige classificatie.
 
-Verder is de oorsprong van de woordenlijsten ook iets waar we rekening mee moeten houden. De woordenlijsten zijn samengesteld op basis van Engelse recensies en het verlies in de vertaling naar het Nederlands kan een mogelijk effect hebben op de Nederlandse classificatie. Al zien we in tabel \ref{table: Verlies in woordenschat} dat dit verlies beperkt wordt tot 2,5\%. Ook is de gebruikte woordenschat in het Engels niet hetzelfde als in het Nederlands om zich positief of negatief uit te drukken.Om hier een volledig beeld over te krijgen, wat hier de invloed van is hebben we een extra analyse uitgevoerd. Bij deze analyse zijn we gaan kijken hoeveel aantal woorden worden er nu effectief gemiddeld uit de woordenlijsten teruggevonden bij een recensie.\\
+Verder is de oorsprong van de woordenlijsten ook iets waar we rekening mee moeten houden. De woordenlijsten zijn samengesteld op basis van Engelse recensies en het verlies in de vertaling naar het Nederlands kan een mogelijk effect hebben op de Nederlandse classificatie. Al zien we in tabel \ref{table: Verlies in woordenschat} dat dit verlies beperkt wordt tot 2,5\%. Ook is de gebruikte woordenschat in het Engels niet hetzelfde als in het Nederlands om zich positief of negatief uit te drukken. Om hier een volledig beeld over te krijgen, wat hier de invloed van is hebben we een extra analyse uitgevoerd. Bij deze analyse zijn we gaan kijken hoeveel aantal woorden worden er nu effectief gemiddeld uit de woordenlijsten teruggevonden bij een recensie.\\
 
 \begin{table}[h]
 \centering
@@ -375,7 +375,7 @@ Verder is de oorsprong van de woordenlijsten ook iets waar we rekening mee moete
 \caption{Gemiddeld aantal overeenkomsten met de woordenlijsten voor een recensie uit de gegeven dataset}
 \end{table}
 
-In de tabel zien we duidelijk dat de Engelse woordenlijst veel beter aansluit bij de Engelse dataset dan de Nederlandse dataset.Interessant om te zien is dat een Nederlandse recensie voornamelijk voornamelijk overeenkomsten heeft met de positieve Nederlandse woordenlijst. Wat we ook zien in tabel \ref{altwoordenlijsten}, is dat de gemiddelde overeenkomst van een Nederlandse recensie bij een negatieve Engelse woordenlijst bijna even groot als bij een negatieve Nederlandse woordenlijst. En als men al de woordenlijsten combineert voor de classificatie van Nederlandse recensies, de gemiddelde overeenkomst het grootst is. We zien ook dat hoe hoger de classificatieprecisie, hoe hoger de gemiddelde overeenkomst van een recensie met de woordenlijsten dus we kunnen zeggen voor deze classificatietechniek dat de gemiddelde overeenkomst van een recensie een evenredig verband heeft met de classificatieprecisie.\\
+In de tabel zien we duidelijk dat de Engelse woordenlijst veel beter aansluit bij de Engelse dataset dan de Nederlandse woordenlijsten bij de Nederlandse dataset. Interessant om te zien is dat een Nederlandse recensie voornamelijk overeenkomsten heeft met de positieve Nederlandse woordenlijst. Wat we ook zien in tabel \ref{altwoordenlijsten}, is dat de gemiddelde overeenkomst van een Nederlandse recensie bij een negatieve Engelse woordenlijst bijna even groot als bij een negatieve Nederlandse woordenlijst. En als men al de woordenlijsten combineert voor de classificatie van Nederlandse recensies, de gemiddelde overeenkomst het grootst is. We zien ook dat hoe hoger de classificatieprecisie, hoe hoger de gemiddelde overeenkomst van een recensie met de woordenlijsten dus we kunnen zeggen voor deze classificatietechniek dat de gemiddelde overeenkomst van een recensie een evenredig verband heeft met de classificatieprecisie.\\
 
 Als laatste moet en we ook opmerken dat internetslang, typefouten en uitgesmeerde woorden zoals \textit{sssaaaaiiii} niet in rekening worden gebracht bij woordenlijsten en is een probleem dat moeilijk te vermijden is. 
 
@@ -384,12 +384,12 @@ Doordat we weten dat de gemiddelde overeenkomst met een recensie een direct verb
 
 \section{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}\label{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}
 
-Nu we weten welke methoden goed presteren op het Nederlands en welke niet, kunnen we ons nog iets specifieker toeleggen op taalvarianten binnen het Nederlands. De voorgaande analyses in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} en \ref{Classificatie op basis van geannoteerde woordenlijsten} zijn altijd uitgevoerd op filmrecensies en hadden goede prestaties. Het is interessant om te bekijken of er een onderwerpgevoeligheid is binnen het Nederlands. Voor een bepaald onderwerp kan men een bepaalde taal of jargon hebben. Het is daarom ook eens interessant dit te onderzoeken. \\
+Nu we weten welke methoden goed presteren op het Nederlands en welke niet, kunnen we ons nog iets specifieker toeleggen op taalvarianten binnen het Nederlands. De voorgaande analyses in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} en \ref{Classificatie op basis van geannoteerde woordenlijsten} zijn altijd uitgevoerd op filmrecensies en hadden goede prestaties. Het is interessant om te bekijken of er een onderwerpgevoeligheid is binnen het Nederlands. Voor een bepaald onderwerp kan men een bepaalde taal of jargon hebben. Het is ook interessant dit te onderzoeken. \\
 
-Concreet voor deze analyse gebruiken we enkel een van de beste presterende technieken uit \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}, namelijk de Naive Bayes Classifier in combinatie met Term weighting en het verwijderen van stopwoorden. We kijken hoe deze techniek presteert wanneer we het trainen en testen met recensies over hetzelfde onderwerp en hoe het presteert met een verschillend onderwerp.  Als datasets nemen we film- , muziek en boekrecensies. De prestatie van de classifiers is telkens de gemiddelde classificatieprecisie van 30 runs, waarbij de trainingsset uit 6000 recensies bestaat en de testset uit 2000 recensies. Met uitzondering de boekrecensies, daarbij wordt de classifier telkens getraind met 266 boekrecensies en werd er getest met 144 boekrecensies. De reden is het extreem laag aantal aan verzamelde positieve boekrecensies (zie tabel \ref{tabel: aantal verzamelde Nederlandse recensies}).\\
+Concreet voor deze analyse gebruiken we enkel \'{e}\'{e}n van de beste presterende technieken uit \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}, namelijk de Naive Bayes Classifier in combinatie met Term weighting en het verwijderen van stopwoorden. We kijken hoe deze techniek presteert wanneer we het trainen en testen met recensies over hetzelfde onderwerp en hoe het presteert met een verschillend onderwerp.  Als datasets nemen we film- , muziek en boekrecensies. De prestatie van de classifiers is telkens de gemiddelde classificatieprecisie van 30 runs, waarbij de trainingsset uit 6000 recensies bestaat en de testset uit 2000 recensies. Met uitzondering de boekrecensies, daarbij wordt de classifier telkens getraind met 266 boekrecensies en werd er getest met 144 boekrecensies. De reden is het extreem laag aantal aan verzamelde positieve boekrecensies (zie tabel \ref{tabel: aantal verzamelde Nederlandse recensies}).\\
 
 
-Onderstaande kruistabel met classificatieprecisies vat de belangrijkste resultaten van het experiment samen. De volledige resultaten vindt men in bijlage B. Merk op dat men hier ook de controle op over- of onderfitting vindt. Over- en onderfitting zijn symptomen bij machine learning waarbij men de classifier over- of ondertrained. Voor de volledigheid hebben we deze grafieken in de bijlage toegevoegd.    
+Onderstaande kruistabel met classificatieprecisies vat de belangrijkste resultaten van het experiment samen. De volledige resultaten vindt men in bijlage \ref{bijlage onderwerp}. Merk op dat men hier ook de controle op over- of onderfitting vindt. Over- en onderfitting zijn symptomen bij machine learning waarbij men de classifier over- of ondertrained. Voor de volledigheid hebben we deze grafieken in de bijlage toegevoegd.    
 
 \begin{table}[h]
 \centering
@@ -417,6 +417,7 @@ Als laatste hebben nog de confusion matrixen van het experiment. Een confusion m
 \multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{18\%} & \multicolumn{1}{l|}{31\%} \\ \cline{2-3} 
 \end{tabular}
 \caption{Gemiddelde confusion matrix in percent voor een Naive Bayes Classifier, waar trainings- en testset over hetzelfde onderwerp gaan}
+\label{cm1}
 \end{minipage}%
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
@@ -427,6 +428,7 @@ Als laatste hebben nog de confusion matrixen van het experiment. Een confusion m
 \multicolumn{1}{l|}{\textbf{N'}} & \multicolumn{1}{l|}{21\%} & \multicolumn{1}{l|}{29\%} \\ \cline{2-3} 
 \end{tabular}
 \caption{Gemiddelde confusion matrix in percent voor een Naive Bayes Classifier, waar trainings- en testset over een verschillend onderwerp gaan} 
+\label{cm2}
 \end{minipage}
 \end{table}
 
@@ -443,9 +445,9 @@ Als laatste hebben nog de confusion matrixen van het experiment. Een confusion m
 \end{table}
 
 
-Op basis van de tabel kunnen we zeggen dat het trainen en testen met het zelfde onderwerp het beste resultaat geeft. We kunnen deze observatie terugkoppelen naar de theorie. Aangezien men de classifier traint op een bepaald onderwerp, krijgt de classifier een bepaalde idee over het concept. In dit geval bijvoorbeeld wat nu juist positieve en negatieve recensies zijn binnen filmrecensies. Wanneer de classifier als testset een dataset krijgt dat in lijn is met het aangeleerde concept gaat de precisie altijd hoger liggen dan wanneer de testset half of helemaal niet in lijn ligt met het aangeleerde concept. En dit is ook hier geval wanneer men een classifier traint op filmrecensies en test met filmrecensies of muziekrecensies. De precisie met als testset filmrecensies ligt hoger. Er is wel een overlap tussen de concepten, aangezien we nog degelijke resultaten hebben bijvoorbeeld bij het trainen op films en testen op muziek. Bij een getrainde classifier op boekrecenies is de prestatie minder met een vreemde testset. Merk op dat we in \ref{De Dataset} hadden vermeld dat het verzameld aantal positieve boekrecensies heel laag is en dat dit mogelijke de oorzaak kan zijn van de slechte prestatie. De dataset is groot genoeg om het concept over boekrecensies aan te leren, maar te klein om een overlappend concept aan te leren over wat in een algemeen een positieve en negatieve recensies is.
+Op basis van de tabel kunnen we zeggen dat het trainen en testen met het zelfde onderwerp het beste resultaat geeft. We kunnen deze observatie terugkoppelen naar de theorie. Aangezien men de classifier traint op een bepaald onderwerp, krijgt de classifier een bepaalde idee over het concept. In dit geval gaat het bijvoorbeeld wat nu juist positieve en negatieve recensies zijn binnen filmrecensies. Wanneer de classifier als testset een dataset krijgt dat in lijn is met het aangeleerde concept gaat de precisie altijd hoger liggen dan wanneer de testset half of helemaal niet in lijn ligt met het aangeleerde concept. En dit is ook hier geval wanneer men een classifier traint op filmrecensies en test met filmrecensies of muziekrecensies. De precisie met als testset filmrecensies ligt hoger. Er is wel een overlap tussen de concepten, aangezien we nog degelijke resultaten hebben bijvoorbeeld bij het trainen op films en testen op muziek. Bij een getrainde classifier op boekrecenies is de prestatie minder met een vreemde testset. Merk op dat we in \ref{De Dataset} hadden vermeld dat het verzameld aantal positieve boekrecensies heel laag is en dat dit mogelijke de oorzaak kan zijn van de slechte prestatie. De dataset is groot genoeg om het concept over boekrecensies aan te leren, maar te klein om een overlappend concept aan te leren over wat in een algemeen een positieve en negatieve recensies is.
 
-Verder springt de prestatie van wanneer men traint en test met muziekrecensies in het oog. Ten opzichte van de andere onderwerpen, waarbij trainingsset en testset met hetzelfde onderwerp werd gebruikt, is er een verschil van ongeveer 10\%. Een mogelijk oorzaak kan bij de lengte van de muziekrecensie liggen. Als we terugkijken naar tabel \ref{tabel: Gemiddeld aantal woorden per recensie Nederlands}, zien we dat de muziekrecensies gemiddeld langer zijn dan de andere recensies. Om dergelijke invloed te onderzoeken, voeren we een extra analyse uit, waarbij we de lengte van de recensies beperken tot 63 woorden. 63 is de gemiddelde lengte van al de andere recensies. \\
+Verder springt de prestatie van trainen en testen met muziekrecensies in het oog. Ten opzichte van de andere onderwerpen, waarbij trainingsset en testset met hetzelfde onderwerp werd gebruikt, is er een verschil van ongeveer 10\%. Een mogelijk oorzaak kan bij de lengte van de muziekrecensie liggen. Als we terugkijken naar tabel \ref{tabel: Gemiddeld aantal woorden per recensie Nederlands}, zien we dat de muziekrecensies gemiddeld langer zijn dan de andere recensies. Om dergelijke invloed te onderzoeken, voeren we een extra analyse uit, waarbij we de lengte van de recensies beperken tot 63 woorden. 63 is de gemiddelde lengte van al de andere recensies. \\
 
 \begin{table}[h]
 \centering
@@ -459,11 +461,11 @@ Verder springt de prestatie van wanneer men traint en test met muziekrecensies i
 \label{muziekrecensies beperking}
 \end{table}
 
-We zien in tabel \ref{muziekrecensies beperking} niet een aanzienlijke vermindering van de prestatie bij het beperken van de muziekrecensies tot 63 woorden. Om te kijken hoe drastisch we muziekrecensies moeten beperken om tot de classificatieprecisie van de andere recensies te komen hebben, hebben we ook eens beperking opgesteld tot 10 woorden. Daar zien we wel een vermindering van de prestatie, maar nog altijd een betere prestatie dan film- en boekrecensies. We kunnen dus zeggen dat hier het gemiddeld aantal woorden een beperkt rol speelt, wanneer we kijken naar de classificatieprestatie bij verschillende onderwerpen.\\
+We zien in tabel \ref{muziekrecensies beperking} geen aanzienlijke vermindering van de prestatie bij het beperken van de muziekrecensies tot 63 woorden. Om te kijken hoe drastisch we muziekrecensies moeten beperken om tot de classificatieprecisie van de andere recensies te komen hebben, hebben we ook eens beperking opgesteld tot 10 woorden. Daar zien we wel een vermindering van de prestatie, maar nog altijd een betere prestatie dan film- en boekrecensies. We kunnen dus zeggen dat hier het gemiddeld aantal woorden een beperkte rol speelt, wanneer we kijken naar de classificatieprestatie bij verschillende onderwerpen.\\
 
-Een andere mogelijke oorzaak voor de beter presteren bij muziekrecensies, kan het percentage unieke woorden in de totale dataset zijn. Echter als we in tabel \ref{percentage recensies} kijken, zien we een hoger percentage voor muziekrecensies ten opzichte van filmrecensies. Maar een lager percentage ten opzichte van boekrecensies. boekrecensies hebben niet een aanzienlijke betere prestatie dan filmrecensies en presteert slechter dan muziekrecensies. Dus we kunnen het percentage van unieke woorden voor de dataset niet aannemen als oorzaak voor het beter presteren van muziekrecensies. 
+Een andere mogelijke oorzaak voor het beter presteren bij muziekrecensies, kan het percentage unieke woorden in de totale dataset zijn. Echter als we in tabel \ref{percentage recensies} kijken, zien we een hoger percentage voor muziekrecensies ten opzichte van filmrecensies. Maar een lager percentage ten opzichte van boekrecensies. Boekrecensies hebben niet een aanzienlijke betere prestatie dan filmrecensies en presteert slechter dan muziekrecensies. Dus we kunnen het percentage van unieke woorden voor de dataset niet aannemen als oorzaak voor het beter presteren van muziekrecensies.\\
 
-Voor beide matrixen, ziet men duidelijk dat positieve recensies beter ge\"identificeerd worden. We kijken in meer detail naar de valse positieve en zien dat meer genuanceerde antwoorden voornamelijk voor de valse positieve zorgen. Onderstaande tabel geeft enkele voorbeelden van zo'n genuanceerde voorbeelden die vals positief zijn bevonden door de classifier.
+Voor beide matrixen in \ref{cm1} en \ref{cm2}, ziet men duidelijk dat positieve recensies beter ge\"identificeerd worden. We kijken in meer detail naar de valse positieve en zien dat meer genuanceerde antwoorden voornamelijk voor de valse positieve zorgen. Onderstaande tabel geeft enkele voorbeelden van zo'n genuanceerde voorbeelden die vals positief zijn bevonden door de classifier.
 
 \begin{table}[h]
 \centering
@@ -476,14 +478,14 @@ Deze plaat maar weer eens aandachtig beluisterd. Prijsnummers voor mij Exit Musi
 \caption{Enkele vals positieve uit de muziekdataset}
 \end{table}
 
-Een leuke bevinding bij het bekijken van de vals positieve is volgende bevinding. 
+Een interessante bevinding bij het bekijken van de vals positieve is volgende recensie:
 
 \begin{figure}[h]%
     \centering
     \subfloat{{\includegraphics[width=10cm]{anekdote} }}%
-    \caption{een interessante bevinding in verband met valse positieve. De recensie is afkomstig van \url{http://www.moviemeter.net} }
+    \caption{een interessante bevinding in verband met valse positieve. De recensie is afkomstig van \url{http://www.moviemeter.net} en heeft een rating van 5 op 5. }
 \end{figure}
 
-Voor ons is deze recensie overduidelijk een positieve opinie al zegt de score iets anders. Het feit dat onze classifier een positieve opinie kan bepalen voor een recensie die naar onze menig een foute score heeft meegekregen, duidt op de goede werking van onze Nederlandse gevoelsanalyse.
+Voor ons is deze recensie overduidelijk een positieve opinie al zegt de score iets anders. Het feit dat onze classifier een positieve opinie kan bepalen voor een recensie die naar onze mening een foute score heeft meegekregen, duidt op de goede werking van onze Nederlandse gevoelsanalyse.
 
 

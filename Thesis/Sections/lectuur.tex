@@ -97,14 +97,10 @@ Met deze twee kwantiteiten kan men een nieuwe begrip introduceren: de \textbf{tf
 De tf-idf matrix bekomt men dan door alle woordfrequenties van het terms-document matrix te vervangen door de tf-idf score.
 Er bestaan nog uitbreiding op term weighting (\cite{paltoglou2010study}), maar voor de experimentele analyse houden we het bij de standaard tf-idf weighting.\\
 
-Als aanloop naar de experimentele analyse bekijken we met een eenvoudige proef de kracht van tf-idf. Onderstaande tabel geeft enkele Nederlandse recensies weer uit onze dataset met het woord of feature met de hoogste tf-idf voor die recensie na term weighting. De volledige recensies kan je lezen in bijlage X.
+Als aanloop naar de experimentele analyse bekijken we met een eenvoudige proef de kracht van tf-idf. Onderstaande tabel geeft enkele Nederlandse recensies weer uit onze dataset met het woord of feature met de hoogste tf-idf voor die recensie na term weighting. De volledige recensies kan je lezen in bijlage \ref{bijlage term}.\\
 
-% Please add the following required packages to your document preamble:
-% \usepackage[normalem]{ulem}
-% \useunder{\uline}{\ul}{}
-\begin{table}[h]
+\begin{table}[H]
 \centering
-
 \begin{tabu} to \textwidth {|X|X|}
 \hline
 {\bf Recensie}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  & {\bf Woord met hoogste tf-idf score} \\ \hline
@@ -121,10 +117,9 @@ Ik vind dat dit een overgewardeerde film is, net als een heleboel andere Nederla
 \label{examples recensies}
 \end{table}
 
-
 We zien hier al mooi resultaten zoals \textit{nagelbijtende} en \textit{overgewardeerde}, waar duidelijk de positieve aard van de recensie naar boven komt. Het is ook interessant om te zien, hoe schrijffouten boven komen. Dit laatste wordt verder besproken in hoofdstuk \ref{Experiment}. Opvallend is dat bij vooral langere recensies veel stopwoorden zoals \textit{je} of \textit{het} de hoogste tf-idf-score krijgen toegewezen. Het nog eens verwijderen van de stopwoorden voor de term weighting gaat mogelijks dit probleem verhelpen. Dit onderzoeken we verder tijdens de experimentele analyse in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}. 
 
-
+\FloatBarrier
 \subsection{Bigram Collocaties}\label{Bigram Collocaties}
 
 Bigram Collocaties is een techniek waarbij men op zoek gaat naar paren van woorden die een hoge waarschijnlijkheid hebben om samen voor te komen en een extra bron van informatie kunnen vormen. In het onderzoek van \cite{pang2002thumbs} bleken bigrams niet voor een verbeterde prestatie te zorgen, maar hij concludeerde zelf dat bigram features mogelijks evenwaardig zijn met unigram features. \cite{pedersen2001decision} toonde echter ook aan dat bigrams een nuttig kenmerk vormen voor het oplossen van woord zin ambigu\"iteit. Dit toont aan dat men de nuttigheid van bigrams niet mag onderschatten en nemen we bigrams als \'e\'en van de technieken voor de experimentele analyse.\\

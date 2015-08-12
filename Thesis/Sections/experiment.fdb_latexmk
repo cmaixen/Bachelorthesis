@@ -1,8 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1439197827 "experiment.tex" "experiment.pdf" "experiment" 1439197829
-  "/usr/local/texlive/2012/texmf-dist/tex/latex/base/omscmr.fd" 1254151887 2109 c400bd6c901edc4a09e4d53fcffd3b3c ""
-  "experiment.aux" 1439197782 8355 c0734bc84b660c9a31d6ac24320735af ""
-  "experiment.tex" 1439197826 45252 130ecc4c470cf56eb2c130bfd6a83b29 ""
+["pdflatex"] 1439377496 "experiment.tex" "experiment.pdf" "experiment" 1439377499
+  "experiment.aux" 1439377465 11262 7501a7565236d9466e100b0cbb674bca ""
+  "experiment.tex" 1439377495 53025 8531ae2ad54b7994541d9d75a71a00ac ""
   (generated)
   "experiment.log"
   "experiment.pdf"

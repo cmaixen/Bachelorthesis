@@ -65,7 +65,7 @@ Onderstaande linkertabel geeft het aantal verzamelde Nederlandse recensies van i
 \begin{tabular}{l|l|l|}
 \cline{2-3}
                             & Positief & Negatief \\ \hline
-\multicolumn{1}{|l|}{Films} & 197358   & 17978    \\ \hline
+\multicolumn{1}{|l|}{Films} & 25000   & 25000    \\ \hline
 \end{tabular}
 \caption{Aantal verzamelde Engelse recensies}
 \end{minipage}
@@ -74,6 +74,8 @@ Onderstaande linkertabel geeft het aantal verzamelde Nederlandse recensies van i
 Wat meteen opvalt is dat het aantal verzamelde positieve boekrecensies heel klein is tegen over de andere recensies. Later bij het gebruik van deze dataset in \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse} zullen we hier rekening mee moeten houden.\\
 
 Om nog een beter inzicht te krijgen over de dataset geven onderstaande tabellen extra statistieken weer over de datasets.\\
+
+Een belangrijke eigenschap van een tekst voor classificatie en analyse zijn het aantal woorden. Er moet immers voldoende informatie aanwezig zijn in elke tekst om hieruit te kunnen leren. Volgende tabel geeft het gemiddeld aantal woorden weer van een recensie in de dataset.
 
 \begin{table}[h]
 \centering
@@ -108,6 +110,8 @@ Om nog een beter inzicht te krijgen over de dataset geven onderstaande tabellen 
 
 Uit de tabel kunnen we afleiden dat de verzamelde Engelse filmrecensies gemiddeld veel langer zijn. De mogelijke invloed op de prestatie van dit gegeven, onderzoeken we verder in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}.
 
+
+Ook is het aantal unieke woorden in een dataset een belangrijke eigenschap. Ongeziene woorden vormen een belangrijke bron aan informatie voor het zelflerende algoritme. We bekijken in de volgende tabel hoe het aantal unieke woorden zich verhouden tot het totaal aantal woorden in de dataset. Zo kunnen we een beeld krijgen hoe informatief de datasets zijn.
 \begin{table}[h]
 \centering
 \setlength\tabcolsep{2pt}
@@ -136,6 +140,7 @@ Uit de tabel kunnen we afleiden dat de verzamelde Engelse filmrecensies gemiddel
 \end{minipage}
 \end{table}
 
+In de tabel zien we Boekrecensies eruit springen met 25,39\% voor negatieve boekrecensies. De mogelijke invloed op de prestatie van dit gegeven, onderzoeken we verder in \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}.
 
 In \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} voeren we ook een analyse uit zonder gebruik te maken van een dataset om uit te leren, maar classificeren we de gegeven recensies op basis geannoteerde woordenlijsten van gevoelens.  
 Als bron voor deze woordenlijsten hebben we het \textit{Opinion lexicon} gebruikt, dat voor het eerst werd samengesteld door \cite{hu2004mining}. Deze woordenlijsten bestaan uit een lijst met negatieve en een lijst met positieve woorden. De lijsten bevatten in totaal ongeveer 6800 woorden en zijn enkel in het Engels verkrijgbaar. De Nederlandse woordenlijsten hebben we verkregen door de Engelse lijsten te vertalen met behulp van Google vertalen.\\
@@ -231,33 +236,34 @@ Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed v
 \label{tabel: resultaten Nederlandse gevoelsanalyse}
 \end{table}
 
+\subsection{Algemene nauwkeurigheid}
 
-Wat meteen opvalt als we de resultaten bekijken in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} is het algemeen beter presteren van de technieken op de Engelse dataset. Tabel \ref{tabel: verschil engels en nederlandse prestatie} geeft het verschil in prestatie aan tussen het Engels en het Nederlands. We zien dat de prestatie op de Engelse dataset gemiddeld 13\% beter presteert bij de Naive Bayes Classifier en 10\% beter bij de Decision Tree.
+Wat meteen opvalt als we de resultaten bekijken in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} is het algemeen beter presteren van de technieken op de Engelse dataset. Tabel \ref{tabel: verschil engels en nederlandse prestatie} geeft het verschil in prestatie aan tussen het Engels en het Nederlands. We zien dat de prestatie op de Engelse dataset gemiddeld 14,71\% beter presteert bij de Naive Bayes Classifier en 11,46\% beter bij de Decision Tree.
 
 
 \begin{table}[h]
 \centering
 \begin{adjustbox}{width=1\textwidth}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-{\bf Title}                                                                          & {\bf Verschil in Precisie Naive Bayes Classifier} & {\bf Verschil in Precisie Decision Tree} \\ \hline
-Bag of Words                                                                         & 14,72\%                                           & 16,05\%                                  \\ \hline
-Best Feature selection + Bag of Words                                                  & 8,78\%                                            & 12,18\%                                  \\ \hline
-Best Feature selection + Term Weighting                                      & 15,36\%                                           & 10,44\%                                  \\ \hline
-Bigrams                                                                   & 16,25\%                                           & 10,41\%                                  \\ \hline
-LSA + Bag of Words                                                                  & 27,27\%                                           & 10,37\%                                  \\ \hline
-LSA + Term Weighting                                                          & 19,83\%                                           & 10,69\%                                  \\ \hline
-Term Weighting                                                                       & 11,79\%                                           & 10,89\%                                  \\ \hline
-Term Weighting + Bigrams                                                             & 21,04\%                                           & 10,22\%                                  \\ \hline
-Verwijderen van stopwoorden                                                          & 31,79\%                                           & 11,92\%                                  \\ \hline
-Verwijderen van stopwoorden + Best Feature selection + Bag of Words & 35,55\%                                           & 12,22\%                                  \\ \hline
-Verwijderen van stopwoorden + Best Feature selection + Term Weighting         & -2,56\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + Bigrams                                     & 18,60\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + Bigrams + Term Weighting                    & 13,67\%                                           & 12,61\%                                  \\ \hline
-Verwijderen van stopwoorden + LSA + Bag of Words                   & 15,09\%                                           & 12,48\%                                  \\ \hline
-Verwijderen van stopwoorden + LSA + Term Weighting                            & -15,67\%                                          & 12,11\%                                  \\ \hline
-Verwijderen van stopwoorden + Term Weighting                                         & 3,93\%                                            & 5,63\%                                   \\ \hline
-{\bf Gemiddeld verschil}                                                             & {\bf 13,40\%}                                     & {\bf 10,83\%}                            \\ \hline
+{\bf Nr} & {\bf Title}                                                                      & {\bf Verschil in Precisie Naive Bayes} & {\bf Verschil in Precisie Decision Tree} \\ \hline
+1        & Bag of Words                                                                     & 15,24\%                                & 9,72\%                                   \\ \hline
+2        & Best Feature selection + Bag of Words                                            & 15,36\%                                & 10,08\%                                  \\ \hline
+3        & Best Feature selection + Term Weighting                                          & 8,92\%                                 & 10,34\%                                  \\ \hline
+4        & Bigrams                                                                          & 19,03\%                                & 10,06\%                                  \\ \hline
+5        & LSA + Bag of Words                                                               & 8,27\%                                 & 4,53\%                                   \\ \hline
+6        & LSA + Term Weighting                                                             & 15,83\%                                & 12,96\%                                  \\ \hline
+7        & Term Weighting                                                                   & 17,35\%                                & 10,93\%                                  \\ \hline
+8        & Term weighting  + Bigrams                                                        & 21,04\%                                & 10,22\%                                  \\ \hline
+9        & Verwijderen van stopwoorden                                                      & 16,27\%                                & 12,63\%                                  \\ \hline
+10       & Verwijderen van stopwoorden + Best feature selection (30 beste) + Bag of Words   & 15,25\%                                & 12,61\%                                  \\ \hline
+11       & Verwijderen van stopwoorden + Best feature selection (30 beste) + Term Weighting & 14,18\%                                & 13,04\%                                  \\ \hline
+12       & Verwijderen van stopwoorden + Bigrams                                            & 18,60\%                                & 12,71\%                                  \\ \hline
+13       & Verwijderen van stopwoorden + Bigrams + Term Weighting                           & 18,64\%                                & 12,86\%                                  \\ \hline
+14       & Verwijderen van stopwoorden + LSA + Bag of Words                                 & 1,14\%                                 & 11,44\%                                  \\ \hline
+15       & Verwijderen van stopwoorden + LSA + Term Weighting                               & 13,43\%                                & 16,27\%                                  \\ \hline
+16       & Verwijderen van stopwoorden + Term Weighting                                     & 16,87\%                                & 13,05\%                                  \\ \hline
+         & {\bf Gemiddeld}                                                                  & 14,71\%                                & 11,46\%                                  \\ \hline
 \end{tabular}
 \end{adjustbox}
 \caption{Verschil in precisie tussen het Engelse en het Nederlands (Eng - NL)}
@@ -297,13 +303,17 @@ Naar mijn smaak te veel een bewegende graphic novel.Aan de ene kant is het indru
 
 Aan de hand van voorbeelden in tabel \ref{tabel: DT NB verschillend} kunnen we een idee vormen, waardoor er juist verwarring kan ontstaan bij de verschillende classifiers. Neem de recensie op de eerste rij. De recensie begint positief met woorden als \textit{Best} en \textit{goed} en bigram \textit{echt super}, wat duidt op een positieve opinie. Maar daarna gaat het over naar een eerder negatieve opinie met woorden als \textit{te langdradig} en \textit{saai}. Zo'n genuanceerde recensies zorgen in het algemeen voor de meeste verdeeldheid tussen de classifiers. Wat we ook zien is dat de Naive Bayes Classifier hier het best mee om kan ten opzichte van de Decision tree. Als we terugkoppelen naar de theorie is dit gemakkelijk te begrijpen, aangezien de Naive Bayes Classifier zijn keuzes baseert op probabiliteit en de Decision tree deductief te werk gaat.\\
 
-Verder zien we ook in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} dat de prestatie voor beide talen een grotere spreiding heeft bij de Naive Bayes Classifier dan bij de Decision tree. Voor het Engels vallen de resultaten van de Naive Bayes Classifier binnen een interval van 36\% en bij de Decision Tree heeft dit interval een lengte van 14\%. Voor het Nederlandse zien we hetzelfde verschijnsel. De resultaten van de Naive Bayes classifier vallen binnen een interval van 18\% en bij de Decision tree is dit 2\%. Dit kan opnieuw teruggekoppeld worden aan de theorie. De Naive Bayes Classifier baseert zich op basis van probabiliteit. Hier zit veel meer vrijheid in en kan beter om met afwijkingen. Dit hebben we met de Decision tree niet. Er wordt een beslissingsboom opgesteld op basis van de trainingsset en het is dan veel moeilijker om iets ongezien, wat helemaal niet het deductief patroon volgt, te classificeren.\\
+Verder zien we ook in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} dat de prestatie voor beide talen een grotere spreiding heeft bij de Naive Bayes Classifier dan bij de Decision tree. Als we telkens naar de beste en de slechtste prestatie van de classifiers kijken, vallen voor het Engels de resultaten van de Naive Bayes Classifier binnen een interval van 36\% en bij de Decision Tree heeft een interval van 14\%. Voor het Nederlandse zien we hetzelfde verschijnsel. De resultaten van de Naive Bayes classifier vallen binnen een interval van 18\% en bij de Decision tree is dit 2\%. Dit kan opnieuw teruggekoppeld worden aan de theorie. De Naive Bayes Classifier baseert zich op basis van probabiliteit. Hier zit veel meer vrijheid in en kan beter om met afwijkingen. Dit hebben we met de Decision tree niet. Er wordt een beslissingsboom opgesteld op basis van de trainingsset en het is dan veel moeilijker om iets ongezien, wat helemaal niet het deductief patroon volgt, te classificeren.\\
+
+\subsection{Impact van pre-processing technieken}
 
 Vervolgens bekijken we de prestaties van de voorverwerkingtechnieken per classifier en nemen we Bag of Words (zie rij 1) als referentietechniek om de prestatie van de andere technieken te vergelijken.\\
 Bij de Naive Bayes Classifier komen de pre-processing technieken: Bigrams, Term Weighting en het verwijderen van stopwoorden positief naar voren. Alleen of in combinatie hebben ze een positieve invloed op de prestatie. Dit is het geval voor beide talen, al is deze bevinding bij het Engels overtuigend aanwezig en bij het Nederlands eerder minimaal. Opmerkelijk is dat de combinatie van de drie pre-processing technieken bij beide talen als best presterende techniek naar boven komt. Opnieuw is bij het Nederlands dit verschil minimaal ten opzichte van de andere combinaties.\\
 Voor de Decision tree springt de prestatie van \textit{Verwijderen van stopwoorden + LSA + Term weighting} in het oog met 75\% als beste resultaat. Bij het Nederlands springt deze techniek er niet uit en is de prestatie zelfs minder goed als Bag of Words, al is het verschil miniem en hoort het nog steeds bij de betere resultaten van de Decision Tree.\\
 
 Voor het verwijderen van stopwoorden zagen we in tabel \ref{tabel: verschil in verwijderde stopwoorden} dat het verschil tussen het aantal originele features en het aantal aangepast features eerder klein is en het totale aantal nog niet reduceert met 0,5\%. Echter bij het Engels zien we een kleine verbetering bij de Naive Bayes Classifier door het verwijderen van stopwoorden (zie rij 9). Bij het Nederlands is dit niet zo zichtbaar. Maar wat we wel zien is dat bijna alle technieken samen met de Naive Bayes Classifier een positieve invloed hebben op de prestatie als ze in combinatie zijn met het verwijderen van stopwoorden.\\
+
+\subsection{Polariteit van de dataset}
 
 Een punt van kritiek dat we gaven in sectie \ref{De Dataset} bij het verzamelen van de dataset is de drempel wanneer de recensie als positief of al negatief wordt beschouwd. Bovenstaande resultaten zijn allemaal bereikt door de drempel voor een positieve recensie op een score van 6 op 10 of meer te zetten en voor en negatieve recensie deze op 4 op 10 of minder te zetten.
 Nu eerder was aangetoond dat de polarisatie van de dataset een rol speelt bij de classificatie (\cite{maas-EtAl:2011:ACL-HLT2011}). Daarom voeren nog een extra analyse uit met de best presterende techniek namelijk de techniek op rij 13 met de Naive Bayes Classifier en bekijken we hoe de polarisatie van de dataset de prestatie van de classifier be\"invloed. De trainingsset bestaat telkens uit 6000 Nederlandse filmrecensies en de testset uit 2000 Nederlandse filmrecensies.
@@ -467,7 +477,7 @@ Een andere mogelijke oorzaak voor het beter presteren bij muziekrecensies, kan h
 
 Voor beide matrixen in \ref{cm1} en \ref{cm2}, ziet men duidelijk dat positieve recensies beter ge\"identificeerd worden. We kijken in meer detail naar de valse positieve en zien dat meer genuanceerde antwoorden voornamelijk voor de valse positieve zorgen. Onderstaande tabel geeft enkele voorbeelden van zo'n genuanceerde voorbeelden die vals positief zijn bevonden door de classifier.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabu} to \textwidth {|X|}
 \hline
@@ -480,7 +490,7 @@ Deze plaat maar weer eens aandachtig beluisterd. Prijsnummers voor mij Exit Musi
 
 Een interessante bevinding bij het bekijken van de vals positieve is volgende recensie:
 
-\begin{figure}[h]%
+\begin{figure}[H]%
     \centering
     \subfloat{{\includegraphics[width=10cm]{anekdote} }}%
     \caption{een interessante bevinding in verband met valse positieve. De recensie is afkomstig van \url{http://www.moviemeter.net} en heeft een rating van 5 op 5. }

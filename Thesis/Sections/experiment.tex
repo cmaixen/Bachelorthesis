@@ -44,7 +44,7 @@ Alle Nederlandse recensies zijn afkomstig van de ``All Time Top 250''-toplijst o
 
 Onderstaande linkertabel geeft het aantal verzamelde Nederlandse recensies van ieder onderwerp weer, waarbij een onderscheid wordt gemaakt tussen positief en negatief. Analoog wordt dit in de rechtertabel voor de Engelse recensies weergegeven.\\
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \setlength\tabcolsep{2pt}
 \begin{minipage}[t]{0.48\textwidth}
@@ -111,7 +111,8 @@ Een belangrijke eigenschap van een tekst voor classificatie en analyse zijn het 
 Uit de tabel kunnen we afleiden dat de verzamelde Engelse filmrecensies gemiddeld veel langer zijn. De mogelijke invloed op de prestatie van dit gegeven, onderzoeken we verder in \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse}.
 
 
-Ook is het aantal unieke woorden in een dataset een belangrijke eigenschap. Ongeziene woorden vormen een belangrijke bron aan informatie voor het zelflerende algoritme. We bekijken in de volgende tabel hoe het aantal unieke woorden zich verhouden tot het totaal aantal woorden in de dataset. Zo kunnen we een beeld krijgen hoe informatief de datasets zijn.
+Ook is het aantal unieke woorden in een dataset een belangrijke eigenschap. Ongeziene woorden vormen een belangrijke bron aan informatie voor het zelflerende algoritme.\\
+We bekijken in de volgende tabel hoe het aantal unieke woorden zich verhouden tot het totaal aantal woorden in de dataset. Zo kunnen we een beeld krijgen hoe informatief de datasets zijn.
 \begin{table}[h]
 \centering
 \setlength\tabcolsep{2pt}
@@ -140,14 +141,14 @@ Ook is het aantal unieke woorden in een dataset een belangrijke eigenschap. Onge
 \end{minipage}
 \end{table}
 
-In de tabel zien we Boekrecensies eruit springen met 25,39\% voor negatieve boekrecensies. De mogelijke invloed op de prestatie van dit gegeven, onderzoeken we verder in \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}.
+In de tabel zien we Boekrecensies eruit springen met 25,39\% voor negatieve boekrecensies. De mogelijke invloed op de prestatie van dit gegeven, onderzoeken we verder in \ref{Onderwerpgevoeligheid van Nederlandse Gevoelsanalyse}.\\
 
 In \ref{Engelse gevoelsanalyse versus Nederlandse Gevoelsanalyse} voeren we ook een analyse uit zonder gebruik te maken van een dataset om uit te leren, maar classificeren we de gegeven recensies op basis geannoteerde woordenlijsten van gevoelens.  
 Als bron voor deze woordenlijsten hebben we het \textit{Opinion lexicon} gebruikt, dat voor het eerst werd samengesteld door \cite{hu2004mining}. Deze woordenlijsten bestaan uit een lijst met negatieve en een lijst met positieve woorden. De lijsten bevatten in totaal ongeveer 6800 woorden en zijn enkel in het Engels verkrijgbaar. De Nederlandse woordenlijsten hebben we verkregen door de Engelse lijsten te vertalen met behulp van Google vertalen.\\
 
 Onderstaande tabel geeft weer hoe de woordenlijsten zich tegenover elkaar verhouden.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{l|l|l|}
 \cline{2-3}
@@ -161,7 +162,7 @@ Onderstaande tabel geeft weer hoe de woordenlijsten zich tegenover elkaar verhou
 
 We zien dat er een klein verlies van woorden is bij de negatieve Nederlandse woordenlijst. Dit komt door de vertaling van het Engels naar het Nederlands. Voor een aantal Engelse woorden geeft Google Vertalen geen Nederlands woord. 
 
-\begin{figure}%
+\begin{figure}[H]%
     \centering
     \subfloat{{\includegraphics[width=7cm]{vbwoordenlijsten} }}%
     \caption{Enkele voorbeelden uit de woordenlijsten. Links bevinden zich positieve en negatieve woorden uit de Engelse woordenlijsten. Rechts bevinden zich de vertalingen naar het Nederlands.}
@@ -178,7 +179,7 @@ Naast de verschillende voorverwerkingstechnieken uit \ref{Technieken voor Pre-Pr
 Onderstaande tabellen geeft de belangrijkste resultaten weer van de gevoelsanalyses. In bijlage \ref{bijlage vs} vindt men de volledig tabel met de resultaten. \\ 
 Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed van de andere technieken te vergelijken. Om een overzicht te krijgen hebben we in de tabellen de resultaten die beter presteren dan Bag of Word vet gedrukt. 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{|l|l|l|l|}
@@ -207,7 +208,7 @@ Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed v
 \label{tabel: resultaten engelse gevoelsanalyse}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{|l|l|l|l|}
@@ -241,7 +242,7 @@ Bag of words (zie rij 1) gebruiken we in deze tabel als baseline om de invloed v
 Wat meteen opvalt als we de resultaten bekijken in tabel \ref{tabel: resultaten engelse gevoelsanalyse} en \ref{tabel: resultaten Nederlandse gevoelsanalyse} is het algemeen beter presteren van de technieken op de Engelse dataset. Tabel \ref{tabel: verschil engels en nederlandse prestatie} geeft het verschil in prestatie aan tussen het Engels en het Nederlands. We zien dat de prestatie op de Engelse dataset gemiddeld 14,71\% beter presteert bij de Naive Bayes Classifier en 11,46\% beter bij de Decision Tree.
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{adjustbox}{width=1\textwidth}
 \begin{tabular}{|l|l|l|l|}
@@ -272,7 +273,7 @@ Wat meteen opvalt als we de resultaten bekijken in tabel \ref{tabel: resultaten 
 
 In tabel \ref{tabel: Gemiddeld aantal woorden per recensie Engels} uit \ref{De Dataset} zien we dat de Engelse dataset gemiddeld meer woorden heeft dan de Nederlandse dataset. Dit kan mogelijks een positieve invloed hebben op de classificatie, aangezien hoe meer woorden, hoe meer informatie betekent en mogelijks zo de classifier beter kan classificeren. Om dergelijke stelling te kunnen onderbouwen voeren we een extra analyse uit. We voeren opnieuw een gevoelsanalyse uit op beide datasets, enkel beperken we het aantal woorden per recensie voor zowel de Engelse als de Nederlandse dataset tot de eerste 60 woorden. Als referentie gebruiken we de best presterende combinatie van voorverwerkingstechniek en classifier. Dit is de Naive Bayes Classifier met als voorverwerkingstechniek \textit{Verwijderen van stopwoorden + Bigrams + Term Weighting} (zie rij 13).\\
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{l|l|}
 \cline{2-2}
@@ -288,7 +289,7 @@ Uit tabel \ref{tabel: beperking tot 60 woorden} kunnen we afleiden dat er door d
 
 Ook is het interessant om te zien naar het verschil in de prestatie van de classifiers voor een bepaalde voorverwerkingstechniek. Bij rij 13 in tabel \ref{tabel: resultaten engelse gevoelsanalyse} zien we bijvoorbeeld een verschil van bijna 20 \%. We onderzoeken dit nader door te kijken naar de recensies waarbij de ene classifier de recensie juist classificeert en de andere fout.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabu}{|p{\myWidth}|l|l|l|}  %to \textwidth %{|p{\myWidth}|X|X|X|}
 \hline
@@ -315,11 +316,11 @@ Voor het verwijderen van stopwoorden zagen we in tabel \ref{tabel: verschil in v
 
 \subsection{Polariteit van de dataset}
 
-Een punt van kritiek dat we gaven in sectie \ref{De Dataset} bij het verzamelen van de dataset is de drempel wanneer de recensie als positief of al negatief wordt beschouwd. Bovenstaande resultaten zijn allemaal bereikt door de drempel voor een positieve recensie op een score van 6 op 10 of meer te zetten en voor en negatieve recensie deze op 4 op 10 of minder te zetten.
+Een punt van kritiek dat we gaven in sectie \ref{De Dataset} bij het verzamelen van de dataset is de drempel wanneer de recensie als positief of als negatief wordt beschouwd. Bovenstaande resultaten zijn allemaal bereikt door de drempel voor een positieve recensie op een score van 6 op 10 of meer te zetten en voor en negatieve recensie deze op 4 op 10 of minder te zetten.
 Nu eerder was aangetoond dat de polarisatie van de dataset een rol speelt bij de classificatie (\cite{maas-EtAl:2011:ACL-HLT2011}). Daarom voeren nog een extra analyse uit met de best presterende techniek namelijk de techniek op rij 13 met de Naive Bayes Classifier en bekijken we hoe de polarisatie van de dataset de prestatie van de classifier be\"invloed. De trainingsset bestaat telkens uit 6000 Nederlandse filmrecensies en de testset uit 2000 Nederlandse filmrecensies.
 
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{|l|l|}
 \hline
@@ -343,7 +344,7 @@ Om meer inzicht te krijgen over de verschillen in de gevoelsanalyse bij de twee 
 Voor de woordenlijsten gebruiken we de eerder vermelde woordenlijsten uit \ref{De Dataset}. De classificatie zelf testen we op de Engelse en Nederlandse filmrecensies.\\
 Onderstaande tabel geeft de resultaten van de classificatie weer met als precisie het gemiddelde van 30 runs en een testset van 2000 samples willekeurig en gebalanceerd samengesteld. Merk op dat de classifier ook onbeslist kan blijven over een recensie wanneer het totaal aantal voorkomens in de positieve woordenlijst even groot is als het aantal voorkomens in de negatieve woordenlijst.Voor deze analyse beschouwen we een onbesliste recensie meteen als fout geclassificeerd.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{l|l|}
 \cline{2-2}
@@ -358,7 +359,7 @@ Onderstaande tabel geeft de resultaten van de classificatie weer met als precisi
  Omwille van de slechte resultaten voor het Nederlands, zijn we de woordenlijst iets meer in detail gaan bekijken. Een eerste bevinding is dat de leenwoorden niet correct worden omgezet door Google translate. De woorden uit de Engelse woordenlijst kunnen juist vertaald zijn door Google translate, maar kunnen onnatuurlijk overkomen in het Nederlands. Bijvoorbeeld in figuur \ref{vbwoordenlijsten} zien we dat het positieve woord \textit{cool} wordt vertaald door Google translate als \textit{koel}, wat in het Nederlands helemaal niet wordt gebruikt als positief woord.\\
  Het is daarom interessant om te kijken, wat de prestatie is voor het Nederlandse gevoelsanalyse wanneer men enkel de Engelse woordenlijst gebruikt. Of wanneer we de Engelse en Nederlandse woordenlijsten samenvoegen.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \begin{tabular}{l|l|l|l|l|}
 \cline{2-5}
@@ -485,10 +486,10 @@ blablablaVier sterren maar liefst.Vier sterren, m'n neus. Ik had een ontzettend 
 Deze plaat maar weer eens aandachtig beluisterd. Prijsnummers voor mij Exit Music en Karma Police maar in zijn geheel vind ik het een toch wel heel erg matige plaat. Ik kan er niets meesterlijks en briljants in ontdekken terwijl ik hem toch vaak genoeg heb gedraaid. Geen groeibriljantje dus, gewoon een zeer matige plaat.                                                                         \\ \hline
 3 sterke nummers, niet meer niet minder *2*                                                                                                                                                                                                                                                                                                                                                                \\ \hline
 \end{tabu}
-\caption{Enkele vals positieve uit de muziekdataset}
+\caption{Enkele vals positieven uit de muziekdataset}
 \end{table}
 
-Een interessante bevinding bij het bekijken van de vals positieve is volgende recensie:
+Een interessante bevinding bij het bekijken van de vals positieven is volgende recensie:
 
 \begin{figure}[H]%
     \centering
